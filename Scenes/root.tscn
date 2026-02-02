@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=4 uid="uid://b3c6fpufu2gv6"]
+
+[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/player.tscn" id="1_8pvmw"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/death_zone.tscn" id="3_c3mwy"]
+[ext_resource type="Texture2D" uid="uid://bk130a0pcmn2o" path="res://Assets/Floor.png" id="3_vnucn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c3mwy"]
+texture = ExtResource("3_vnucn")
+texture_region_size = Vector2i(32, 32)
+0:1/0 = 0
+1:1/0 = 0
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.939052, 8.183573, 14.118911, 7.8238544, 13.759192, 11.241171, -14.118911, 10.881453)
+
+[sub_resource type="TileSet" id="TileSet_4g5cr"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_c3mwy")
+
+[node name="Root" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_8pvmw")]
+position = Vector2(-2, -40)
+
+[node name="View" type="Camera2D" parent="Player"]
+position = Vector2(2, 40)
+position_smoothing_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_4g5cr")
+format = 2
+
+[node name="Layer1" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAACAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAGAAEAAAAAAAAAAAAJAAIAAAAAAAAAAAALAAcAAAAAAAAAAAAHAAgAAAAAAAAAAAAEAAYAAAAAAAAAAAAAAAgAAAAAAAAAAAD8/wAAAAAAAAAAAAD4/wEAAAAAAAAAAAD//wAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_4g5cr")
+
+[node name="Death zone" parent="." instance=ExtResource("3_c3mwy")]
+position = Vector2(-1, 505)
