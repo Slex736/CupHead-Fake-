@@ -1,0 +1,78 @@
+[gd_scene load_steps=11 format=3 uid="uid://db74g04jde6ot"]
+
+[ext_resource type="Script" uid="uid://dptw5rcxp8xx2" path="res://Scripts/lucky_block.gd" id="1_kk61j"]
+[ext_resource type="Texture2D" uid="uid://cdgyxesyyki31" path="res://Assets/Lucky Block.png" id="2_03src"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qyamm"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cor1d"]
+size = Vector2(18, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p4ear"]
+atlas = ExtResource("2_03src")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qly15"]
+atlas = ExtResource("2_03src")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cpdim"]
+atlas = ExtResource("2_03src")
+region = Rect2(0, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nu7on"]
+atlas = ExtResource("2_03src")
+region = Rect2(32, 32, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yoypb"]
+atlas = ExtResource("2_03src")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jtwry"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p4ear")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qly15")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cpdim")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nu7on")
+}],
+"loop": false,
+"name": &"Bumped",
+"speed": 12.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yoypb")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
+[node name="Lucky Block" type="Area2D"]
+script = ExtResource("1_kk61j")
+
+[node name="Body" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_qyamm")
+
+[node name="HeadBump" type="CollisionShape2D" parent="."]
+position = Vector2(0, 15.5)
+shape = SubResource("RectangleShape2D_cor1d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+texture_repeat = 1
+sprite_frames = SubResource("SpriteFrames_jtwry")
+animation = &"Idle"
+autoplay = "Idle"
+
+[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]

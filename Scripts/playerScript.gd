@@ -2,8 +2,8 @@ extends CharacterBody2D
 
 
 @export var SPEED = FLOORSPEED
-@export var FLOORSPEED = 400.00
-@export var AIRSPEED = FLOORSPEED / 2
+@export var FLOORSPEED = 300.00
+@export var AIRSPEED = FLOORSPEED / 1.5
 @export var JUMP_VELOCITY = -300.0
 
 

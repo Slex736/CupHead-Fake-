@@ -1,5 +1,7 @@
 extends Area2D
 
 
-func PlayerInDeathZone(_body: Node2D) -> void:
-	get_tree().reload_current_scene()
+func PlayerInDeathZone(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		set_deferred("monitoring", false) # if this script is on an Area2D
+		get_tree().call_deferred("reload_current_scene")
