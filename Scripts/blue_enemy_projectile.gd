@@ -25,7 +25,7 @@ func _ready() -> void:
 	animated_sprite.animation_finished.connect(ShootBall)
 	
 	# find player and determine angle
-	var children = get_parent().get_parent().get_children()
+	var children = get_parent().get_parent().get_parent().get_children()
 	for i in children:
 		if i.name == "Player":
 			player = i
@@ -57,7 +57,7 @@ func get_velocity(start_pos: Vector2, target_pos: Vector2) -> Vector2:
 	
 func ShootBall():
 	if HasBeenShot == false:
-		var children_blue_enemy = get_parent().get_children()
+		var children_blue_enemy = get_parent().get_parent().get_children()
 		for x in children_blue_enemy:
 			if x.name == "AnimatedSprite2D":
 				animated_sprite = x 

@@ -1,0 +1,123 @@
+[gd_scene load_steps=13 format=4 uid="uid://d04ks2g7sgu36"]
+
+[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/player.tscn" id="1_5iupx"]
+[ext_resource type="Texture2D" uid="uid://faccd4ugd83u" path="res://Assets/Tilemap.jpeg" id="1_qtn4n"]
+[ext_resource type="PackedScene" uid="uid://rggosdcmyse4" path="res://Scenes/falling_block.tscn" id="2_lr0al"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/death_zone.tscn" id="4_3qy2m"]
+[ext_resource type="PackedScene" uid="uid://db74g04jde6ot" path="res://Scenes/lucky_block.tscn" id="4_d3n3u"]
+[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/red_enemy.tscn" id="5_ac0k1"]
+[ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/blue_enemy.tscn" id="6_hs5q1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lr0al"]
+texture = ExtResource("1_qtn4n")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(8, 0.35971832, 8, 0, -8, -0.35971642, -8, -8, 8, -8)
+0:1/0/physics_layer_0/polygon_0/one_way = true
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-5.75548, 5.935339, 5.935337, 5.036045, 5.935337, -5.5756197, -5.935338, -5.5756197)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_cgra7"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_lr0al")
+
+[sub_resource type="Animation" id="Animation_d3n3u"]
+resource_name = "Falling"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(376, -232), Vector2(376, -232), Vector2(376, -192), Vector2(376, 8)]
+}
+
+[sub_resource type="Animation" id="Animation_ac0k1"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(376, -232)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_hs5q1"]
+_data = {
+&"Falling": SubResource("Animation_d3n3u"),
+&"RESET": SubResource("Animation_ac0k1")
+}
+
+[node name="MainLevel1" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_5iupx")]
+position = Vector2(0, 16)
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_cgra7")
+format = 2
+
+[node name="FrontGround" type="TileMapLayer" parent="TileMap"]
+use_parent_material = true
+tile_map_data = PackedByteArray("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")
+tile_set = SubResource("TileSet_cgra7")
+
+[node name="Special Blocks" type="Node2D" parent="."]
+
+[node name="Falling Blocks" type="Node2D" parent="Special Blocks"]
+
+[node name="Falling_Block" parent="Special Blocks/Falling Blocks" instance=ExtResource("2_lr0al")]
+position = Vector2(376, -232)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Falling Blocks/Falling_Block"]
+libraries = {
+&"": SubResource("AnimationLibrary_hs5q1")
+}
+
+[node name="Lucky Blocks" type="Node2D" parent="Special Blocks"]
+
+[node name="Lucky Block" parent="Special Blocks/Lucky Blocks" instance=ExtResource("4_d3n3u")]
+position = Vector2(168, -80)
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="Red_Enemy" parent="Enemies" instance=ExtResource("5_ac0k1")]
+position = Vector2(352, -40)
+
+[node name="Red_Enemy2" parent="Enemies" instance=ExtResource("5_ac0k1")]
+position = Vector2(616, -24)
+
+[node name="Blue_Enemy" parent="Enemies" instance=ExtResource("6_hs5q1")]
+position = Vector2(760, -136)
+
+[node name="Blue_Enemy2" parent="Enemies" instance=ExtResource("6_hs5q1")]
+position = Vector2(920, -216)
+
+[node name="Red_Enemy3" parent="Enemies" instance=ExtResource("5_ac0k1")]
+position = Vector2(280, -216)
+
+[node name="Red_Enemy4" parent="Enemies" instance=ExtResource("5_ac0k1")]
+position = Vector2(256, -312)
+
+[node name="Death zone" parent="." instance=ExtResource("4_3qy2m")]
+position = Vector2(24, 264)
