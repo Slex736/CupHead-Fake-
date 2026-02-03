@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://csi5qkpwgaq2j" path="res://Assets/Blue_Enemy.png" id="2_iplp6"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qam3c"]
+radius = 150.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1lh4"]
 atlas = ExtResource("2_iplp6")
@@ -62,10 +63,7 @@ shape = SubResource("CircleShape2D_qam3c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_w7sm7")
-animation = &"Shooting"
 autoplay = "default"
-frame = 3
-frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="PlayerEnteredShootingRadius"]
 [connection signal="body_exited" from="." to="." method="PlayerLeavingShootingRadius"]

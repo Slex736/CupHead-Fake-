@@ -5,11 +5,12 @@ extends Area2D
 var projectilescene = preload("res://Scenes/blue_enemy_projectile.tscn")
 var projectile
 
-@export var radius = 50
+@export var radius = 150
 var PlayerInRadius = false
 
 var tickcounter = 0
-var ShootDelay = 1
+# in seconds
+var ShootDelay = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,8 +21,9 @@ func _ready() -> void:
 
 
 func _process(delta: float) -> void:
+	# countdown to delay the shooting
 	tickcounter += 1 * delta
-	if tickcounter > 1 and PlayerInRadius:
+	if tickcounter > ShootDelay and PlayerInRadius:
 		ShootBall()
 		tickcounter = 0
 
