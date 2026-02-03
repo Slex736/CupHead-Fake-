@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://dcgoy7u5whcng"]
+
+[ext_resource type="Script" uid="uid://d1geg52l00onx" path="res://Scripts/blue_enemy.gd" id="1_1oe5d"]
+[ext_resource type="Texture2D" uid="uid://csi5qkpwgaq2j" path="res://Assets/Blue_Enemy.png" id="2_iplp6"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_qam3c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e1lh4"]
+atlas = ExtResource("2_iplp6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3u3vf"]
+atlas = ExtResource("2_iplp6")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_we2bi"]
+atlas = ExtResource("2_iplp6")
+region = Rect2(0, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_repxv"]
+atlas = ExtResource("2_iplp6")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o4srs"]
+atlas = ExtResource("2_iplp6")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7sm7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e1lh4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3u3vf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_we2bi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_repxv")
+}],
+"loop": false,
+"name": &"Shooting",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o4srs")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Blue_Enemy" type="Area2D"]
+script = ExtResource("1_1oe5d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_qam3c")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_w7sm7")
+animation = &"Shooting"
+autoplay = "default"
+frame = 3
+frame_progress = 1.0
+
+[connection signal="body_entered" from="." to="." method="PlayerEnteredShootingRadius"]
+[connection signal="body_exited" from="." to="." method="PlayerLeavingShootingRadius"]
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="ShootingAnimationFinished"]

@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=3 uid="uid://db74g04jde6ot"]
+[gd_scene load_steps=14 format=3 uid="uid://db74g04jde6ot"]
 
-[ext_resource type="Script" uid="uid://dptw5rcxp8xx2" path="res://Scripts/lucky_block.gd" id="1_kk61j"]
 [ext_resource type="Texture2D" uid="uid://cdgyxesyyki31" path="res://Assets/Lucky Block.png" id="2_03src"]
+[ext_resource type="Script" uid="uid://i4uwwu8mge25" path="res://Scripts/LuckyblockHeadbump.gd" id="2_kk61j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyamm"]
 size = Vector2(16, 16)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cor1d"]
-size = Vector2(18, 3)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p4ear"]
 atlas = ExtResource("2_03src")
@@ -57,16 +54,51 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Lucky Block" type="Area2D"]
-script = ExtResource("1_kk61j")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cor1d"]
+size = Vector2(18, 3)
+
+[sub_resource type="Animation" id="Animation_kk61j"]
+resource_name = "Bumped"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.36666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 4.600687908257053]
+}
+
+[sub_resource type="Animation" id="Animation_03src"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_qyamm"]
+_data = {
+&"Bumped": SubResource("Animation_kk61j"),
+&"RESET": SubResource("Animation_03src")
+}
+
+[node name="Lucky Block" type="StaticBody2D"]
 
 [node name="Body" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("RectangleShape2D_qyamm")
-
-[node name="HeadBump" type="CollisionShape2D" parent="."]
-position = Vector2(0, 15.5)
-shape = SubResource("RectangleShape2D_cor1d")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -75,4 +107,18 @@ sprite_frames = SubResource("SpriteFrames_jtwry")
 animation = &"Idle"
 autoplay = "Idle"
 
-[connection signal="body_shape_entered" from="." to="." method="_on_body_shape_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(0, 13)
+script = ExtResource("2_kk61j")
+
+[node name="HeadBump" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 3)
+shape = SubResource("RectangleShape2D_cor1d")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_qyamm")
+}
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="Headbump"]
+[connection signal="animation_finished" from="AnimationPlayer" to="Area2D" method="HeadbumpAnimationsFinished"]

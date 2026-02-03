@@ -54,10 +54,10 @@ frame_progress = 0.37276876
 shape = SubResource("RectangleShape2D_ph513")
 
 [node name="Left" type="RayCast2D" parent="."]
-target_position = Vector2(-10, 0)
+target_position = Vector2(-8, 0)
 collide_with_areas = true
 
 [node name="Right" type="RayCast2D" parent="."]
-target_position = Vector2(9, 0)
+target_position = Vector2(8, 0)
 
 [connection signal="body_entered" from="." to="." method="PlayerTouchedEnemy"]
