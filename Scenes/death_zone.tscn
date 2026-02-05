@@ -2,13 +2,13 @@
 
 [ext_resource type="Script" uid="uid://dxjik228hqapx" path="res://Scripts/death_zone.gd" id="1_0d2dr"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_q5dnr"]
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_0d2dr"]
 
 [node name="Death zone" type="Area2D"]
 script = ExtResource("1_0d2dr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2(300000, 1)
-shape = SubResource("RectangleShape2D_q5dnr")
+shape = SubResource("WorldBoundaryShape2D_0d2dr")
 
 [connection signal="body_entered" from="." to="." method="PlayerInDeathZone"]

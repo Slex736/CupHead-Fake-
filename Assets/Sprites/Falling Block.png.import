@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dftx8vsax34np"
-path="res://.godot/imported/Red_Enemy.png-2b9c26081a0a303e9a58725d9b830d80.ctex"
+uid="uid://bqlt17uajlfln"
+path="res://.godot/imported/Falling Block.png-7adc799c31f95c3883a28c1f7f4fe7b6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Red_Enemy.png"
-dest_files=["res://.godot/imported/Red_Enemy.png-2b9c26081a0a303e9a58725d9b830d80.ctex"]
+source_file="res://Assets/Sprites/Falling Block.png"
+dest_files=["res://.godot/imported/Falling Block.png-7adc799c31f95c3883a28c1f7f4fe7b6.ctex"]
 
 [params]
 

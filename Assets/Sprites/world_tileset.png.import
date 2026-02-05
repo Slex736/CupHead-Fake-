@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cdgyxesyyki31"
-path="res://.godot/imported/Lucky Block.png-d854fa59a44119234e2cb675a3285d6d.ctex"
+uid="uid://d3pp6uunxh626"
+path="res://.godot/imported/world_tileset.png-caae585fafa7cc44b00925bf62e268d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Lucky Block.png"
-dest_files=["res://.godot/imported/Lucky Block.png-d854fa59a44119234e2cb675a3285d6d.ctex"]
+source_file="res://Assets/Sprites/world_tileset.png"
+dest_files=["res://.godot/imported/world_tileset.png-caae585fafa7cc44b00925bf62e268d9.ctex"]
 
 [params]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/player.tscn" id="1_xq3o0"]
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/death_zone.tscn" id="2_2yvf5"]
-[ext_resource type="Texture2D" uid="uid://faccd4ugd83u" path="res://Assets/Tilemap.jpeg" id="3_3ihge"]
+[ext_resource type="Texture2D" uid="uid://faccd4ugd83u" path="res://Assets/Sprites/Tilemap.jpeg" id="3_3ihge"]
 [ext_resource type="PackedScene" uid="uid://db74g04jde6ot" path="res://Scenes/lucky_block.tscn" id="4_akkqd"]
 [ext_resource type="PackedScene" uid="uid://rggosdcmyse4" path="res://Scenes/falling_block.tscn" id="5_8v7by"]
 [ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/red_enemy.tscn" id="6_1rqgg"]

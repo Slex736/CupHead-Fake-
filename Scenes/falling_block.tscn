@@ -1,13 +1,28 @@
-[gd_scene load_steps=5 format=3 uid="uid://rggosdcmyse4"]
+[gd_scene load_steps=7 format=3 uid="uid://rggosdcmyse4"]
 
 [ext_resource type="Script" uid="uid://c02vlhumnogb1" path="res://Scripts/falling_block.gd" id="1_374re"]
-[ext_resource type="Texture2D" uid="uid://bqlt17uajlfln" path="res://Assets/Falling Block.png" id="2_vo5tb"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_374re"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k7ffj"]
-size = Vector2(32, 32)
+size = Vector2(12, 12)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_56de7"]
-size = Vector2(32, 3)
+size = Vector2(16, 3)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vo5tb"]
+atlas = ExtResource("2_374re")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k7ffj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vo5tb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
 
 [node name="Falling_Block" type="StaticBody2D"]
 texture_filter = 1
@@ -18,13 +33,14 @@ metadata/_edit_horizontal_guides_ = [-28.0]
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_k7ffj")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_vo5tb")
-
 [node name="DetectPlayer" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DetectPlayer"]
-position = Vector2(0, -17.5)
+position = Vector2(0, -8)
 shape = SubResource("RectangleShape2D_56de7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(1, 0.875)
+sprite_frames = SubResource("SpriteFrames_k7ffj")
 
 [connection signal="body_entered" from="DetectPlayer" to="." method="PlayerStanding"]

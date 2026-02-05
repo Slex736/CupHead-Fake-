@@ -1,7 +1,8 @@
-[gd_scene load_steps=14 format=3 uid="uid://db74g04jde6ot"]
+[gd_scene load_steps=15 format=3 uid="uid://db74g04jde6ot"]
 
-[ext_resource type="Texture2D" uid="uid://cdgyxesyyki31" path="res://Assets/Lucky Block.png" id="2_03src"]
+[ext_resource type="Texture2D" uid="uid://cdgyxesyyki31" path="res://Assets/Sprites/Lucky Block.png" id="2_03src"]
 [ext_resource type="Script" uid="uid://i4uwwu8mge25" path="res://Scripts/LuckyblockHeadbump.gd" id="2_kk61j"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_qyamm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qyamm"]
 size = Vector2(16, 16)
@@ -22,9 +23,9 @@ region = Rect2(0, 32, 32, 32)
 atlas = ExtResource("2_03src")
 region = Rect2(32, 32, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yoypb"]
-atlas = ExtResource("2_03src")
-region = Rect2(0, 0, 32, 32)
+[sub_resource type="AtlasTexture" id="AtlasTexture_cor1d"]
+atlas = ExtResource("2_qyamm")
+region = Rect2(0, 32, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_jtwry"]
 animations = [{
@@ -47,7 +48,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yoypb")
+"texture": SubResource("AtlasTexture_cor1d")
 }],
 "loop": true,
 "name": &"Idle",
@@ -103,6 +104,7 @@ shape = SubResource("RectangleShape2D_qyamm")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
+position = Vector2(0, 8)
 sprite_frames = SubResource("SpriteFrames_jtwry")
 animation = &"Idle"
 autoplay = "Idle"
