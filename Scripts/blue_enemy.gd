@@ -2,15 +2,15 @@ extends Area2D
 
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var projectilescene = preload("res://Scenes/blue_enemy_projectile.tscn")
+var projectilescene = preload("uid://djidkcvmxtm1r")
 var projectile
 
 @export var radius = 150
 var PlayerInRadius = false
 
 var tickcounter = 0
-# in seconds
-var ShootDelay = 2
+# shoot delay in seconds
+@export var ShootDelay = 2
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

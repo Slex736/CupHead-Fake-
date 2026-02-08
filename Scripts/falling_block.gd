@@ -5,6 +5,9 @@ extends StaticBody2D
 
 func PlayerStanding(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		animation_player.play("Falling")
-		await animation_player.animation_finished
-		queue_free()
+		BlockFallAnimation()
+
+func BlockFallAnimation():
+	animation_player.play("Falling")
+	await animation_player.animation_finished
+	queue_free()

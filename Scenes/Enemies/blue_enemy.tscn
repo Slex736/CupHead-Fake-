@@ -1,34 +1,44 @@
-[gd_scene load_steps=10 format=3 uid="uid://dcgoy7u5whcng"]
+[gd_scene load_steps=11 format=3 uid="uid://dcgoy7u5whcng"]
 
 [ext_resource type="Script" uid="uid://d1geg52l00onx" path="res://Scripts/blue_enemy.gd" id="1_1oe5d"]
-[ext_resource type="Texture2D" uid="uid://csi5qkpwgaq2j" path="res://Assets/Sprites/Blue_Enemy.png" id="2_iplp6"]
+[ext_resource type="Texture2D" uid="uid://js02xi8hlnxx" path="res://Assets/Sprites/BlueCloud-sheet.png" id="2_1oe5d"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qam3c"]
 radius = 150.0
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_iplp6"]
+atlas = ExtResource("2_1oe5d")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qam3c"]
+atlas = ExtResource("2_1oe5d")
+region = Rect2(32, 0, 32, 16)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_e1lh4"]
-atlas = ExtResource("2_iplp6")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_1oe5d")
+region = Rect2(64, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3u3vf"]
-atlas = ExtResource("2_iplp6")
-region = Rect2(16, 0, 16, 16)
+atlas = ExtResource("2_1oe5d")
+region = Rect2(96, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_we2bi"]
-atlas = ExtResource("2_iplp6")
-region = Rect2(0, 16, 16, 16)
+atlas = ExtResource("2_1oe5d")
+region = Rect2(128, 0, 32, 16)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_repxv"]
-atlas = ExtResource("2_iplp6")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4srs"]
-atlas = ExtResource("2_iplp6")
-region = Rect2(0, 0, 16, 16)
+atlas = ExtResource("2_1oe5d")
+region = Rect2(0, 0, 32, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_w7sm7"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iplp6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qam3c")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_e1lh4")
 }, {
@@ -37,9 +47,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_we2bi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_repxv")
 }],
 "loop": false,
 "name": &"Shooting",
@@ -47,7 +54,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_o4srs")
+"texture": SubResource("AtlasTexture_repxv")
 }],
 "loop": true,
 "name": &"default",
@@ -63,7 +70,10 @@ shape = SubResource("CircleShape2D_qam3c")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_w7sm7")
+animation = &"Shooting"
 autoplay = "default"
+frame = 4
+frame_progress = 1.0
 
 [connection signal="body_entered" from="." to="." method="PlayerEnteredShootingRadius"]
 [connection signal="body_exited" from="." to="." method="PlayerLeavingShootingRadius"]

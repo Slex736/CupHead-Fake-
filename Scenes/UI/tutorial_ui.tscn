@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://dywgbjjd4xj2q"]
+
+[ext_resource type="PackedScene" uid="uid://b3krgor7mabmn" path="res://Scenes/Other/level_button.tscn" id="1_ryvqc"]
+[ext_resource type="PackedScene" uid="uid://dxf24b2vwo7o6" path="res://Scenes/Levels/Mini/mini_level_1.tscn" id="2_8a5yq"]
+[ext_resource type="FontFile" uid="uid://bny7e5xl0c57d" path="res://Assets/fonts/PixelOperator8.ttf" id="2_tpiwi"]
+[ext_resource type="PackedScene" uid="uid://df2xvrab188fb" path="res://Scenes/Levels/Mini/mini_level_2.tscn" id="4_elp5i"]
+[ext_resource type="PackedScene" uid="uid://vbuckwqbui6" path="res://Scenes/Levels/Mini/mini_level_3.tscn" id="5_mh2ii"]
+
+[node name="Tutorial_UIv2" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="LevelButton" parent="." instance=ExtResource("1_ryvqc")]
+position = Vector2(192, 324)
+scale = Vector2(5, 5)
+Level = ExtResource("2_8a5yq")
+
+[node name="Label" type="Label" parent="LevelButton"]
+offset_left = -5.0
+offset_top = -4.0
+offset_right = 35.0
+offset_bottom = 19.0
+theme_override_fonts/font = ExtResource("2_tpiwi")
+theme_override_font_sizes/font_size = 8
+text = "1"
+
+[node name="LevelButton2" parent="." instance=ExtResource("1_ryvqc")]
+position = Vector2(384, 324)
+scale = Vector2(5, 5)
+Level = ExtResource("4_elp5i")
+
+[node name="Label" type="Label" parent="LevelButton2"]
+offset_left = -4.0
+offset_top = -3.6
+offset_right = 36.0
+offset_bottom = 19.4
+theme_override_fonts/font = ExtResource("2_tpiwi")
+theme_override_font_sizes/font_size = 8
+text = "2"
+
+[node name="LevelButton3" parent="." instance=ExtResource("1_ryvqc")]
+position = Vector2(576, 324)
+scale = Vector2(5, 5)
+Level = ExtResource("5_mh2ii")
+
+[node name="Label" type="Label" parent="LevelButton3"]
+offset_left = -4.0
+offset_top = -3.6
+offset_right = 36.0
+offset_bottom = 19.4
+theme_override_fonts/font = ExtResource("2_tpiwi")
+theme_override_font_sizes/font_size = 8
+text = "3"
+
+[node name="LevelButton4" parent="." instance=ExtResource("1_ryvqc")]
+position = Vector2(768, 324)
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="LevelButton4"]
+offset_left = -4.0
+offset_top = -3.6
+offset_right = 36.0
+offset_bottom = 19.4
+theme_override_fonts/font = ExtResource("2_tpiwi")
+theme_override_font_sizes/font_size = 8
+text = "4"
+
+[node name="LevelButton5" parent="." instance=ExtResource("1_ryvqc")]
+position = Vector2(960, 324)
+scale = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="LevelButton5"]
+offset_left = -4.0
+offset_top = -3.6
+offset_right = 36.0
+offset_bottom = 19.4
+theme_override_fonts/font = ExtResource("2_tpiwi")
+theme_override_font_sizes/font_size = 8
+text = "5"

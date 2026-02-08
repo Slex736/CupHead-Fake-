@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://b3krgor7mabmn"]
+
+[ext_resource type="Script" uid="uid://bgsbo3n38v77p" path="res://Scripts/level_button.gd" id="1_34smg"]
+[ext_resource type="Texture2D" uid="uid://bqc4v75our2ym" path="res://Assets/Sprites/Level.png" id="1_iapje"]
+
+[node name="LevelButton" type="Node2D"]
+script = ExtResource("1_34smg")
+
+[node name="TextureButton" type="TextureButton" parent="."]
+offset_left = -8.0
+offset_top = -8.0
+offset_right = 8.0
+offset_bottom = 8.0
+texture_normal = ExtResource("1_iapje")
+
+[connection signal="button_up" from="TextureButton" to="." method="On_button_pressed"]

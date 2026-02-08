@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://degxv8ru5m7en"]
+
+[ext_resource type="Texture2D" uid="uid://dp47slknnnyh2" path="res://Assets/Sprites/DoorMiniLevel.png" id="1_lhwge"]
+[ext_resource type="Script" uid="uid://67o58ks7nh3d" path="res://Scripts/mini_level_door.gd" id="1_xigsy"]
+[ext_resource type="FontFile" uid="uid://bny7e5xl0c57d" path="res://Assets/fonts/PixelOperator8.ttf" id="3_eo4vc"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xigsy"]
+size = Vector2(16, 28)
+
+[node name="MiniLevelDoor" type="Area2D"]
+script = ExtResource("1_xigsy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2)
+shape = SubResource("RectangleShape2D_xigsy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_lhwge")
+
+[node name="Label" type="Label" parent="."]
+z_index = 6
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -20.0
+offset_top = -23.0
+offset_right = 20.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("3_eo4vc")
+theme_override_font_sizes/font_size = 8
+
+[connection signal="body_entered" from="." to="." method="PlayerEnteredRange"]
+[connection signal="body_exited" from="." to="." method="PlayerLeavingRange"]

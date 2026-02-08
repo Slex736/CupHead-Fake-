@@ -186,3 +186,7 @@ shape = SubResource("RectangleShape2D_x3wgy")
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_6t5aa")
 bus = &"SFX"
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(2, 2)
+position_smoothing_enabled = true

@@ -28,14 +28,14 @@ func _physics_process(delta: float) -> void:
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
 		velocity.x = direction * SPEED
-		
+		# switch player back
 		animated_sprite.flip_h = false
-		
 	elif direction == -1:
 		velocity.x = direction * SPEED
-		
+		# switch player
 		animated_sprite.flip_h = true
 	else:
+		
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		animated_sprite.play("Idle")
 	

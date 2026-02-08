@@ -1,0 +1,73 @@
+[gd_scene load_steps=9 format=3 uid="uid://btq8ftr04e5tl"]
+
+[ext_resource type="Script" uid="uid://cl143d4kpv1ro" path="res://Scripts/red_enemy.gd" id="1_geyed"]
+[ext_resource type="Texture2D" uid="uid://b2p6jatfo5dyb" path="res://Assets/Sprites/Slime-sheet.png" id="2_geyed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_geyed"]
+atlas = ExtResource("2_geyed")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0vtrn"]
+atlas = ExtResource("2_geyed")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3f1l1"]
+atlas = ExtResource("2_geyed")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hr02v"]
+atlas = ExtResource("2_geyed")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_chxbu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_geyed")
+}],
+"loop": true,
+"name": &"Stand",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0vtrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3f1l1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hr02v")
+}],
+"loop": true,
+"name": &"Step",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ph513"]
+size = Vector2(16, 10)
+
+[node name="Red_Enemy" type="Area2D"]
+script = ExtResource("1_geyed")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -5)
+sprite_frames = SubResource("SpriteFrames_chxbu")
+animation = &"Step"
+autoplay = "Step"
+frame_progress = 0.5487494
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_ph513")
+
+[node name="Left" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-7, 0)
+collide_with_areas = true
+
+[node name="Right" type="RayCast2D" parent="."]
+position = Vector2(1, -6)
+target_position = Vector2(6, 0)
+
+[connection signal="body_entered" from="." to="." method="PlayerTouchedEnemy"]

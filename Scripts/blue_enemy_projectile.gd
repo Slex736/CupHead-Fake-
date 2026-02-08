@@ -12,32 +12,27 @@ var TravelledDistanceTotal: float = 0.0
 
 var HasBeenShot = false
 
+var Angle_Radians
+var Angle_Degrees
+var AngleHasBeenDetermined = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	# play animation
-	var children_blue_enemy = get_parent().get_children()
-	for x in children_blue_enemy:
-		if x.name == "AnimatedSprite2D":
-			animated_sprite = x 
 	
-	animated_sprite.play("Shooting")
-	# wait for it to finish before launching the ball
-	animated_sprite.animation_finished.connect(ShootBall)
-	
-	# find player and determine angle
-	var children = get_parent().get_parent().get_parent().get_children()
-	for i in children:
-		if i.name == "Player":
-			player = i
-	velocity = get_velocity(global_position, player.global_position)
-	
+	# make the animations of the blue Cloud enemy start
+	PlayBlueEnemyShootAnimations()
+
+
+
 
 func _physics_process(delta: float) -> void:
+	
 	step = velocity * delta
 	# see if the animation has finished to start adding velocity
 	if HasBeenShot == true:
 		global_position += velocity * delta
-	
+		
+
 	if step.x != null:
 		TravelledDistanceStep = ((step.x ** 2) + (step.y ** 2)) ** 0.5
 		TravelledDistanceTotal += TravelledDistanceStep
@@ -57,12 +52,13 @@ func get_velocity(start_pos: Vector2, target_pos: Vector2) -> Vector2:
 	
 func ShootBall():
 	if HasBeenShot == false:
-		var children_blue_enemy = get_parent().get_parent().get_children()
-		for x in children_blue_enemy:
-			if x.name == "AnimatedSprite2D":
-				animated_sprite = x 
+		# find the correct velocity to attack the player
+		FindVelocityOfAttackToShootPlayer()
 		
-		animated_sprite.play("default")
+		# find angle to make the Lighting face the player
+		FindAngleAndSetAngle()
+		# find Blue enemy and resets animation
+		ResetBlueEnemyAnimations()
 		
 		blue_enemy_projectile.visible = true
 		
@@ -72,8 +68,51 @@ func ShootBall():
 
 
 func ContactWithPlayerOrWall(body: Node2D) -> void:
+	# check if it hits the player
 	if body is CharacterBody2D:
-		set_deferred("monitoring", false) # if this script is on an Area2D
-		get_tree().call_deferred("reload_current_scene")
+		ResetLevel()
 	queue_free()
+
+func ResetLevel():
+	set_deferred("monitoring", false) # if this script is on an Area2D
+	get_tree().call_deferred("reload_current_scene")
+
+func ResetBlueEnemyAnimations():
+	var children_blue_enemy = get_parent().get_children()
+	for x in children_blue_enemy:
+		if x.name == "AnimatedSprite2D":
+			animated_sprite = x 
+		
+	animated_sprite.play("default")
+
+func PlayBlueEnemyShootAnimations():
+	# play animation
+	var children_blue_enemy = get_parent().get_children()
+	for x in children_blue_enemy:
+		if x.name == "AnimatedSprite2D":
+			animated_sprite = x 
+	
+	animated_sprite.play("Shooting")
+	
+	# wait for it to finish before launching the ball
+	animated_sprite.animation_finished.connect(ShootBall)
+
+func FindVelocityOfAttackToShootPlayer():
+	# find player and determine velocity
+	var children = get_parent().get_parent().get_parent().get_children()
+	for i in children:
+		if i.name == "Player":
+			player = i
+	velocity = get_velocity(global_position, player.global_position)
+
+func FindAngleAndSetAngle():
+	# find player and determine angle
+	var children = get_parent().get_parent().get_parent().get_children()
+	for i in children:
+		if i.name == "Player":
+			player = i
+	Angle_Radians = (player.global_position - global_position).angle()
+	Angle_Degrees = rad_to_deg(Angle_Radians)
+	rotation = Angle_Radians - deg_to_rad(90)
+	AngleHasBeenDetermined = true
 	

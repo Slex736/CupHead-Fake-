@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://djidkcvmxtm1r"]
+
+[ext_resource type="Script" uid="uid://2eobmbn5b21c" path="res://Scripts/blue_enemy_projectile.gd" id="1_mm0ik"]
+[ext_resource type="Texture2D" uid="uid://c5aacchi5t8ie" path="res://Assets/Sprites/Lightning.png" id="2_mm0ik"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eb54k"]
+radius = 7.0
+
+[node name="Blue_Enemy_Projectile" type="Area2D"]
+visible = false
+script = ExtResource("1_mm0ik")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eb54k")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("2_mm0ik")
+
+[connection signal="body_entered" from="." to="." method="ContactWithPlayerOrWall"]

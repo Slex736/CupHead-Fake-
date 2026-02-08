@@ -1,12 +1,12 @@
 [gd_scene load_steps=16 format=4 uid="uid://clkxh84xdx2up"]
 
-[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/player.tscn" id="1_xq3o0"]
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/death_zone.tscn" id="2_2yvf5"]
+[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="1_xq3o0"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="2_2yvf5"]
 [ext_resource type="Texture2D" uid="uid://faccd4ugd83u" path="res://Assets/Sprites/Tilemap.jpeg" id="3_3ihge"]
-[ext_resource type="PackedScene" uid="uid://db74g04jde6ot" path="res://Scenes/lucky_block.tscn" id="4_akkqd"]
-[ext_resource type="PackedScene" uid="uid://rggosdcmyse4" path="res://Scenes/falling_block.tscn" id="5_8v7by"]
-[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/red_enemy.tscn" id="6_1rqgg"]
-[ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/blue_enemy.tscn" id="7_mwmob"]
+[ext_resource type="PackedScene" uid="uid://db74g04jde6ot" path="res://Scenes/Special Blocks/lucky_block.tscn" id="4_akkqd"]
+[ext_resource type="PackedScene" uid="uid://rggosdcmyse4" path="res://Scenes/Special Blocks/falling_block.tscn" id="5_8v7by"]
+[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/red_enemy.tscn" id="6_1rqgg"]
+[ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/Enemies/blue_enemy.tscn" id="7_mwmob"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_so54a"]
 texture = ExtResource("3_3ihge")
