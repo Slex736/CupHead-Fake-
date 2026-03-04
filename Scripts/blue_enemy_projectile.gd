@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var blue_enemy_projectile: Area2D = $"."
+@onready var shootinganimation: AnimatedSprite2D  = $"../AnimatedSprite2D"
 
 var animated_sprite
 var player
@@ -78,24 +79,13 @@ func ResetLevel():
 	get_tree().call_deferred("reload_current_scene")
 
 func ResetBlueEnemyAnimations():
-	var children_blue_enemy = get_parent().get_children()
-	for x in children_blue_enemy:
-		if x.name == "AnimatedSprite2D":
-			animated_sprite = x 
-		
-	animated_sprite.play("default")
+	shootinganimation.play("default")
 
 func PlayBlueEnemyShootAnimations():
-	# play animation
-	var children_blue_enemy = get_parent().get_children()
-	for x in children_blue_enemy:
-		if x.name == "AnimatedSprite2D":
-			animated_sprite = x 
-	
-	animated_sprite.play("Shooting")
+	shootinganimation.play("Shooting")
 	
 	# wait for it to finish before launching the ball
-	animated_sprite.animation_finished.connect(ShootBall)
+	shootinganimation.animation_finished.connect(ShootBall)
 
 func FindVelocityOfAttackToShootPlayer():
 	# find player and determine velocity
