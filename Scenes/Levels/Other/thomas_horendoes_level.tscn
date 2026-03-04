@@ -1,13 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2gm8p7q2tomb"]
+[gd_scene load_steps=6 format=3 uid="uid://bbijjoxjri7g1"]
 
-[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="1_dbsss"]
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="4_nw6pe"]
-[ext_resource type="FontFile" uid="uid://bny7e5xl0c57d" path="res://Assets/fonts/PixelOperator8.ttf" id="4_qn7il"]
-[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_ddnop"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="5_xmq1d"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6neoj"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_48l83"]
+[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="3_e4vop"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbsss"]
-texture = ExtResource("5_xmq1d")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02i1u"]
+texture = ExtResource("2_48l83")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -191,26 +189,21 @@ texture = ExtResource("5_xmq1d")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_ne8ca"]
+[sub_resource type="TileSet" id="TileSet_d087y"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_dbsss")
+sources/0 = SubResource("TileSetAtlasSource_02i1u")
 
-[node name="TutorialLevel" type="Node2D"]
+[node name="Thomas horendoes level" type="Node2D"]
 
-[node name="Player" parent="." instance=ExtResource("1_dbsss")]
-z_index = 5
-
-[node name="Enemies" type="Node2D" parent="."]
-
-[node name="Death zone" parent="." instance=ExtResource("4_nw6pe")]
+[node name="Death zone" parent="." instance=ExtResource("1_6neoj")]
 position = Vector2(24, 264)
 
 [node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_ne8ca")
+tile_set = SubResource("TileSet_d087y")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4, 131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 65540, 0, 0, 65541, 0, 0, 65542, 0, 0, 65543, 0, 0, 65544, 0, 0, 131068, 0, 0, 131067, 0, 0, 131066, 0, 0, 131065, 0, 0, 131064, 0, 0, 196600, 65536, 1, 262136, 0, 1, 262137, 65536, 0, 196601, 0, 1, 262138, 0, 1, 196602, 0, 1, 196603, 0, 1, 262139, 0, 1, 262140, 65536, 1, 196604, 0, 1, 262141, 0, 1, 196605, 0, 1, 196606, 0, 1, 262142, 0, 1, 262143, 0, 1, 196607, 0, 1, 131072, 0, 1, 131073, 65536, 0, 196608, 0, 1, 196609, 0, 1, 196610, 0, 1, 131074, 0, 1, 196611, 0, 1, 131075, 0, 1, 131076, 0, 1, 196612, 0, 1, 131077, 0, 1, 196613, 0, 1, 196614, 65536, 1, 131078, 0, 1, 131079, 0, 1, 131080, 65536, 0, 196616, 0, 1, 196615, 0, 1, 65545, 0, 0, 65546, 0, 0, 65547, 0, 0, 65548, 0, 0, 65549, 0, 0, 65550, 0, 0, 65551, 0, 1, 131081, 0, 1, 196617, 0, 1, 131082, 0, 1, 196618, 0, 1, 131083, 65536, 1, 196619, 0, 1, 131084, 0, 1, 196620, 0, 1, 131085, 0, 1, 196621, 0, 1, 131086, 0, 1, 196622, 65536, 1, 131087, 0, 1, 196623, 0, 1, -65521, 0, 0, 15, 0, 1, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, -65515, 0, 0, -65514, 0, 0, 16, 0, 1, 17, 65536, 1, 18, 0, 1, 19, 0, 1, 20, 0, 1, 21, 0, 1, 22, 0, 1, 65558, 0, 1, 65557, 65536, 1, 65556, 0, 1, 65555, 0, 1, 65554, 0, 1, 65553, 0, 1, 65552, 0, 1, -65511, 0, 0, -65510, 0, 0, -65509, 0, 0, -65508, 0, 0, -65507, 0, 0, 25, 0, 1, 65561, 0, 1, 65562, 65536, 1, 26, 0, 1, 65563, 0, 1, 27, 0, 1, 28, 0, 1, 65564, 0, 1, 65565, 0, 1, 29, 65536, 1)
+layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4)
 layer_1/name = "Background"
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -223,40 +216,9 @@ layer_1/name = "Background"
 
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
 
-[node name="Labels" type="Node2D" parent="."]
-
-[node name="Label" type="Label" parent="Labels"]
-offset_left = -112.0
-offset_top = -32.0
-offset_right = 113.0
-offset_bottom = -9.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_qn7il")
-theme_override_font_sizes/font_size = 8
-text = "Use A-D or The arrow keys to walk."
-
-[node name="Label2" type="Label" parent="Labels"]
-offset_left = 144.0
-offset_top = -56.0
-offset_right = 339.0
-offset_bottom = -33.0
-theme_override_fonts/font = ExtResource("4_qn7il")
-theme_override_font_sizes/font_size = 8
-text = "Use Space or Arrow-Up to jump."
-
-[node name="Label3" type="Label" parent="Labels"]
-offset_left = 496.0
-offset_top = -46.0
-offset_right = 615.0
-offset_bottom = -23.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_qn7il")
-theme_override_font_sizes/font_size = 8
-text = "Test your skills."
-
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="MiniLevel" type="Node2D" parent="Doors"]
+[node name="Player" parent="." instance=ExtResource("3_e4vop")]
+z_index = 5
 
-[node name="MiniLevelDoor" parent="Doors/MiniLevel" instance=ExtResource("5_ddnop")]
-position = Vector2(464, -32)
+[node name="Enemies" type="Node2D" parent="."]
