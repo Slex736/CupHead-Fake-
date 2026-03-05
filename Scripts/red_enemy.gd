@@ -3,6 +3,7 @@ extends Area2D
 @onready var leftraycast: RayCast2D = $Left
 @onready var rightraycast: RayCast2D = $Right
 
+
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 enum Dir {Left, Right}
@@ -30,11 +31,12 @@ func ResetLevel():
 
 func MoveEnemy(delta):
 	if direction == Dir.Left:
-		position.x -= SPEED * delta
+		global_position.x -= SPEED * delta
 		animated_sprite_2d.flip_h = true
 	elif direction == Dir.Right:
-		position.x += SPEED * delta
+		global_position.x += SPEED * delta
 		animated_sprite_2d.flip_h = false
+
 
 func RayCastChecker():
 	if leftraycast.is_colliding():

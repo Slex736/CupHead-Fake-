@@ -216,6 +216,8 @@ layer_1/name = "Background"
 
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
 
+[node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_3cpn0")]

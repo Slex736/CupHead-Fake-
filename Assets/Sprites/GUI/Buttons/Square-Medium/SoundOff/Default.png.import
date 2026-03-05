@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://di44q1kxtsqqv"
-path="res://.godot/imported/background-green-highlands3.png-d6e412bf8dc5a64eb7b90375d06ff2ba.ctex"
+uid="uid://b3enn5k3kyjtb"
+path="res://.godot/imported/Default.png-8ee0f1ea74393493b13a01adabec27d7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Sprites/Background/background-green-highlands3.png"
-dest_files=["res://.godot/imported/background-green-highlands3.png-d6e412bf8dc5a64eb7b90375d06ff2ba.ctex"]
+source_file="res://Assets/Sprites/GUI/Buttons/Square-Medium/SoundOff/Default.png"
+dest_files=["res://.godot/imported/Default.png-8ee0f1ea74393493b13a01adabec27d7.ctex"]
 
 [params]
 

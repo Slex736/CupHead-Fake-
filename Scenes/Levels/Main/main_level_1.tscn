@@ -284,7 +284,7 @@ sources/0 = SubResource("TileSetAtlasSource_ac0k1")
 
 [node name="Player" parent="." instance=ExtResource("1_5iupx")]
 z_index = 5
-position = Vector2(-16, 16)
+position = Vector2(-13, 16)
 
 [node name="Special Blocks" type="Node2D" parent="."]
 
@@ -320,6 +320,8 @@ position = Vector2(96, -16)
 [node name="Cloud2" parent="Special Blocks/Clouds" instance=ExtResource("5_hs5q1")]
 position = Vector2(136, -280)
 
+[node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
+
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="Red_Enemy" parent="Enemies" instance=ExtResource("5_ac0k1")]
@@ -329,7 +331,7 @@ position = Vector2(352, -32)
 position = Vector2(616, -16)
 
 [node name="Blue_Enemy" parent="Enemies" instance=ExtResource("6_hs5q1")]
-position = Vector2(728, -160)
+position = Vector2(743, -156)
 
 [node name="Blue_Enemy2" parent="Enemies" instance=ExtResource("6_hs5q1")]
 position = Vector2(920, -216)

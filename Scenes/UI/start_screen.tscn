@@ -1,0 +1,51 @@
+[gd_scene load_steps=8 format=3 uid="uid://dudh0vdxv58vb"]
+
+[ext_resource type="Texture2D" uid="uid://ctxisde7knyw4" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Play/Default.png" id="1_iwgee"]
+[ext_resource type="Script" uid="uid://cpyw36bnnm2ap" path="res://Scripts/start_screen.gd" id="1_vhrx5"]
+[ext_resource type="Texture2D" uid="uid://c3s78ilvwcuq6" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Play/Hover.png" id="2_3l4er"]
+[ext_resource type="Texture2D" uid="uid://c5sxsuevcmtkd" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/SoundOn/Default.png" id="3_0p1pj"]
+[ext_resource type="Texture2D" uid="uid://dajysp6by4qal" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Levels/Default.png" id="4_2sehy"]
+[ext_resource type="Texture2D" uid="uid://d16s3h8r2btku" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/SoundOn/Hover.png" id="4_vhrx5"]
+[ext_resource type="Texture2D" uid="uid://bn7lcinn31myl" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Levels/Hover.png" id="5_e02y7"]
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_vhrx5")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Buttons" type="Node2D" parent="."]
+
+[node name="Play" type="TextureButton" parent="Buttons"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -44.0
+offset_top = -200.0
+offset_right = 44.0
+offset_bottom = -112.0
+grow_horizontal = 2
+texture_normal = ExtResource("1_iwgee")
+texture_hover = ExtResource("2_3l4er")
+
+[node name="Levels" type="TextureButton" parent="Buttons"]
+offset_right = 40.0
+offset_bottom = 40.0
+pivot_offset = Vector2(44, 44)
+texture_normal = ExtResource("4_2sehy")
+texture_hover = ExtResource("5_e02y7")
+
+[node name="Sound" type="TextureButton" parent="Buttons"]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -264.0
+offset_top = -40.0
+offset_right = -176.0
+offset_bottom = 48.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(44, 44)
+texture_normal = ExtResource("3_0p1pj")
+texture_hover = ExtResource("4_vhrx5")

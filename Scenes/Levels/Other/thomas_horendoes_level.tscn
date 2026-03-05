@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bbijjoxjri7g1"]
+[gd_scene load_steps=9 format=3 uid="uid://bbijjoxjri7g1"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6neoj"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_48l83"]
+[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="3_02i1u"]
 [ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="3_e4vop"]
+[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/red_enemy.tscn" id="4_48l83"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02i1u"]
 texture = ExtResource("2_48l83")
@@ -193,6 +195,9 @@ texture = ExtResource("2_48l83")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_02i1u")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4vop"]
+size = Vector2(16, 2)
+
 [node name="Thomas horendoes level" type="Node2D"]
 
 [node name="Death zone" parent="." instance=ExtResource("1_6neoj")]
@@ -203,7 +208,7 @@ tile_set = SubResource("TileSet_d087y")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4)
+layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 6, 0, 0, -65530, 0, 0, -131066, 0, 0, 1, 0, 0, -196602, 0, 0, 7, 0, 0, 8, 0, 0, -65529, 0, 0, 0, 0, 0, -65535, 0, 0, -131071, 0, 0)
 layer_1/name = "Background"
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -218,7 +223,19 @@ layer_1/name = "Background"
 
 [node name="Doors" type="Node2D" parent="."]
 
+[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("3_02i1u")]
+position = Vector2(152, 0)
+
 [node name="Player" parent="." instance=ExtResource("3_e4vop")]
 z_index = 5
 
 [node name="Enemies" type="Node2D" parent="."]
+
+[node name="Red_Enemy" parent="Enemies" instance=ExtResource("4_48l83")]
+position = Vector2(80, 16)
+
+[node name="RigidBody2D" type="CharacterBody2D" parent="Enemies/Red_Enemy"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Red_Enemy/RigidBody2D"]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_e4vop")
