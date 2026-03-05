@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://blqba88wpw4py"]
+
+[ext_resource type="Script" uid="uid://db8jaek76edji" path="res://Scripts/jump_orb.gd" id="1_t4eir"]
+[ext_resource type="Texture2D" uid="uid://tssxy7syydu0" path="res://Assets/Sprites/JumpOrb.png" id="2_c0w6i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7orgj"]
+size = Vector2(24, 28)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ba167"]
+atlas = ExtResource("2_c0w6i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wt5ml"]
+atlas = ExtResource("2_c0w6i")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y3hk1"]
+atlas = ExtResource("2_c0w6i")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7aa3x"]
+atlas = ExtResource("2_c0w6i")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_le12n"]
+atlas = ExtResource("2_c0w6i")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_m2xr1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ba167")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wt5ml")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y3hk1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7aa3x")
+}],
+"loop": false,
+"name": &"Pressed",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_le12n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="JumpOrb" type="Area2D"]
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_t4eir")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_7orgj")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.3841858e-07, -2.3841858e-07)
+scale = Vector2(0.99999994, 0.99999994)
+sprite_frames = SubResource("SpriteFrames_m2xr1")
+animation = &"Pressed"
+autoplay = "default"
+
+[connection signal="body_entered" from="." to="." method="PlayerEntered"]
+[connection signal="body_exited" from="." to="." method="PlayerExited"]
