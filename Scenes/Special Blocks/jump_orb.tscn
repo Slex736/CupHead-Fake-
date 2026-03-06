@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://blqba88wpw4py"]
+[gd_scene load_steps=10 format=3 uid="uid://yx0osdjqjcrq"]
 
 [ext_resource type="Script" uid="uid://db8jaek76edji" path="res://Scripts/jump_orb.gd" id="1_t4eir"]
 [ext_resource type="Texture2D" uid="uid://tssxy7syydu0" path="res://Assets/Sprites/JumpOrb.png" id="2_c0w6i"]
@@ -68,5 +68,9 @@ sprite_frames = SubResource("SpriteFrames_m2xr1")
 animation = &"Pressed"
 autoplay = "default"
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 30.0
+
 [connection signal="body_entered" from="." to="." method="PlayerEntered"]
 [connection signal="body_exited" from="." to="." method="PlayerExited"]
+[connection signal="timeout" from="Timer" to="." method="TimerDone"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=9 format=3 uid="uid://drty06melcv74"]
+
+[ext_resource type="Script" uid="uid://dk44qxx1yt3t6" path="res://Scripts/ingame_settings.gd" id="1_4kjc8"]
+[ext_resource type="Texture2D" uid="uid://c5sxsuevcmtkd" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/SoundOn/Default.png" id="1_76qmy"]
+[ext_resource type="Texture2D" uid="uid://d16s3h8r2btku" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/SoundOn/Hover.png" id="2_vsvvc"]
+[ext_resource type="Texture2D" uid="uid://bt3hbw58i43f2" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Repeat/Default.png" id="3_77pxr"]
+[ext_resource type="Texture2D" uid="uid://cp7dg0jwu84h7" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Repeat/Hover.png" id="4_x5h72"]
+[ext_resource type="Texture2D" uid="uid://maicnnu8eyks" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Home/Default.png" id="5_x5h72"]
+[ext_resource type="Texture2D" uid="uid://2xc7si36nx5x" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Home/Hover.png" id="6_4kjc8"]
+[ext_resource type="Texture2D" uid="uid://doikwwsr2q1fk" path="res://Assets/Sprites/GUI/Panel/Body/Headless.png" id="7_ebl0b"]
+
+[node name="IngameSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4kjc8")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -380.0
+offset_top = -108.0
+offset_right = 380.0
+offset_bottom = 108.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_ebl0b")
+
+[node name="Sound" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.25
+anchor_top = 0.5
+anchor_right = 0.25
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.12001
+offset_right = 44.0
+offset_bottom = 43.87999
+grow_vertical = 2
+texture_normal = ExtResource("1_76qmy")
+texture_hover = ExtResource("2_vsvvc")
+
+[node name="Restart" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_vertical = 2
+texture_normal = ExtResource("3_77pxr")
+texture_hover = ExtResource("4_x5h72")
+
+[node name="Home" type="TextureButton" parent="."]
+z_index = 1
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.75
+anchor_top = 0.5
+anchor_right = 0.75
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -44.0
+offset_right = 44.0
+offset_bottom = 44.0
+grow_vertical = 2
+texture_normal = ExtResource("5_x5h72")
+texture_hover = ExtResource("6_4kjc8")
+
+[connection signal="pressed" from="Sound" to="." method="SoundPressed"]
+[connection signal="pressed" from="Restart" to="." method="RestartPressed"]
+[connection signal="pressed" from="Home" to="." method="HomePressed"]

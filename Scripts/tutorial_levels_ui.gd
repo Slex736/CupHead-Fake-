@@ -27,22 +27,27 @@ func UnlockNextLevel(CurrentLevel):
 
 func Level1Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_1.tscn")
+	GameState.current_level = [0, 1]
 
 
 func Level2Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_2.tscn")
+	GameState.current_level = [0, 2]
 
 
 func Level3Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_3.tscn")
+	GameState.current_level = [0, 3]
 
 
 func Level4Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_4.tscn")
+	GameState.current_level = [0, 4]
 
 
 func Level5Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_5.tscn")
+	GameState.current_level = [0, 5]
 
 
 func ArrowBackPressed() -> void:

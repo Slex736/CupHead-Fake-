@@ -1,5 +1,9 @@
 extends Area2D
 
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var jump_orb: Area2D = $"."
+@onready var TimerJumpOrb: Timer = $Timer
+
 var OrbUsable: bool = false
 
 @onready var player: CharacterBody2D = $"../../../Player"
@@ -13,7 +17,9 @@ func _process(_delta: float) -> void:
 		animations.animation_finished.connect(IsPressed)
 
 func IsPressed():
-	queue_free()
+	collision_shape_2d.disabled = true
+	jump_orb.visible = false
+	TimerJumpOrb.start()
 
 
 func PlayerEntered(body: Node2D) -> void:
@@ -22,3 +28,9 @@ func PlayerEntered(body: Node2D) -> void:
 
 func PlayerExited(body: Node2D) -> void:
 	OrbUsable = false
+
+
+func TimerDone() -> void:
+	collision_shape_2d.disabled = false
+	jump_orb.visible = true
+	animations.play("default")
