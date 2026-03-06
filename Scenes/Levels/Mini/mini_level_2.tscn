@@ -234,3 +234,4 @@ position = Vector2(176, -160)
 
 [node name="MiniLevelDoor" parent="Doors" instance=ExtResource("6_btoih")]
 position = Vector2(480, -224)
+current_level = 2

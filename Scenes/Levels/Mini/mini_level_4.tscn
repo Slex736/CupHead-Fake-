@@ -368,3 +368,4 @@ autoplay = "Move"
 
 [node name="MiniLevelDoor" parent="Doors" instance=ExtResource("5_8yudh")]
 position = Vector2(920, -288)
+current_level = 4

@@ -1,29 +1,18 @@
 extends Control
 
-@onready var SoundButton = $Buttons/Sound
-@onready var PlayButton = $Buttons/Play
-@onready var LevelButton = $Buttons/Levels
+var LevelsUI = preload("res://Scenes/UI/worlds_interface.tscn")
+var TutorialLevelScene = preload("res://Scenes/Levels/Tutorial/tutorial_level.tscn")
+var SoundInterfaceScene = preload("res://Scenes/UI/sound_interface.tscn")
 
-var ScreenSize
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	ScreenSize = DisplayServer.screen_get_size()
-	
-	PlaceButtons()
+func PlayPressed() -> void:
+	get_tree().change_scene_to_packed(TutorialLevelScene)
 
-func PlaceButtons():
-	PlaceSoundButton()
-	PlacePlayButton()
-	PlaceLevelsButton()
 
-func PlaceSoundButton():
-	SoundButton.position.y = ScreenSize.y / 2 - (ScreenSize.y / 10)
-	SoundButton.position.x = (ScreenSize.x / 2 - (ScreenSize.x / 20)) * -1
 
-func PlacePlayButton():
-	PlayButton.position.y = (ScreenSize.y / 8) * -1
+func LevelsPressed() -> void:
+	get_tree().change_scene_to_packed(LevelsUI)
 
-func PlaceLevelsButton():
-	LevelButton.position.y = ScreenSize.y / 2 - (ScreenSize.y / 10) 
-	LevelButton.position.x = (ScreenSize.x / 2 - (ScreenSize.x / 20) - 100) 
+
+func SoundPressed() -> void:
+	get_tree().change_scene_to_packed(SoundInterfaceScene)

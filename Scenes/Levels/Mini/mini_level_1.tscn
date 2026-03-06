@@ -223,6 +223,7 @@ position = Vector2(432, -88)
 
 [node name="MiniLevelDoor" parent="Doors/MainLevel" instance=ExtResource("4_yo3xg")]
 position = Vector2(352, -128)
+current_level = 1
 
 [node name="Death zone" parent="." instance=ExtResource("6_wodl0")]
 position = Vector2(144, 176)
