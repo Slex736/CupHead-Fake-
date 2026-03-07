@@ -1,6 +1,7 @@
 extends Area2D
 
 
-func PlayerInDeathZone(body: Node2D) -> void:
+
+func OnBodyEntered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		GameState.OpenInGameSettings()

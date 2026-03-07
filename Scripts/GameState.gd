@@ -12,7 +12,7 @@ var levels = {
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("InGameSettings"):
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
+		OpenInGameSettings()
 
 
 # worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
@@ -27,3 +27,6 @@ func is_level_completed(WorldId: int, LevelId: int) -> bool:
 
 func GetCurrentLevel():
 	return levels.get(current_level, "res://Scenes/Levels/Tutorial/tutorial_level.tscn")
+
+func OpenInGameSettings():
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")

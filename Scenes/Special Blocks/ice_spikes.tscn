@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bow3psg0o1k30"]
+
+[ext_resource type="Texture2D" uid="uid://ly8sk6hdcqcd" path="res://Assets/Sprites/Ice Spikes.png" id="1_5pwx1"]
+[ext_resource type="Script" uid="uid://dt53tk1rahxvv" path="res://Scripts/ice_spikes.gd" id="1_hvc6p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hvc6p"]
+size = Vector2(15, 10)
+
+[node name="Ice Spikes" type="Area2D"]
+script = ExtResource("1_hvc6p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_5pwx1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, -5)
+shape = SubResource("RectangleShape2D_hvc6p")
+
+[connection signal="body_entered" from="." to="." method="OnBodyEntered"]

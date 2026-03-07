@@ -71,11 +71,10 @@ func ShootBall():
 func ContactWithPlayerOrWall(body: Node2D) -> void:
 	# check if it hits the player
 	if body is CharacterBody2D:
-		InGameUI()
+		GameState.OpenInGameSettings()
 	queue_free()
 
-func InGameUI():
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
+
 
 func ResetBlueEnemyAnimations():
 	shootinganimation.play("default")

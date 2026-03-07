@@ -23,11 +23,8 @@ func _physics_process(delta: float) -> void:
 
 func PlayerTouchedEnemy(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		InGameUI()
+		GameState.OpenInGameSettings()
 
-
-func InGameUI():
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
 
 func MoveEnemy(delta):
 	if direction == Dir.Left:
