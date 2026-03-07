@@ -9,6 +9,8 @@ var levels = {
 	[0, 5] : "res://Scenes/Levels/Mini/mini_level_5.tscn",
 }
 
+func _ready() -> void:
+	current_level = get_tree().current_scene.scene_file_path
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("InGameSettings"):
@@ -26,7 +28,7 @@ func is_level_completed(WorldId: int, LevelId: int) -> bool:
 	return completed_levels.get([WorldId, LevelId], false)
 
 func GetCurrentLevel():
-	return levels.get(current_level, "res://Scenes/Levels/Tutorial/tutorial_level.tscn")
+	return levels.get(current_level, current_level)
 
 func OpenInGameSettings():
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")

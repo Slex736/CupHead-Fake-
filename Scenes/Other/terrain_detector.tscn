@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://di0sa5bbnv5qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rg0d4"]
+
+[node name="TerrainDetector" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 10)
+shape = SubResource("RectangleShape2D_rg0d4")

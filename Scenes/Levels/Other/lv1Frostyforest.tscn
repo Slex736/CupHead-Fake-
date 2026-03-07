@@ -25,6 +25,7 @@ texture = ExtResource("1_4xmdl")
 6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 7:0/0 = 0
 7:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+7:0/0/custom_data_0 = true
 8:0/0 = 0
 8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 9:0/0 = 0
@@ -71,6 +72,7 @@ texture = ExtResource("1_4xmdl")
 5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 6:2/0 = 0
 6:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+6:2/0/custom_data_0 = true
 7:2/0 = 0
 7:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 8:2/0 = 0
@@ -194,6 +196,8 @@ texture = ExtResource("1_4xmdl")
 
 [sub_resource type="TileSet" id="TileSet_g0bba"]
 physics_layer_0/collision_layer = 1
+custom_data_layer_0/name = "ice"
+custom_data_layer_0/type = 1
 sources/0 = SubResource("TileSetAtlasSource_meqig")
 
 [node name="Node2D" type="Node2D"]
