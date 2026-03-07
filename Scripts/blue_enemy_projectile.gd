@@ -71,12 +71,11 @@ func ShootBall():
 func ContactWithPlayerOrWall(body: Node2D) -> void:
 	# check if it hits the player
 	if body is CharacterBody2D:
-		ResetLevel()
+		InGameUI()
 	queue_free()
 
-func ResetLevel():
-	set_deferred("monitoring", false) # if this script is on an Area2D
-	get_tree().call_deferred("reload_current_scene")
+func InGameUI():
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
 
 func ResetBlueEnemyAnimations():
 	shootinganimation.play("default")

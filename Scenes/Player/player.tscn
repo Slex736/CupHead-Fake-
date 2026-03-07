@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://ehiesa0le1xy"]
+[gd_scene load_steps=27 format=3 uid="uid://ehiesa0le1xy"]
 
 [ext_resource type="Script" uid="uid://bmxuoioqaftht" path="res://Scripts/playerScript.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bx5nq7tjjyk4l" path="res://Assets/Sprites/knight.png" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://bhaihcwc8ual6" path="res://Assets/sounds/jump.wav" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://dbpkyjndd6hk4" path="res://Scenes/UI/ingame_interface.tscn" id="4_mtuoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -174,6 +173,7 @@ animations = [{
 size = Vector2(13, 19)
 
 [node name="Player" type="CharacterBody2D"]
+position = Vector2(288, 162)
 collision_mask = 3
 script = ExtResource("1_cvnsp")
 
@@ -182,7 +182,8 @@ sprite_frames = SubResource("SpriteFrames_bi64h")
 animation = &"Jump"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, 2.5)
+z_index = 5
+position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_x3wgy")
 
 [node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
@@ -190,6 +191,6 @@ stream = ExtResource("3_6t5aa")
 bus = &"SFX"
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(0, -2)
 zoom = Vector2(2, 2)
-
-[node name="IngameInterface" parent="." instance=ExtResource("4_mtuoh")]
+position_smoothing_enabled = true

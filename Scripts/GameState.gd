@@ -9,8 +9,13 @@ var levels = {
 	[0, 5] : "res://Scenes/Levels/Mini/mini_level_5.tscn",
 }
 
-# worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("InGameSettings"):
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
+
+
+# worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
 var completed_levels := {}  # Dictionary<[int, int], bool>
 var current_level = [0, 0]
 

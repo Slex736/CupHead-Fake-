@@ -7,4 +7,4 @@ func PlayerInDeathZone(body: Node2D) -> void:
 
 
 func InGameUI():
-	get_tree().change_scene_to_file("res://Scenes/UI/ingame_settings.tscn")
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")

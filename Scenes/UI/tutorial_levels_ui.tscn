@@ -22,7 +22,6 @@ grow_vertical = 2
 script = ExtResource("1_h3rhx")
 
 [node name="Level1Unable" type="TextureButton" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.167
@@ -34,7 +33,6 @@ offset_top = -44.0
 offset_right = 44.0
 offset_bottom = 44.0
 grow_vertical = 2
-disabled = true
 texture_normal = ExtResource("1_rhvmw")
 texture_hover = ExtResource("2_b3lhg")
 
@@ -57,6 +55,7 @@ text = "1"
 horizontal_alignment = 1
 
 [node name="Level1Locked" type="TextureButton" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.167

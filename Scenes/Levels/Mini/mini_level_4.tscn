@@ -313,6 +313,7 @@ _data = {
 
 [node name="Player" parent="." instance=ExtResource("1_r73wk")]
 z_index = 5
+position = Vector2(0, 0)
 
 [node name="Enemies" type="Node2D" parent="."]
 

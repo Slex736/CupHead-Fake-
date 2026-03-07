@@ -240,6 +240,7 @@ sources/0 = SubResource("TileSetAtlasSource_8omyy")
 
 [node name="Player" parent="." instance=ExtResource("1_x3i34")]
 z_index = 5
+position = Vector2(-8, 8)
 
 [node name="Enemies" type="Node2D" parent="."]
 
