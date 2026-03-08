@@ -4,7 +4,7 @@ const SPEED = 130
 const JUMP_VELOCITY = -300.0
 
 const NormalAcceleration = 500
-const NormalFriction = 500
+const NormalFriction = 1000
 
 const IceAccelaration = 100
 const IceFriction = 20
@@ -41,11 +41,15 @@ func Walk(Speed, Friction, Acceleration, Delta):
 	# get input derection left = -1 and right = 1
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
+		if move_toward(velocity.x, direction * Speed, Acceleration * Delta) < 0:
+			velocity.x = 0
 		#velocity.x = direction * SPEED
 		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		# switch player back
 		animated_sprite.flip_h = false
 	elif direction == -1:
+		if move_toward(velocity.x, direction * Speed, Acceleration * Delta) > 0:
+			velocity.x = 0
 		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		# switch player
 		animated_sprite.flip_h = true

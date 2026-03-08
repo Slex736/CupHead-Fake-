@@ -259,11 +259,6 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(87, -89)
 scale = Vector2(0.5, 0.5)
 
-[node name="Cloud6" parent="Special Blocks/Clouds" instance=ExtResource("3_mkfgb")]
-position = Vector2(54, -1)
-rotation = 3.130427
-scale = Vector2(0.5, 0.5)
-
 [node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
 
 [node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
