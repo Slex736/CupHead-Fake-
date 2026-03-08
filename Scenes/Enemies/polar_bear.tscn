@@ -1,0 +1,50 @@
+[gd_scene load_steps=7 format=3 uid="uid://d005fqiagln27"]
+
+[ext_resource type="Texture2D" uid="uid://bwnlsxvjsjlsj" path="res://Assets/Sprites/Polar Bear.png" id="1_50qxp"]
+[ext_resource type="Script" uid="uid://bvei6ryifswij" path="res://Scripts/polar_bear.gd" id="1_o5nt7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5nt7"]
+atlas = ExtResource("1_50qxp")
+region = Rect2(0, 0, 48, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0kkgb"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5nt7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ltnus"]
+size = Vector2(48, 27)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_o5nt7"]
+radius = 220.00227
+
+[node name="PolarBear" type="Area2D"]
+script = ExtResource("1_o5nt7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_0kkgb")
+autoplay = "default"
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
+position = Vector2(0, 2.5)
+shape = SubResource("RectangleShape2D_ltnus")
+
+[node name="LeftRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(-23, 0)
+
+[node name="RightRaycast" type="RayCast2D" parent="."]
+target_position = Vector2(23, 0)
+
+[node name="AgroHitbox" type="Area2D" parent="."]
+
+[node name="AgroHitbox" type="CollisionShape2D" parent="AgroHitbox"]
+shape = SubResource("CircleShape2D_o5nt7")
+
+[connection signal="body_entered" from="." to="." method="PlayerEntered"]
+[connection signal="body_entered" from="AgroHitbox" to="." method="CheckAgroHitbox"]
