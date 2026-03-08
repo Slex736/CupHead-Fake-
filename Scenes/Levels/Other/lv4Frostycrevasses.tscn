@@ -209,7 +209,7 @@ layer_0/tile_data = PackedInt32Array(65502, 393216, 2, 65503, 393216, 2, 65504, 
 layer_1/name = "Background"
 
 [node name="Player" parent="." instance=ExtResource("2_fmiyb")]
-position = Vector2(-608, -232)
+position = Vector2(-248, 512)
 
 [node name="Enemies" type="Node2D" parent="."]
 

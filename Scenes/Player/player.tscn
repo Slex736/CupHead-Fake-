@@ -1,9 +1,8 @@
-[gd_scene load_steps=28 format=3 uid="uid://ehiesa0le1xy"]
+[gd_scene load_steps=27 format=3 uid="uid://ehiesa0le1xy"]
 
 [ext_resource type="Script" uid="uid://bmxuoioqaftht" path="res://Scripts/playerScript.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bx5nq7tjjyk4l" path="res://Assets/Sprites/knight.png" id="2_cvnsp"]
 [ext_resource type="AudioStream" uid="uid://bhaihcwc8ual6" path="res://Assets/sounds/jump.wav" id="3_6t5aa"]
-[ext_resource type="PackedScene" uid="uid://di0sa5bbnv5qg" path="res://Scenes/Other/terrain_detector.tscn" id="4_mtuoh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6t5aa"]
 atlas = ExtResource("2_cvnsp")
@@ -195,6 +194,3 @@ bus = &"SFX"
 position = Vector2(0, -2)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-
-[node name="TerrainDetector" parent="." instance=ExtResource("4_mtuoh")]
-position = Vector2(0, 12)

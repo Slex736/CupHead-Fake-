@@ -1,9 +1,13 @@
 extends CharacterBody2D
 
-
-const SPEED = 130.0
+const SPEED = 130
 const JUMP_VELOCITY = -300.0
 
+const NormalAcceleration = 500
+const NormalFriction = 500
+
+const IceAccelaration = 100
+const IceFriction = 20
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
@@ -23,24 +27,33 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		jump_sound.play()
 		
-		
+	# check if floortype is normal block and apply normal physics
+	if GameState.FloorType == 0:
+		Walk(SPEED, NormalFriction, NormalAcceleration, delta)
+	
+	elif GameState.FloorType == 1:
+		Walk(SPEED, IceFriction, IceAccelaration, delta)
+	
 
+
+
+func Walk(Speed, Friction, Acceleration, Delta):
 	# get input derection left = -1 and right = 1
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
-		velocity.x = direction * SPEED
+		#velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		# switch player back
 		animated_sprite.flip_h = false
 	elif direction == -1:
-		velocity.x = direction * SPEED
+		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		# switch player
 		animated_sprite.flip_h = true
 	else:
-		
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+		velocity.x = move_toward(velocity.x, 0, Friction * Delta)
 		animated_sprite.play("Idle")
-	
+			
 	if not direction == 0:
 		animated_sprite.play("Walking") 
-
+		
 	move_and_slide()

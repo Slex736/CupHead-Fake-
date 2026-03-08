@@ -220,6 +220,8 @@ layer_1/name = "Background"
 
 [node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
 
+[node name="Ice Hitboxes" type="Node2D" parent="Special Blocks"]
+
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("1_3cpn0")]

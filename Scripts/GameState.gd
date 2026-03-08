@@ -1,5 +1,8 @@
 extends Node
 
+# 0 = normal, 1 = ice
+var FloorType: int = 0
+
 var levels = {
 	[0, 0] : "res://Scenes/Levels/Tutorial/tutorial_level.tscn",
 	[0, 1] : "res://Scenes/Levels/Mini/mini_level_1.tscn",
