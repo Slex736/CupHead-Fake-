@@ -57,10 +57,15 @@ func PlayerEnteredHitBox(body: Node2D) -> void:
 
 func PlayerEnteredJumpBox(body: Node2D) -> void:
 	if body is CharacterBody2D:
-		ScorpionState = ScorpionStates.Jumping
+		animated_sprite_2d.play("Jumping")
+
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)
 	var q1 = p1.lerp(p2, t)
 	var r = q0.lerp(q1, t)
 	return r
+
+
+func OnJumpFinished() -> void:
+	ScorpionState = ScorpionStates.Jumping
