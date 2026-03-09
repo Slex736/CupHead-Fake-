@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://d04ks2g7sgu36"]
+[gd_scene load_steps=18 format=3 uid="uid://d04ks2g7sgu36"]
 
 [ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="1_5iupx"]
 [ext_resource type="PackedScene" uid="uid://rggosdcmyse4" path="res://Scenes/Special Blocks/falling_block.tscn" id="2_lr0al"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/Enemies/blue_enemy.tscn" id="6_hs5q1"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="8_ac0k1"]
 [ext_resource type="PackedScene" uid="uid://clcl4f637gkdo" path="res://Scenes/Special Blocks/floor.tscn" id="8_hs5q1"]
+[ext_resource type="PackedScene" uid="uid://d4bprc4afx8hj" path="res://Scenes/Enemies/scorpion.tscn" id="9_hs5q1"]
 
 [sub_resource type="Animation" id="Animation_d3n3u"]
 resource_name = "Falling"
@@ -320,9 +321,6 @@ position = Vector2(136, -280)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Red_Enemy" parent="Enemies" instance=ExtResource("5_ac0k1")]
-position = Vector2(352, -32)
-
 [node name="Red_Enemy2" parent="Enemies" instance=ExtResource("5_ac0k1")]
 position = Vector2(616, -16)
 
@@ -337,6 +335,9 @@ position = Vector2(280, -208)
 
 [node name="Red_Enemy4" parent="Enemies" instance=ExtResource("5_ac0k1")]
 position = Vector2(256, -304)
+
+[node name="Scorpion" parent="Enemies" instance=ExtResource("9_hs5q1")]
+position = Vector2(337, -32)
 
 [node name="Death zone" parent="." instance=ExtResource("4_3qy2m")]
 position = Vector2(24, 264)
