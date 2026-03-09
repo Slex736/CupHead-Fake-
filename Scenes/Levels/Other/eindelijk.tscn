@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://srbh4ain3nqx"]
+[gd_scene format=3 uid="uid://srbh4ain3nqx"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_pmejd"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_vr7mf"]
