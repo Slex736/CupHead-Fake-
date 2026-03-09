@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://hl1xgcpk13pc"]
+[gd_scene load_steps=10 format=3 uid="uid://dysgxsutipiov"]
 
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="1_4xmdl"]
 [ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="2_meqig"]
@@ -266,8 +266,8 @@ scale = Vector2(0.5, 0.5)
 [node name="Ice Hitboxes" type="Node2D" parent="Special Blocks"]
 
 [node name="Ice_Hitbox" parent="Special Blocks/Ice Hitboxes" instance=ExtResource("6_off1d")]
-position = Vector2(96, -40)
-scale = Vector2(24, 9)
+position = Vector2(95, -27)
+scale = Vector2(24, 8)
 
 [node name="Player" parent="." instance=ExtResource("2_meqig")]
 position = Vector2(-55, 9)

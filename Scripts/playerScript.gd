@@ -14,6 +14,9 @@ const IceFriction = 20
 
 var platform_velocity := Vector2.ZERO
 
+func _ready() -> void:
+	if GameState.LatestCheckPointPos != null:
+		global_position = GameState.LatestCheckPointPos
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
