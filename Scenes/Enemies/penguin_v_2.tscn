@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://dv3xtdho8w0qt"]
+
+[ext_resource type="Texture2D" uid="uid://bywrbd0rxxrab" path="res://Assets/Sprites/penguinV2.png" id="1_amd44"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_phg5q"]
+size = Vector2(24, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_82ref"]
+atlas = ExtResource("1_amd44")
+region = Rect2(0, 0, 32, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_oqpgx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_82ref")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="PenguinV2" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_phg5q")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_oqpgx")
+autoplay = "default"
