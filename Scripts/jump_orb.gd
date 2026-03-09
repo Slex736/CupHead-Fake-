@@ -6,7 +6,7 @@ extends Area2D
 
 var OrbUsable: bool = false
 
-@onready var player: CharacterBody2D = $"../../../Player"
+@onready var player: CharacterBody2D = $"../../../../Player"
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 var JUMP_VELOCITY: int = -400
 
