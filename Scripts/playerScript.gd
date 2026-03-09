@@ -41,17 +41,18 @@ func Walk(Speed, Friction, Acceleration, Delta):
 	# get input derection left = -1 and right = 1
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
-		if move_toward(velocity.x, direction * Speed, Acceleration * Delta) < 0:
-			velocity.x = 0
 		#velocity.x = direction * SPEED
-		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
+		if GameState.FloorType == 1:
+			velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
+		elif GameState.FloorType == 0:
+			velocity.x = direction * Speed
 		# switch player back
 		animated_sprite.flip_h = false
 	elif direction == -1:
-		if move_toward(velocity.x, direction * Speed, Acceleration * Delta) > 0:
-			velocity.x = 0
-		velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
-		# switch player
+		if GameState.FloorType == 1:
+			velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
+		elif GameState.FloorType == 0:
+			velocity.x = direction * Speed
 		animated_sprite.flip_h = true
 	else:
 		velocity.x = move_toward(velocity.x, 0, Friction * Delta)
