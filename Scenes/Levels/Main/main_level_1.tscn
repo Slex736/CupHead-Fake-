@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/Enemies/blue_enemy.tscn" id="6_hs5q1"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="8_ac0k1"]
 [ext_resource type="PackedScene" uid="uid://clcl4f637gkdo" path="res://Scenes/Special Blocks/floor.tscn" id="8_hs5q1"]
-[ext_resource type="PackedScene" uid="uid://d4bprc4afx8hj" path="res://Scenes/Enemies/scorpion.tscn" id="9_hs5q1"]
+[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/scorpion.tscn" id="9_hs5q1"]
 
 [sub_resource type="Animation" id="Animation_d3n3u"]
 resource_name = "Falling"
@@ -337,7 +337,7 @@ position = Vector2(280, -208)
 position = Vector2(256, -304)
 
 [node name="Scorpion" parent="Enemies" instance=ExtResource("9_hs5q1")]
-position = Vector2(337, -32)
+position = Vector2(404, -31)
 
 [node name="Death zone" parent="." instance=ExtResource("4_3qy2m")]
 position = Vector2(24, 264)

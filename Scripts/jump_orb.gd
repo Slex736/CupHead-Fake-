@@ -6,9 +6,10 @@ extends Area2D
 
 var OrbUsable: bool = false
 
-@onready var player: CharacterBody2D = $"../../../../Player"
+
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
 var JUMP_VELOCITY: int = -400
+@onready var player: CharacterBody2D = $"../../../Player"
 
 func _process(_delta: float) -> void:
 	if OrbUsable and Input.is_action_just_pressed("Jump"):
