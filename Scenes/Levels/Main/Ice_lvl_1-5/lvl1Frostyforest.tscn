@@ -1,13 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://bbijjoxjri7g1"]
+[gd_scene format=3 uid="uid://bcdaimbrqunr0"]
 
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6neoj"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="2_48l83"]
-[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="3_02i1u"]
-[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="3_e4vop"]
-[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/red_enemy.tscn" id="4_48l83"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="1_glx64"]
+[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="2_fenl7"]
+[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/red_enemy.tscn" id="3_pvxub"]
+[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="4_ociev"]
+[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_o0cor"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="6_v0olt"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_02i1u"]
-texture = ExtResource("2_48l83")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lwtym"]
+texture = ExtResource("1_glx64")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -191,51 +192,63 @@ texture = ExtResource("2_48l83")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_d087y"]
+[sub_resource type="TileSet" id="TileSet_ifni3"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_02i1u")
+sources/0 = SubResource("TileSetAtlasSource_lwtym")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_e4vop"]
-size = Vector2(16, 2)
+[node name="Node2D" type="Node2D" unique_id=534392609]
 
-[node name="Thomas horendoes level" type="Node2D"]
-
-[node name="Death zone" parent="." instance=ExtResource("1_6neoj")]
-position = Vector2(24, 264)
-
-[node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_d087y")
+[node name="Tilemap" type="TileMap" parent="." unique_id=144912949]
+tile_set = SubResource("TileSet_ifni3")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65545, 0, 0, 65544, 0, 0, 65543, 0, 0, 65542, 0, 0, 65541, 0, 0, 65540, 0, 0, 65539, 0, 0, 6, 0, 0, -65530, 0, 0, -131066, 0, 0, 1, 0, 0, -196602, 0, 0, 7, 0, 0, 8, 0, 0, -65529, 0, 0, 0, 0, 0, -65535, 0, 0, -131071, 0, 0)
+layer_0/tile_data = PackedInt32Array(65531, 458752, 0, 65532, 458752, 0, 65533, 458752, 0, 65534, 458752, 0, 65535, 458752, 0, 0, 458752, 0, 1, 458752, 0, 2, 458752, 0, 3, 458752, 0, 4, 458752, 0, 5, 458752, 0, 6, 458752, 0, 7, 458752, 0, 8, 458752, 0, 9, 458752, 0, 10, 458752, 0, 11, 458752, 0, 12, 458752, 0, 13, 458752, 0, 14, 458752, 0, 15, 458752, 0, 16, 458752, 0, 17, 458752, 0, 18, 458752, 0, 19, 458752, 0, 20, 458752, 0, 21, 458752, 0, -65527, 458752, 0, -65526, 458752, 0, -65525, 458752, 0, -65524, 458752, 0, -131062, 458752, 0, -131061, 458752, 0, -196598, 458752, 0, -196597, 458752, 0, -262134, 458752, 0, -327670, 458752, 0, -65529, 393216, 5, -65530, 393216, 5, -65533, 393216, 5, -65534, 393216, 5, -131066, 393216, 4, -131070, 393216, 4, -196602, 393216, 4, -262138, 393216, 4, -327674, 393216, 4, -393210, 393216, 4, -458746, 393216, 4, -131068, 393216, 4, -393213, 393216, 4, -327677, 393216, 4, -262141, 393216, 4, -196605, 393216, 4, -131069, 393216, 4, -196606, 393216, 4, -65532, 393216, 5, -131065, 393216, 3, -524282, 393216, 3, -196604, 393216, 3, -458749, 393216, 3, -262142, 393216, 3, -2, 458752, 0, -3, 458752, 0, -4, 458752, 0, -5, 458752, 0, -65540, 458752, 0, 65530, 458752, 0, 65529, 458752, 0, 65528, 458752, 0, -65517, 458752, 0, -65516, 458752, 0)
 layer_1/name = "Background"
 
-[node name="Special Blocks" type="Node2D" parent="."]
+[node name="Player" parent="." unique_id=1350304989 instance=ExtResource("2_fenl7")]
+position = Vector2(-104, -11)
 
-[node name="Falling Blocks" type="Node2D" parent="Special Blocks"]
+[node name="Enemies" type="Node2D" parent="." unique_id=788913256]
 
-[node name="Lucky Blocks" type="Node2D" parent="Special Blocks"]
+[node name="Red_Enemy" parent="Enemies" unique_id=492989089 instance=ExtResource("3_pvxub")]
+position = Vector2(20, 0)
 
-[node name="Floors" type="Node2D" parent="Special Blocks"]
+[node name="SpecialBlocks" type="Node2D" parent="." unique_id=1225715347]
 
-[node name="Clouds" type="Node2D" parent="Special Blocks"]
+[node name="Clouds" type="Node2D" parent="SpecialBlocks" unique_id=400457192]
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Cloud" parent="SpecialBlocks/Clouds" unique_id=1209624728 instance=ExtResource("4_ociev")]
+visible = false
+position = Vector2(72, -44)
+scale = Vector2(0.5, 0.5)
 
-[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("3_02i1u")]
-position = Vector2(152, 0)
+[node name="Cloud2" parent="SpecialBlocks/Clouds" unique_id=638622094 instance=ExtResource("4_ociev")]
+visible = false
+position = Vector2(40, -59)
+scale = Vector2(0.5, 0.5)
 
-[node name="Player" parent="." instance=ExtResource("3_e4vop")]
-z_index = 5
+[node name="Cloud3" parent="SpecialBlocks/Clouds" unique_id=1959786917 instance=ExtResource("4_ociev")]
+visible = false
+position = Vector2(56, -107)
+scale = Vector2(0.5, 0.5)
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Cloud4" parent="SpecialBlocks/Clouds" unique_id=695443853 instance=ExtResource("4_ociev")]
+visible = false
+position = Vector2(120, -28)
+scale = Vector2(0.5, 0.5)
 
-[node name="Red_Enemy" parent="Enemies" instance=ExtResource("4_48l83")]
-position = Vector2(80, 16)
+[node name="Cloud5" parent="SpecialBlocks/Clouds" unique_id=372680689 instance=ExtResource("4_ociev")]
+visible = false
+position = Vector2(104, -124)
+scale = Vector2(0.5, 0.5)
 
-[node name="RigidBody2D" type="CharacterBody2D" parent="Enemies/Red_Enemy"]
+[node name="Doors" type="Node2D" parent="." unique_id=649433875]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Enemies/Red_Enemy/RigidBody2D"]
-position = Vector2(0, -8)
-shape = SubResource("RectangleShape2D_e4vop")
+[node name="MainLevel" type="Node2D" parent="Doors" unique_id=1770650612]
+
+[node name="MiniLevelDoor" parent="Doors/MainLevel" unique_id=1486081858 instance=ExtResource("5_o0cor")]
+position = Vector2(280, -16)
+
+[node name="Death zone" parent="." unique_id=851036262 instance=ExtResource("6_v0olt")]
+position = Vector2(144, 176)

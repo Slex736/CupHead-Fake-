@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://ehiesa0le1xy"]
+[gd_scene format=3 uid="uid://ehiesa0le1xy"]
 
 [ext_resource type="Script" uid="uid://bmxuoioqaftht" path="res://Scripts/playerScript.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://bx5nq7tjjyk4l" path="res://Assets/Sprites/knight.png" id="2_cvnsp"]
@@ -172,24 +172,30 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
 size = Vector2(13, 19)
 
+<<<<<<< HEAD
 [node name="Player" type="CharacterBody2D"]
+=======
+[node name="Player" type="CharacterBody2D" unique_id=1988473973]
+position = Vector2(288, 162)
+>>>>>>> 74e7c948aafbbf1852b71086dbd67f11ce011abc
 collision_mask = 3
 script = ExtResource("1_cvnsp")
+SPEED = 100
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1180692798]
 sprite_frames = SubResource("SpriteFrames_bi64h")
 animation = &"Jump"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1215299374]
 z_index = 5
 position = Vector2(0, 2)
 shape = SubResource("RectangleShape2D_x3wgy")
 
-[node name="JumpSound" type="AudioStreamPlayer2D" parent="."]
+[node name="JumpSound" type="AudioStreamPlayer2D" parent="." unique_id=2024303082]
 stream = ExtResource("3_6t5aa")
 bus = &"SFX"
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=431680767]
 position = Vector2(0, -2)
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true

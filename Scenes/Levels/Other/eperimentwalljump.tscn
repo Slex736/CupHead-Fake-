@@ -1,4 +1,4 @@
-[gd_scene load_steps=0 format=3 uid="uid://q741stm5b186"]
+[gd_scene format=3 uid="uid://q741stm5b186"]
 
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="1_cxd18"]
 [ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="2_ppyjx"]
@@ -207,7 +207,7 @@ layer_0/tile_data = PackedInt32Array(65531, 458752, 0, 65532, 458752, 0, 65533, 
 layer_1/name = "Background"
 
 [node name="Player" parent="." unique_id=1350304989 instance=ExtResource("2_ppyjx")]
-position = Vector2(137, -13)
+position = Vector2(-104, -11)
 
 [node name="Enemies" type="Node2D" parent="." unique_id=788913256]
 
@@ -219,41 +219,36 @@ position = Vector2(20, 0)
 [node name="Clouds" type="Node2D" parent="SpecialBlocks" unique_id=400457192]
 
 [node name="Cloud" parent="SpecialBlocks/Clouds" unique_id=1209624728 instance=ExtResource("4_py7ht")]
-position = Vector2(73, -54)
+visible = false
+position = Vector2(72, -44)
 scale = Vector2(0.5, 0.5)
 
 [node name="Cloud2" parent="SpecialBlocks/Clouds" unique_id=638622094 instance=ExtResource("4_py7ht")]
+visible = false
 position = Vector2(40, -59)
 scale = Vector2(0.5, 0.5)
 
 [node name="Cloud3" parent="SpecialBlocks/Clouds" unique_id=1959786917 instance=ExtResource("4_py7ht")]
+visible = false
 position = Vector2(56, -107)
 scale = Vector2(0.5, 0.5)
 
 [node name="Cloud4" parent="SpecialBlocks/Clouds" unique_id=695443853 instance=ExtResource("4_py7ht")]
+visible = false
 position = Vector2(120, -28)
 scale = Vector2(0.5, 0.5)
 
 [node name="Cloud5" parent="SpecialBlocks/Clouds" unique_id=372680689 instance=ExtResource("4_py7ht")]
+visible = false
 position = Vector2(104, -124)
 scale = Vector2(0.5, 0.5)
-
-[node name="Cloud6" parent="SpecialBlocks/Clouds" unique_id=1351571680 instance=ExtResource("4_py7ht")]
-position = Vector2(82.00001, -74)
-rotation = 3.130427
-scale = Vector2(0.5, 0.5)
-
-[node name="Cloud7" parent="SpecialBlocks/Clouds" unique_id=1567889283 instance=ExtResource("4_py7ht")]
-position = Vector2(-65, -46)
-rotation = 0.78836054
-scale = Vector2(5, 5)
 
 [node name="Doors" type="Node2D" parent="." unique_id=649433875]
 
 [node name="MainLevel" type="Node2D" parent="Doors" unique_id=1770650612]
 
 [node name="MiniLevelDoor" parent="Doors/MainLevel" unique_id=1486081858 instance=ExtResource("5_xxcgi")]
-position = Vector2(216, -16)
+position = Vector2(280, -16)
 
 [node name="Death zone" parent="." unique_id=851036262 instance=ExtResource("6_j735p")]
 position = Vector2(144, 176)
