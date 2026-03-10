@@ -28,31 +28,33 @@ func UnlockNextLevel(CurrentLevel):
 func Level1Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_1.tscn")
 	GameState.current_level = [0, 1]
+	GameState.LatestCheckPointPos = null
 
 
 func Level2Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_2.tscn")
 	GameState.current_level = [0, 2]
-
+	GameState.LatestCheckPointPos = null
 
 func Level3Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_3.tscn")
 	GameState.current_level = [0, 3]
-
+	GameState.LatestCheckPointPos = null
 
 func Level4Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_4.tscn")
 	GameState.current_level = [0, 4]
-
+	GameState.LatestCheckPointPos = null
 
 func Level5Pressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/Levels/Mini/mini_level_5.tscn")
 	GameState.current_level = [0, 5]
-
+	GameState.LatestCheckPointPos = null
 
 func ArrowBackPressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/worlds_interface.tscn")
-
+	GameState.LatestCheckPointPos = null
 
 func HomePressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/start_screen.tscn")
+	GameState.LatestCheckPointPos = null

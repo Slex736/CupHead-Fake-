@@ -12,6 +12,9 @@ var levels = {
 	[0, 5] : "res://Scenes/Levels/Mini/mini_level_5.tscn",
 }
 
+var LatestCheckPointPos = null
+
+
 func _ready() -> void:
 	current_level = get_tree().current_scene.scene_file_path
 
