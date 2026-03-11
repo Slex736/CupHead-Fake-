@@ -8,12 +8,20 @@ var OrbUsable: bool = false
 
 
 @onready var animations: AnimatedSprite2D = $AnimatedSprite2D
-var JUMP_VELOCITY: int = -400
+@export var JUMP_VELOCITY: int = -400
+@export var Direction: String = "up"
 @onready var player: CharacterBody2D = $"../../../Player"
 
 func _process(_delta: float) -> void:
 	if OrbUsable and Input.is_action_just_pressed("Jump"):
-		player.velocity.y = JUMP_VELOCITY
+		if Direction == "up":
+			player.velocity.y = JUMP_VELOCITY
+		elif Direction == "down":
+			player.velocity.y = -JUMP_VELOCITY
+		elif Direction == "right":
+			player.velocity.x = -JUMP_VELOCITY
+		elif Direction == "left":
+			player.velocity.x = JUMP_VELOCITY
 		animations.play("Pressed")
 		animations.animation_finished.connect(IsPressed)
 

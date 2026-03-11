@@ -20,7 +20,7 @@ var InJumpRange:bool = false
 @onready var right: RayCast2D = $Raycasts/Right
 @onready var left: RayCast2D = $Raycasts/Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: CharacterBody2D = $"../../PlayerV2"
+@onready var player: CharacterBody2D = $"../../Player"
 
 
 var ScorpionPos: Vector2

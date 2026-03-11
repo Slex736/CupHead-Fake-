@@ -172,7 +172,16 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3wgy"]
 size = Vector2(13, 19)
 
+<<<<<<< HEAD
 [node name="Player" type="CharacterBody2D"]
+=======
+<<<<<<< HEAD
+[node name="Player" type="CharacterBody2D" unique_id=1988473973]
+position = Vector2(288, 162)
+=======
+[node name="Player" type="CharacterBody2D"]
+>>>>>>> d92677ecac811f61e5a2204f67a297b7176e564e
+>>>>>>> 2ee90f02e71e89862b83c7196e2caa3b21131ee3
 collision_mask = 3
 script = ExtResource("1_cvnsp")
 
