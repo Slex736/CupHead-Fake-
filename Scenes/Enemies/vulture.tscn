@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://b4uo6yvwyoa6n"]
+
+[ext_resource type="Texture2D" uid="uid://6gm7f1ha874u" path="res://Assets/Sprites/VultureV2.png" id="1_mquvn"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxq2x"]
+size = Vector2(15, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7nea"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(0, 0, 16, 24)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_innrg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7nea")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Vulture" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 3)
+shape = SubResource("RectangleShape2D_sxq2x")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_innrg")
