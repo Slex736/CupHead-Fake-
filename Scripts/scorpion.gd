@@ -14,12 +14,13 @@ enum ScorpionStates {
 }
 
 var ScorpionState = ScorpionStates.Idle
+var InJumpRange:bool = false
 
 @onready var down: RayCast2D = $Raycasts/Down
 @onready var right: RayCast2D = $Raycasts/Right
 @onready var left: RayCast2D = $Raycasts/Left
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var player: CharacterBody2D = $"../../Player"
+@onready var player: CharacterBody2D = $"../../PlayerV2"
 
 
 var ScorpionPos: Vector2
@@ -35,7 +36,13 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if ScorpionState == ScorpionStates.Idle or ScorpionState == ScorpionStates.JumpRecharge:
 		global_position.x = global_position.x + (SPEED * delta * direction)
-
+	
+	if InJumpRange == true:
+		if player.global_position.x < global_position.x:
+			direction = -1
+		else:
+			direction = 1
+	
 	elif ScorpionState == ScorpionStates.Jumping:
 		if JumpT == 0:
 			ScorpionPos = global_position
@@ -60,6 +67,8 @@ func _process(delta: float) -> void:
 
 			jump_recharge.timeout.connect(_on_jump_recharge_timeout)
 			jump_recharge.start()
+			
+			animated_sprite_2d.play("walking")
 
 	CheckRaycasts()
 	
@@ -81,8 +90,11 @@ func PlayerEnteredHitBox(body: Node2D) -> void:
 func PlayerEnteredJumpBox(body: Node2D) -> void:
 	if body is CharacterBody2D and ScorpionState == ScorpionStates.Idle:
 		if player.global_position.x < global_position.x:
+			animated_sprite_2d.flip_h = false
+		else:
 			animated_sprite_2d.flip_h = true
 		animated_sprite_2d.play("Jumping")
+		InJumpRange = true
 
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
@@ -91,14 +103,25 @@ func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var r = q0.lerp(q1, t)
 	return r
 
-
+# sprite animation finished --> start physics
 func OnJumpFinished() -> void:
 	if ScorpionState == ScorpionStates.Idle:
 		ScorpionState = ScorpionStates.Jumping
+		
 
 func AddGravity(delta):
 	if not down.is_colliding() and ScorpionState != ScorpionStates.Jumping:
 		global_position.y += GravityAmount * delta
 
 func _on_jump_recharge_timeout() -> void:
-	ScorpionState = ScorpionStates.Idle
+	#  look if player still in jump radius after jump recharge
+	if InJumpRange == false:
+		ScorpionState = ScorpionStates.Idle
+	else:
+		ScorpionState = ScorpionStates.Idle
+		animated_sprite_2d.play("Jumping")
+
+
+func PlayerExitedJumpBox(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		InJumpRange = false

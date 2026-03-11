@@ -1,30 +1,81 @@
-[gd_scene load_steps=5 format=3 uid="uid://b4uo6yvwyoa6n"]
+[gd_scene load_steps=12 format=3 uid="uid://b4uo6yvwyoa6n"]
 
-[ext_resource type="Texture2D" uid="uid://6gm7f1ha874u" path="res://Assets/Sprites/VultureV2.png" id="1_mquvn"]
+[ext_resource type="Texture2D" uid="uid://b3fjniwfk67jk" path="res://Assets/Sprites/Vulture-Flying-sheet.png" id="1_mquvn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxq2x"]
-size = Vector2(15, 18)
+size = Vector2(17, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sxq2x"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y7nea"]
 atlas = ExtResource("1_mquvn")
-region = Rect2(0, 0, 16, 24)
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_innrg"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2g53r"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ll132"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iiir0"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kahfj"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t4xmu"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(224, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_innrg"]
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_sxq2x")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_y7nea")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_innrg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2g53r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ll132")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iiir0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kahfj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t4xmu")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 7.0
 }]
 
 [node name="Vulture" type="Area2D"]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, 3)
+position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_sxq2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_innrg")
+autoplay = "default"
+frame_progress = 0.61341923
