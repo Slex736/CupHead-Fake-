@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="7_du3cn"]
 [ext_resource type="PackedScene" uid="uid://bow3psg0o1k30" path="res://Scenes/Special Blocks/ice_spikes.tscn" id="7_ibrrq"]
 [ext_resource type="PackedScene" uid="uid://crshvn4hegcvt" path="res://Scenes/Special Blocks/ice_hitbox.tscn" id="8_jhe23"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player_v2.tscn" id="9_ekppl"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="9_ekppl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ynuo5"]
 texture = ExtResource("1_3525g")

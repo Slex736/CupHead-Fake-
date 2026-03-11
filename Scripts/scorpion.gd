@@ -54,7 +54,8 @@ func _process(delta: float) -> void:
 		JumpT += delta / JumpDuration
 		JumpT = clamp(JumpT, 0.0, 1.01)
 		
-		global_position = _quadratic_bezier(ScorpionPos, JumpPeak, PlayerPos, JumpT)
+		# apply the quadratic bezier func to interpolate the position of the scorpion
+		global_position = GameState._quadratic_bezier(ScorpionPos, JumpPeak, PlayerPos, JumpT)
 		
 		
 		if JumpT >= 1.0:
@@ -96,12 +97,6 @@ func PlayerEnteredJumpBox(body: Node2D) -> void:
 		animated_sprite_2d.play("Jumping")
 		InJumpRange = true
 
-
-func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
-	var q0 = p0.lerp(p1, t)
-	var q1 = p1.lerp(p2, t)
-	var r = q0.lerp(q1, t)
-	return r
 
 # sprite animation finished --> start physics
 func OnJumpFinished() -> void:

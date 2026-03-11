@@ -18,7 +18,7 @@ var LatestCheckPointPos = null
 func _ready() -> void:
 	current_level = get_tree().current_scene.scene_file_path
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("InGameSettings"):
 		OpenInGameSettings()
 
@@ -38,3 +38,10 @@ func GetCurrentLevel():
 
 func OpenInGameSettings():
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
+
+
+func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
+	var q0 = p0.lerp(p1, t)
+	var q1 = p1.lerp(p2, t)
+	var r = q0.lerp(q1, t)
+	return r
