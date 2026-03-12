@@ -16,7 +16,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 
 config/name="Cuphead"
 run/main_scene="uid://dudh0vdxv58vb"
-config/features=PackedStringArray("4.6", "Forward Plus")
+config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
 
 [audio]
@@ -26,12 +26,7 @@ buses/default_bus_layout="res://Sound/Bus/default_bus_layout.tres"
 [autoload]
 
 GameState="*res://Scripts/GameState.gd"
-UImanager="*res://Scripts/UImanager.gd"
 SoundScript="*res://Scripts/Sound.gd"
-
-[display]
-
-window/size/mode=3
 
 [input]
 
