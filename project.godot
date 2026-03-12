@@ -26,12 +26,7 @@ buses/default_bus_layout="res://Sound/Bus/default_bus_layout.tres"
 [autoload]
 
 GameState="*res://Scripts/GameState.gd"
-UImanager="*res://Scripts/UImanager.gd"
 SoundScript="*res://Scripts/Sound.gd"
-
-[display]
-
-window/size/mode=3
 
 [input]
 

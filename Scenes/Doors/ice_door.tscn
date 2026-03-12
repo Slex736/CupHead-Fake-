@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://bone1auovv22c"]
+
+[ext_resource type="Script" uid="uid://c40f4xfvk63c4" path="res://Scripts/ice_door.gd" id="1_v5ikf"]
+[ext_resource type="Texture2D" uid="uid://b7jt1fw3aj61t" path="res://Assets/Sprites/IceDoor.png" id="2_iktm5"]
+[ext_resource type="FontFile" uid="uid://p2amirlskx3n" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="3_yp88c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nujg3"]
+size = Vector2(64, 64)
+
+[node name="IceDoor" type="Area2D"]
+script = ExtResource("1_v5ikf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_nujg3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_iktm5")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -53.0
+offset_top = -66.0
+offset_right = 55.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_yp88c")
+text = "Press E"
+horizontal_alignment = 1
+
+[connection signal="body_entered" from="." to="." method="PlayerEnteredRange"]
+[connection signal="body_exited" from="." to="." method="PlayerLeavingRange"]

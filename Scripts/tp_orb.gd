@@ -12,7 +12,7 @@ var OrbUsable: bool = false
 
 @export var Destination: Vector2 = Vector2(0, 0)
 @export var Height: int = -100
-@export var Duration: float = 1
+@export var Duration: float 
 
 var JumpPeak: Vector2
 var JumpT: float = 0
