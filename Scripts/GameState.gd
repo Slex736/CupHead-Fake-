@@ -3,6 +3,16 @@ extends Node
 # 0 = normal, 1 = ice
 var FloorType: int = 0
 
+var LatestCheckPointPos = null
+
+# worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
+var WorldUnlocked = {
+	0 : true,
+	1 : false,
+	2 : false,
+	3 : false,
+}
+
 var levels = {
 	[0, 0] : "res://Scenes/Levels/Tutorial/tutorial_level.tscn",
 	[0, 1] : "res://Scenes/Levels/Mini/mini_level_1.tscn",
@@ -10,10 +20,12 @@ var levels = {
 	[0, 3] : "res://Scenes/Levels/Mini/mini_level_3.tscn",
 	[0, 4] : "res://Scenes/Levels/Mini/mini_level_4.tscn",
 	[0, 5] : "res://Scenes/Levels/Mini/mini_level_5.tscn",
+	[2, 1] : "res://Scenes/Levels/Worlds/Ice/lv1Frostyforest.tscn",
+	[2, 2] : "res://Scenes/Levels/Worlds/Ice/lv2Frostycave.tscn",
+	[2, 3] : "res://Scenes/Levels/Worlds/Ice/lv3Forstytunnel.tscn",
+	[2, 4] : "res://Scenes/Levels/Worlds/Ice/lv4Frostycrevasses.tscn",
+	[2, 5] : "res://Scenes/Levels/Worlds/Ice/lv5Frostypeaks.tscn",
 }
-
-var LatestCheckPointPos = null
-
 
 func _ready() -> void:
 	current_level = get_tree().current_scene.scene_file_path
@@ -33,12 +45,11 @@ func mark_level_completed(WorldId: int, LevelId: int) -> void:
 func is_level_completed(WorldId: int, LevelId: int) -> bool:
 	return completed_levels.get([WorldId, LevelId], false)
 
-func GetCurrentLevel():
-	return levels.get(current_level, current_level)
-
 func OpenInGameSettings():
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
 
+func GetCurrentLevel():
+	return levels.get(current_level, current_level)
 
 func _quadratic_bezier(p0: Vector2, p1: Vector2, p2: Vector2, t: float):
 	var q0 = p0.lerp(p1, t)

@@ -10,7 +10,7 @@ func DunesPressed() -> void:
 
 
 func IcePressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/UI/ice_levels_ui.tscn")
 
 
 func NetherPressed() -> void:

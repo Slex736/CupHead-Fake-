@@ -280,7 +280,7 @@ position = Vector2(520, -112)
 position = Vector2(592, -152)
 
 [node name="Cloud3" parent="Special Blocks/Clouds" instance=ExtResource("6_ax6fw")]
-position = Vector2(512, -192)
+position = Vector2(520, -184)
 
 [node name="Cloud4" parent="Special Blocks/Clouds" instance=ExtResource("6_ax6fw")]
 position = Vector2(40, -336)
