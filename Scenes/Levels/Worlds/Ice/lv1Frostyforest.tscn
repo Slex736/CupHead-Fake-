@@ -1,10 +1,10 @@
 [gd_scene load_steps=10 format=3 uid="uid://hl1xgcpk13pc"]
 
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="1_4xmdl"]
-[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="2_meqig"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_meqig"]
+[ext_resource type="PackedScene" uid="uid://bone1auovv22c" path="res://Scenes/Doors/ice_door.tscn" id="3_1uldv"]
 [ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/red_enemy.tscn" id="3_meqig"]
 [ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="3_mkfgb"]
-[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="4_vcmay"]
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="5_andf2"]
 [ext_resource type="PackedScene" uid="uid://crshvn4hegcvt" path="res://Scenes/Special Blocks/ice_hitbox.tscn" id="6_off1d"]
 
@@ -223,8 +223,10 @@ position = Vector2(-17, 35)
 
 [node name="MainLevel" type="Node2D" parent="Doors"]
 
-[node name="MiniLevelDoor" parent="Doors/MainLevel" instance=ExtResource("4_vcmay")]
-position = Vector2(216, -16)
+[node name="IceDoor" parent="Doors/MainLevel" instance=ExtResource("3_1uldv")]
+position = Vector2(270, -32)
+current_level = 1
+current_world = 2
 
 [node name="Death zone" parent="." instance=ExtResource("5_andf2")]
 position = Vector2(127, 211)
