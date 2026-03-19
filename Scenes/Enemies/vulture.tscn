@@ -1,9 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4uo6yvwyoa6n"]
+[gd_scene load_steps=15 format=3 uid="uid://b4uo6yvwyoa6n"]
 
 [ext_resource type="Texture2D" uid="uid://b3fjniwfk67jk" path="res://Assets/Sprites/Vulture-Flying-sheet.png" id="1_mquvn"]
+[ext_resource type="Script" uid="uid://doip1dadot5di" path="res://Scripts/vulture.gd" id="1_sxq2x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxq2x"]
 size = Vector2(17, 10)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mquvn"]
+atlas = ExtResource("1_mquvn")
+region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_sxq2x"]
 atlas = ExtResource("1_mquvn")
@@ -41,6 +46,14 @@ region = Rect2(224, 0, 32, 32)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_mquvn")
+}],
+"loop": true,
+"name": &"Dive",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_sxq2x")
 }, {
 "duration": 1.0,
@@ -69,13 +82,28 @@ animations = [{
 "speed": 7.0
 }]
 
-[node name="Vulture" type="Area2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y7nea"]
+size = Vector2(106, 148)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="Vulture" type="Area2D"]
+z_index = 1
+script = ExtResource("1_sxq2x")
+
+[node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_sxq2x")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_innrg")
+animation = &"Dive"
 autoplay = "default"
-frame_progress = 0.61341923
+
+[node name="DiveHitBox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DiveHitBox"]
+position = Vector2(0, 102)
+shape = SubResource("RectangleShape2D_y7nea")
+debug_color = Color(7.412136e-06, 0.59113985, 0.75014037, 0.41960785)
+
+[connection signal="body_entered" from="." to="." method="PlayerInHitbox"]
+[connection signal="body_entered" from="DiveHitBox" to="." method="PlayerInDiveRange"]

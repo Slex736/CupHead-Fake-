@@ -5,6 +5,9 @@ var FloorType: int = 0
 
 var LatestCheckPointPos = null
 
+# check if its open so when space bar is clicked and is open the level resets
+var InGameSettingOpen: bool = false
+
 # worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
 var WorldUnlocked = {
 	0 : true,
@@ -33,6 +36,10 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("InGameSettings"):
 		OpenInGameSettings()
+	
+	if InGameSettingOpen and Input.is_action_just_pressed("ResetLevel"):
+		get_tree().change_scene_to_file(GetCurrentLevel())
+		InGameSettingOpen = false
 
 
 # worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
@@ -47,6 +54,8 @@ func is_level_completed(WorldId: int, LevelId: int) -> bool:
 
 func OpenInGameSettings():
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ingame_settings.tscn")
+	InGameSettingOpen = true
+	
 
 func GetCurrentLevel():
 	return levels.get(current_level, current_level)

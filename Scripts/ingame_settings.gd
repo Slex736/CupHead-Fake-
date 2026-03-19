@@ -7,6 +7,7 @@ func SoundPressed() -> void:
 
 func RestartPressed() -> void:
 	get_tree().change_scene_to_file(GameState.GetCurrentLevel())
+	GameState.InGameSettingOpen = false
 
 
 func HomePressed() -> void:
