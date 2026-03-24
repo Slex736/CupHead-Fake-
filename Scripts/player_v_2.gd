@@ -46,7 +46,8 @@ func Walk(Speed, Friction, Acceleration, Delta):
 	# get input derection left = -1 and right = 1
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
-		#velocity.x = direction * SPEED
+		# floorype 1= ice
+		# movement like ice because of the func move toward.
 		if GameState.FloorType == 1:
 			velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		elif GameState.FloorType == 0:
