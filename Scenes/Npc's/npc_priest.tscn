@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cxa7mhhn1glb8"]
+[gd_scene load_steps=7 format=3 uid="uid://cxa7mhhn1glb8"]
 
 [ext_resource type="Texture2D" uid="uid://dd2jefmjtorbe" path="res://Assets/Sprites/npc1-sheet.png" id="1_6wr88"]
+[ext_resource type="Script" uid="uid://d2f180ip4yfi" path="res://Scripts/npc_priest.gd" id="1_syiaq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_syiaq"]
-size = Vector2(94, 25)
+size = Vector2(144, 105)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b3t2r"]
 atlas = ExtResource("1_6wr88")
@@ -28,9 +29,10 @@ animations = [{
 }]
 
 [node name="Npc Priest" type="Area2D"]
+script = ExtResource("1_syiaq")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 2.5)
+position = Vector2(0, -37.5)
 shape = SubResource("RectangleShape2D_syiaq")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -38,3 +40,6 @@ sprite_frames = SubResource("SpriteFrames_4ya51")
 animation = &"idle"
 autoplay = "idle"
 frame_progress = 0.072857305
+
+[connection signal="body_entered" from="." to="." method="PlayerEntered"]
+[connection signal="body_exited" from="." to="." method="PlayerExited"]

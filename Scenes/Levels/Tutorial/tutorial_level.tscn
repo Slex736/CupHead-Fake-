@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://b2gm8p7q2tomb"]
+[gd_scene load_steps=9 format=3 uid="uid://b2gm8p7q2tomb"]
 
-[ext_resource type="PackedScene" uid="uid://ehiesa0le1xy" path="res://Scenes/Player/player.tscn" id="1_dbsss"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_dbsss"]
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="4_nw6pe"]
 [ext_resource type="FontFile" uid="uid://bny7e5xl0c57d" path="res://Assets/fonts/PixelOperator8.ttf" id="4_qn7il"]
 [ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_ddnop"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="5_xmq1d"]
+[ext_resource type="PackedScene" uid="uid://cxa7mhhn1glb8" path="res://Scenes/Npc's/npc_priest.tscn" id="6_ddnop"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dbsss"]
 texture = ExtResource("5_xmq1d")
@@ -198,7 +199,6 @@ sources/0 = SubResource("TileSetAtlasSource_dbsss")
 [node name="TutorialLevel" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_dbsss")]
-z_index = 5
 position = Vector2(-104, 0)
 
 [node name="Enemies" type="Node2D" parent="."]
@@ -236,28 +236,12 @@ theme_override_fonts/font = ExtResource("4_qn7il")
 theme_override_font_sizes/font_size = 8
 text = "Use A-D or The arrow keys to walk."
 
-[node name="Label2" type="Label" parent="Labels"]
-offset_left = 144.0
-offset_top = -56.0
-offset_right = 339.0
-offset_bottom = -33.0
-theme_override_fonts/font = ExtResource("4_qn7il")
-theme_override_font_sizes/font_size = 8
-text = "Use Space or Arrow-Up to jump."
-
-[node name="Label3" type="Label" parent="Labels"]
-offset_left = 496.0
-offset_top = -46.0
-offset_right = 615.0
-offset_bottom = -23.0
-size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("4_qn7il")
-theme_override_font_sizes/font_size = 8
-text = "Test your skills."
-
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="MiniLevel" type="Node2D" parent="Doors"]
 
 [node name="MiniLevelDoor" parent="Doors/MiniLevel" instance=ExtResource("5_ddnop")]
 position = Vector2(464, -32)
+
+[node name="Npc Priest" parent="." instance=ExtResource("6_ddnop")]
+position = Vector2(217, 1)
