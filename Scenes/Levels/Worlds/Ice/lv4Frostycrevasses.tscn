@@ -298,4 +298,4 @@ position = Vector2(-454, 84)
 scale = Vector2(3, 3)
 
 [node name="Player" parent="." instance=ExtResource("9_ekppl")]
-position = Vector2(-873, -287)
+position = Vector2(-249, 515)
