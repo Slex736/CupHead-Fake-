@@ -1,0 +1,31 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdqieucn5j2op"]
+
+[ext_resource type="Texture2D" uid="uid://ucg21svl5ugd" path="res://Assets/Sprites/cactus.png" id="1_nbndn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11nw8"]
+radius = 16.0
+height = 64.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1kqk"]
+atlas = ExtResource("1_nbndn")
+region = Rect2(0, 0, 32, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_7ha3i"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1kqk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CactusBoss1" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_11nw8")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(2, -2)
+sprite_frames = SubResource("SpriteFrames_7ha3i")
