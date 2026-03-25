@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cd3klno66er6x"]
+[gd_scene load_steps=24 format=3 uid="uid://w7327xigtuk6"]
 
 [ext_resource type="Texture2D" uid="uid://bc4605t48k80n" path="res://Assets/Sprites/Scorpion.png" id="1_2wcsg"]
 [ext_resource type="Script" uid="uid://bjvsbauq3tsvh" path="res://Scripts/scorpion.gd" id="1_ywrql"]

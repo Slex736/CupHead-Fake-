@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcgoy7u5whcng"]
+[gd_scene load_steps=11 format=3 uid="uid://qhrftdx27x12"]
 
 [ext_resource type="Script" uid="uid://d1geg52l00onx" path="res://Scripts/blue_enemy.gd" id="1_1oe5d"]
 [ext_resource type="Texture2D" uid="uid://js02xi8hlnxx" path="res://Assets/Sprites/BlueCloud-sheet.png" id="2_1oe5d"]

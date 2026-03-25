@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://d005fqiagln27"]
+[gd_scene load_steps=7 format=3 uid="uid://brotupkl8nb0a"]
 
 [ext_resource type="Texture2D" uid="uid://bwnlsxvjsjlsj" path="res://Assets/Sprites/Polar Bear.png" id="1_50qxp"]
 [ext_resource type="Script" uid="uid://bvei6ryifswij" path="res://Scripts/polar_bear.gd" id="1_o5nt7"]
