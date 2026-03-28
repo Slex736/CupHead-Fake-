@@ -17,6 +17,7 @@ var FlyBackAngle
 
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var player: CharacterBody2D = $"../../Player"
+@onready var screech: AudioStreamPlayer2D = $Screech
 
 
 enum VultureStates {
@@ -83,6 +84,8 @@ func PlayerInDiveRange(body: Node2D):
 		DivePos = player.global_position
 		DiveDirection = (DivePos - global_position).normalized()
 		CalcAngle(DiveDirection)
+		
+		screech.play()
 
 func CalcFlyBackUpRoute():
 	var Length = PosA.y - global_position.y

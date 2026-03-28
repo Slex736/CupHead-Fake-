@@ -37,13 +37,7 @@ func _process(delta: float) -> void:
 	if ScorpionState == ScorpionStates.Idle or ScorpionState == ScorpionStates.JumpRecharge:
 		global_position.x = global_position.x + (SPEED * delta * direction)
 	
-	if InJumpRange == true:
-		if player.global_position.x < global_position.x:
-			direction = -1
-		else:
-			direction = 1
-	
-	elif ScorpionState == ScorpionStates.Jumping:
+	if ScorpionState == ScorpionStates.Jumping:
 		if JumpT == 0:
 			ScorpionPos = global_position
 			PlayerPos = player.global_position
@@ -70,6 +64,12 @@ func _process(delta: float) -> void:
 			jump_recharge.start()
 			
 			animated_sprite_2d.play("walking")
+	
+	if InJumpRange == true:
+		if player.global_position.x < global_position.x:
+			direction = -1
+		else:
+			direction = 1
 
 	CheckRaycasts()
 	
