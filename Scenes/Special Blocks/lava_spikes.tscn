@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://cswxdrq0pt1mp"]
+
+[ext_resource type="Texture2D" uid="uid://b546qsld8ndr0" path="res://Assets/Sprites/LavaSpikes.png" id="1_1isss"]
+[ext_resource type="Script" uid="uid://dhkuynf1ikkb0" path="res://Scripts/lava_spikes.gd" id="1_l71wf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l71wf"]
+size = Vector2(14, 8)
+
+[node name="LavaSpikes" type="Area2D"]
+script = ExtResource("1_l71wf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("RectangleShape2D_l71wf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_1isss")
+
+[connection signal="body_entered" from="." to="." method="PlayerEnteredLavaSpikes"]

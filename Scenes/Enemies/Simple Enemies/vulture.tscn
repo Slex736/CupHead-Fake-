@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://cpr6gd4nj2prw"]
+[gd_scene load_steps=15 format=3 uid="uid://b4uo6yvwyoa6n"]
 
 [ext_resource type="Texture2D" uid="uid://b3fjniwfk67jk" path="res://Assets/Sprites/Vulture-Flying-sheet.png" id="1_mquvn"]
 [ext_resource type="Script" uid="uid://doip1dadot5di" path="res://Scripts/vulture.gd" id="1_sxq2x"]

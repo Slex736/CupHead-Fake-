@@ -14,7 +14,7 @@ enum ScorpionStates {
 }
 
 var ScorpionState = ScorpionStates.Idle
-var InJumpRange:bool = false
+var InJumpRange: bool = false
 
 @onready var down: RayCast2D = $Raycasts/Down
 @onready var right: RayCast2D = $Raycasts/Right

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cd7sprpfgbxn3"]
+[gd_scene load_steps=9 format=3 uid="uid://btq8ftr04e5tl"]
 
 [ext_resource type="Script" uid="uid://cl143d4kpv1ro" path="res://Scripts/red_enemy.gd" id="1_geyed"]
 [ext_resource type="Texture2D" uid="uid://b2p6jatfo5dyb" path="res://Assets/Sprites/Slime-sheet.png" id="2_geyed"]
