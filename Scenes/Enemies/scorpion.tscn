@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://w7327xigtuk6"]
+[gd_scene load_steps=24 format=3 uid="uid://c47pcgq0hd3u4"]
 
 [ext_resource type="Texture2D" uid="uid://bc4605t48k80n" path="res://Assets/Sprites/Scorpion.png" id="1_2wcsg"]
 [ext_resource type="Script" uid="uid://bjvsbauq3tsvh" path="res://Scripts/scorpion.gd" id="1_ywrql"]
@@ -142,9 +142,8 @@ script = ExtResource("1_ywrql")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_l2vv1")
-animation = &"walking"
+animation = &"Jumping"
 autoplay = "walking"
-frame_progress = 0.6186852
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(1, -5.5)
