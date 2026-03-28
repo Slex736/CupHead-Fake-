@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dt53tk1rahxvv" path="res://Scripts/ice_spikes.gd" id="1_hvc6p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hvc6p"]
-size = Vector2(15, 10)
+size = Vector2(14, 8)
 
 [node name="Ice Spikes" type="Area2D"]
 script = ExtResource("1_hvc6p")
@@ -14,7 +14,7 @@ position = Vector2(0, -8)
 texture = ExtResource("1_5pwx1")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0.5, -5)
+position = Vector2(0, -4)
 shape = SubResource("RectangleShape2D_hvc6p")
 
 [connection signal="body_entered" from="." to="." method="OnBodyEntered"]

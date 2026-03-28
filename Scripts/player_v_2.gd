@@ -38,7 +38,9 @@ func _physics_process(delta: float) -> void:
 	
 	elif GameState.FloorType == 1:
 		Walk(SPEED, IceFriction, IceAccelaration, delta)
+		
 	
+
 
 
 
