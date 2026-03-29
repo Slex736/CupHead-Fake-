@@ -19,6 +19,7 @@ var FlyBackAngle
 @onready var player: CharacterBody2D = $"../../Player"
 @onready var screech: AudioStreamPlayer2D = $Screech
 
+@onready var HitBoxCollision: CollisionShape2D = $DiveHitBox/CollisionShape2D
 
 enum VultureStates {
 	Fly,
@@ -52,6 +53,7 @@ func _process(delta: float) -> void:
 			VultureState = VultureStates.FlyBackUp
 			CalcFlyBackUpRoute()
 			CalcAngle(FlyBackDirection)
+			HitBoxCollision.disabled = true
 	
 	elif VultureState == VultureStates.FlyBackUp:
 		var distance = global_position.distance_to(FlyBackVector)
@@ -112,3 +114,4 @@ func InverseDirectionX():
 func ResetBird():
 	animated_sprite_2d.flip_v = false
 	animated_sprite_2d.rotation = 0.0
+	HitBoxCollision.disabled = false

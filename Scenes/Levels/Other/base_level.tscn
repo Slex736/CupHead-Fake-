@@ -270,3 +270,5 @@ format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
 layer_1/name = "Background"
+
+[node name="CheckPoints" type="Node2D" parent="."]

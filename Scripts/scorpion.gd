@@ -56,7 +56,7 @@ func _process(delta: float) -> void:
 			JumpT = 0.0
 			ScorpionState = ScorpionStates.JumpRecharge
 			var jump_recharge = Timer.new()
-			jump_recharge.wait_time = 1
+			jump_recharge.wait_time = 0.3
 			jump_recharge.one_shot = true
 			add_child(jump_recharge)
 
