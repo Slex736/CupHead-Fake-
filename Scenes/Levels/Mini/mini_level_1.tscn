@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://dxf24b2vwo7o6"]
+[gd_scene load_steps=9 format=3 uid="uid://dxf24b2vwo7o6"]
 
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="1_f45lg"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_tc104"]
 [ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="3_tc104"]
 [ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="4_yo3xg"]
+[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="6_tc657"]
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="6_wodl0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yo3xg"]
@@ -196,6 +197,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_yo3xg")
 
 [node name="MiniLevel1" type="Node2D"]
+
+[node name="BackgroundTutorial" parent="." instance=ExtResource("6_tc657")]
+position = Vector2(0, -8)
+scale = Vector2(12, 12)
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_rln5w")

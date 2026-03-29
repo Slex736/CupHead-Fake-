@@ -1,7 +1,8 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4uo6yvwyoa6n"]
+[gd_scene load_steps=16 format=3 uid="uid://b4uo6yvwyoa6n"]
 
 [ext_resource type="Texture2D" uid="uid://b3fjniwfk67jk" path="res://Assets/Sprites/Vulture-Flying-sheet.png" id="1_mquvn"]
 [ext_resource type="Script" uid="uid://doip1dadot5di" path="res://Scripts/vulture.gd" id="1_sxq2x"]
+[ext_resource type="AudioStream" uid="uid://drs2dlcqbsjdj" path="res://Sound/sounds/eaglescreech.wav" id="3_l2yao"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxq2x"]
 size = Vector2(17, 10)
@@ -104,6 +105,9 @@ autoplay = "default"
 position = Vector2(0, 102)
 shape = SubResource("RectangleShape2D_y7nea")
 debug_color = Color(7.412136e-06, 0.59113985, 0.75014037, 0.41960785)
+
+[node name="Screech" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_l2yao")
 
 [connection signal="body_entered" from="." to="." method="PlayerInHitbox"]
 [connection signal="body_entered" from="DiveHitBox" to="." method="PlayerInDiveRange"]

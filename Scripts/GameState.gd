@@ -8,6 +8,11 @@ var LatestCheckPointPos = null
 # check if its open so when space bar is clicked and is open the level resets
 var InGameSettingOpen: bool = false
 
+
+# store if dash has been unlocked
+var DashUnlocked: bool = true
+
+
 # worlds 0 = tutorial, 1 = dune, 2 = ice, 3 = nether  
 var WorldUnlocked = {
 	0 : true,
