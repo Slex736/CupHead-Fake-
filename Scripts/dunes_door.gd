@@ -8,10 +8,7 @@ enum States {Idle, PlayerInRange, Opened}
 var DoorState: States = States.Idle
 
 @export var current_level: int
-@export var current_world: int
-
-func _ready() -> void:
-	label.text = "Press E to enter"
+@export var current_world: int = 1
 
 func _process(_delta: float) -> void:
 	if DoorState == States.Idle:
@@ -30,14 +27,12 @@ func MakeLabelInvisible():
 	label.visible = false
 
 func LevelComplete():
-	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/tutorial_levels_ui.tscn")
 	GameState.mark_level_completed(current_world, current_level)
 	if current_level == 5:
-		GameState.WorldUnlocked[1] = true
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/dunes_levels_ui.tscn")
+		GameState.WorldUnlocked[2] = true
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ice_levels_ui.tscn")
 	else:
-		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/tutorial_levels_ui.tscn")
-
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/dunes_levels_ui.tscn")
 
 func PlayerEnteredRange(body: Node2D) -> void:
 	if body is CharacterBody2D:

@@ -1,13 +1,35 @@
-[gd_scene load_steps=8 format=3 uid="uid://bkktyt2gl1y4i"]
+[gd_scene load_steps=13 format=3 uid="uid://ctaf3td4qvv6x"]
 
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6u0co"]
-[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_el1oa"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_r3f5w"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_el1oa"]
-[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="4_r3f5w"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_yk5ge"]
+[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_et8kj"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_wq78u"]
+[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_i3s3p"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_1yu42"]
+[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_wq78u"]
+[ext_resource type="PackedScene" uid="uid://b4uo6yvwyoa6n" path="res://Scenes/Enemies/Simple Enemies/vulture.tscn" id="6_i3s3p"]
+[ext_resource type="PackedScene" uid="uid://c47pcgq0hd3u4" path="res://Scenes/Enemies/scorpion.tscn" id="7_1yu42"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kiidi"]
-texture = ExtResource("3_el1oa")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et8kj"]
+texture = ExtResource("3_i3s3p")
+0:0/animation_columns = 8
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/animation_frame_6/duration = 0.2
+0:0/animation_frame_7/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_rwbov"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_et8kj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3nupb"]
+texture = ExtResource("4_1yu42")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -209,14 +231,13 @@ texture = ExtResource("3_el1oa")
 14:0/0 = 0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.755479, 8, -8, 8, -1.4388695, -8, 0.17985916)
 
-[sub_resource type="TileSet" id="TileSet_3rgyl"]
+[sub_resource type="TileSet" id="TileSet_v1e7d"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_kiidi")
+sources/0 = SubResource("TileSetAtlasSource_3nupb")
 
-[node name="lv1Dunes" type="Node2D"]
-metadata/_edit_vertical_guides_ = [288.0]
+[node name="lv5Dunes" type="Node2D"]
 
-[node name="Death zone" parent="." instance=ExtResource("1_6u0co")]
+[node name="Death zone" parent="." instance=ExtResource("1_yk5ge")]
 position = Vector2(24, 264)
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -235,23 +256,53 @@ position = Vector2(24, 264)
 
 [node name="Ice Hitboxes" type="Node2D" parent="Special Blocks"]
 
+[node name="LavaSpikes" type="Node2D" parent="Special Blocks"]
+
+[node name="TpOrbs" type="Node2D" parent="Special Blocks"]
+
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="DunesDoor" parent="Doors" instance=ExtResource("2_el1oa")]
-position = Vector2(489, -216)
-current_level = 1
+[node name="DunesDoor" parent="Doors" instance=ExtResource("2_et8kj")]
+position = Vector2(-232, -296)
+current_level = 5
 
-[node name="Player" parent="." instance=ExtResource("2_r3f5w")]
+[node name="Player" parent="." instance=ExtResource("2_wq78u")]
+position = Vector2(16, 0)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Scorpion" parent="Enemies" instance=ExtResource("4_r3f5w")]
-position = Vector2(434, -79)
+[node name="Scorpion" parent="Enemies" instance=ExtResource("5_wq78u")]
+position = Vector2(201, 1)
+
+[node name="Vulture" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(389, -262)
+PosA = Vector2(366, -271)
+PosB = Vector2(62, -271)
+
+[node name="Vulture2" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(265, -270)
+PosA = Vector2(265, -271)
+PosB = Vector2(22, -271)
+
+[node name="Vulture3" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(158, -251)
+PosA = Vector2(220, -271)
+PosB = Vector2(0, -271)
+
+[node name="Scorpion2" parent="Enemies" instance=ExtResource("7_1yu42")]
+position = Vector2(249, -111)
+
+[node name="LavaTilemap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_rwbov")
+format = 2
 
 [node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_3rgyl")
+position = Vector2(-1, 0)
+tile_set = SubResource("TileSet_v1e7d")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131068, 131072, 0, 131069, 131072, 0, 131070, 131072, 0, 131071, 131072, 2, 65536, 131072, 0, 65537, 131072, 0, 65538, 131072, 0, 65539, 131072, 2, 65540, 131072, 0, 196604, 196608, 0, 196605, 131072, 1, 196606, 131072, 1, 196607, 131072, 1, 131072, 131072, 1, 131073, 131072, 1, 131074, 131072, 1, 131075, 196608, 1, 131076, 131072, 1, 196612, 131072, 1, 196611, 131072, 1, 196610, 196608, 0, 196609, 131072, 1, 196608, 131072, 1, 262143, 131072, 1, 262142, 196608, 1, 262141, 131072, 1, 262140, 131072, 1, 65533, 458752, 6, 65545, 131072, 0, 65546, 131072, 0, -131063, 131072, 0, -131062, 131072, 0, 131081, 196608, 0, 131082, 131072, 1, -262131, 131072, 0, -262130, 131072, 0, -196595, 131072, 1, -196594, 196608, 1, -327666, 327680, 5, -393202, 327680, 4, -458738, 327680, 3, -262125, 131072, 0, -262124, 131072, 0, -262123, 131072, 0, -262122, 131072, 0, -262121, 131072, 0, -262120, 131072, 0, -262119, 131072, 0, -262118, 131072, 0, -262117, 131072, 0, -196589, 131072, 1, -196588, 131072, 1, -196587, 131072, 1, -196586, 131072, 1, -196585, 131072, 1, -196584, 131072, 1, -196583, 131072, 1, -196582, 131072, 1, -196581, 131072, 1, -327662, 131072, 0, -327652, 131072, 0, -262116, 131072, 1, -196580, 131072, 1, -262126, 131072, 1, -196590, 131072, 1, -393184, 131072, 0, -393183, 131072, 0, -327648, 131072, 1, -327647, 196608, 1, -458720, 524288, 6, -393182, 786432, 1, -393181, 851968, 1, -393180, 917504, 1, -393179, 131072, 0, -393178, 131072, 0, -327643, 196608, 1, -327642, 131072, 1, -458715, 589824, 4, -458710, 131072, 2, -458709, 131072, 2, -393174, 196608, 0, -393173, 131072, 1, -655318, 196608, 1, -655317, 131072, 0, -720854, 131072, 0, -720857, 851968, 1, -720856, 851968, 1, -720855, 917504, 1, -786390, 65536, 7, -524245, 262144, 8, -720858, 786432, 1, -720859, 131072, 2, -720860, 131072, 0, -655323, 131072, 1, -655324, 196608, 0, -917468, 327680, 3, -851932, 327680, 4, -786396, 327680, 5, -786400, 131072, 0, -786399, 131072, 0, -720863, 131072, 1, -720864, 131072, 1, -720865, 131072, 1, -720866, 131072, 1, -720867, 131072, 1, -786403, 131072, 0, -786404, 131072, 0, -720868, 131072, 1, -786402, 131072, 0, -786401, 131072, 0)
+layer_0/tile_data = PackedInt32Array(131070, 131072, 0, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 2, 65538, 131072, 0, 196606, 196608, 0, 196607, 131072, 1, 131072, 131072, 1, 131073, 131072, 1, 131074, 131072, 1, 196609, 196608, 1, 196608, 131072, 1, 262143, 131072, 1, 65544, 131072, 0, 65545, 196608, 1, 65546, 131072, 0, 65547, 131072, 2, 65548, 131072, 0, 131080, 196608, 0, 131081, 131072, 1, 131082, 131072, 1, 131083, 131072, 1, 131084, 131072, 1, 196617, 131072, 1, 196618, 196608, 1, 196619, 131072, 1, 65553, 131072, 0, 65554, 131072, 0, 65555, 131072, 0, 131089, 196608, 0, 131090, 131072, 1, 131091, 196608, 1, 20, 131072, 0, 65556, 131072, 1, 131092, 131072, 1, 9, 131072, 2, -196588, 196608, 1, 65549, 131072, 0, 65550, 131072, 0, 65551, 131072, 0, 65552, 131072, 0, 131085, 196608, 1, 131086, 131072, 1, 131087, 131072, 1, 131088, 131072, 1, 196620, 131072, 1, 196621, 131072, 1, 196622, 131072, 1, 196623, 196608, 1, 196624, 131072, 1, 196625, 131072, 1, 196626, 131072, 1, 196627, 131072, 1, -393196, 196608, 1, -393200, 131072, 0, -393201, 131072, 0, -393202, 131072, 0, -327666, 131072, 1, -327665, 131072, 1, -327664, 196608, 1, -393206, 131072, 0, -393205, 131072, 0, -393204, 131072, 0, -393203, 131072, 0, -393207, 131072, 0, -393208, 131072, 0, -393209, 131072, 0, -393210, 131072, 0, -393211, 131072, 0, -327675, 131072, 1, -327674, 196608, 0, -327673, 131072, 1, -327672, 131072, 1, -327671, 196608, 1, -524286, 131072, 0, -524285, 131072, 0, -458749, 131072, 1, -458750, 196608, 0, -458735, 131072, 0, -393199, 131072, 1, -327663, 196608, 1, -393212, 131072, 0, -327676, 196608, 1, -327670, 131072, 1, -327669, 131072, 1, -327668, 196608, 1, -327667, 131072, 1, -458756, 131072, 0, -458757, 131072, 0, -393221, 131072, 1, -393220, 196608, 1, -655365, 131072, 0, -655364, 131072, 0, -851973, 131072, 0, -851972, 131072, 0, -1048582, 131072, 0, -1048581, 131072, 0, -1048580, 131072, 0, -1048588, 131072, 0, -1048589, 131072, 0, -1048590, 131072, 0, -1048591, 131072, 0, -983055, 196608, 1, -983054, 131072, 1, -983053, 131072, 1, -983052, 131072, 1, -983056, 131072, 1, -1048592, 131072, 0, -917519, 131072, 1, -917518, 131072, 1, -917517, 196608, 1, -1245196, 327680, 3, -1179660, 327680, 4, -1114124, 327680, 5, -917508, 327680, 8, -1114118, 458752, 6, -458747, 327680, 8, -262124, 262144, 8, 18, 524288, 6, 65535, 589824, 3)
 layer_1/name = "Background"
+
+[node name="CheckPoints" type="Node2D" parent="."]

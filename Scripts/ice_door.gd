@@ -8,7 +8,7 @@ enum States {Idle, PlayerInRange, Opened}
 var DoorState: States = States.Idle
 
 @export var current_level: int
-@export var current_world: int
+@export var current_world: int = 2
 
 func _process(_delta: float) -> void:
 	if DoorState == States.Idle:
@@ -29,6 +29,8 @@ func MakeLabelInvisible():
 func LevelComplete():
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ice_levels_ui.tscn")
 	GameState.mark_level_completed(current_world, current_level)
+	if current_level == 5:
+		GameState.WorldUnlocked[3] = true
 
 func PlayerEnteredRange(body: Node2D) -> void:
 	if body is CharacterBody2D:

@@ -6,7 +6,7 @@ func TutorialPressed() -> void:
 
 
 func DunesPressed() -> void:
-	pass # Replace with function body.
+	get_tree().change_scene_to_file("res://Scenes/UI/dunes_levels_ui.tscn")
 
 
 func IcePressed() -> void:
