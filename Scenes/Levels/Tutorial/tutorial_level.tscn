@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://b2gm8p7q2tomb"]
+[gd_scene load_steps=10 format=3 uid="uid://b2gm8p7q2tomb"]
 
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_dbsss"]
+[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="1_xtent"]
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="4_nw6pe"]
 [ext_resource type="FontFile" uid="uid://bny7e5xl0c57d" path="res://Assets/fonts/PixelOperator8.ttf" id="4_qn7il"]
 [ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_ddnop"]
@@ -197,6 +198,10 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_dbsss")
 
 [node name="TutorialLevel" type="Node2D"]
+
+[node name="BackgroundTutorial" parent="." instance=ExtResource("1_xtent")]
+position = Vector2(0, -8)
+scale = Vector2(14, 14)
 
 [node name="Player" parent="." instance=ExtResource("1_dbsss")]
 position = Vector2(-104, 0)

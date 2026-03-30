@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://clkxh84xdx2up"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_c0av8"]
-[ext_resource type="PackedScene" uid="uid://b4uo6yvwyoa6n" path="res://Scenes/Enemies/vulture.tscn" id="2_c0av8"]
+[ext_resource type="PackedScene" uid="uid://b4uo6yvwyoa6n" path="res://Scenes/Enemies/Simple Enemies/vulture.tscn" id="2_c0av8"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_vm7s0"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="4_c0av8"]
 [ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="5_wplmi"]
@@ -198,7 +198,8 @@ sources/0 = SubResource("TileSetAtlasSource_v751s")
 [node name="TestLevel" type="Node2D"]
 
 [node name="BackgroundTutorial" parent="." instance=ExtResource("5_wplmi")]
-position = Vector2(0, -10)
+position = Vector2(0, -8)
+scale = Vector2(12, 12)
 
 [node name="Death zone" parent="." instance=ExtResource("1_c0av8")]
 position = Vector2(24, 264)
@@ -239,4 +240,4 @@ layer_0/tile_data = PackedInt32Array(-589779, 262144, 4, -589781, 131072, 4, 655
 layer_1/name = "Background"
 
 [node name="Player" parent="." instance=ExtResource("4_c0av8")]
-position = Vector2(416, -16)
+position = Vector2(265, -80)

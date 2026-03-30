@@ -13,8 +13,12 @@ const IceFriction = 20
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
+@onready var cayotte_timer: Timer = $CayotteTimer
 
 var platform_velocity := Vector2.ZERO
+
+var CanJump: bool = false
+var WasOnFloor: bool = true
 
 func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
@@ -25,12 +29,20 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta
 		animated_sprite.play("Jump")
+		if WasOnFloor:
+			cayotte_timer.start()
+		WasOnFloor = false
 	
+	if is_on_floor():
+		CanJump = true
+		WasOnFloor = true
 	
-	# Handle jump.
-	if Input.is_action_just_pressed("Jump") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
-		jump_sound.play()
+	if CanJump:
+		# Handle jump.
+		if Input.is_action_just_pressed("Jump"):
+			velocity.y = JUMP_VELOCITY
+			jump_sound.play()
+			CanJump = false
 		
 	# check if floortype is normal block and apply normal physics
 	if GameState.FloorType == 0:
@@ -38,9 +50,7 @@ func _physics_process(delta: float) -> void:
 	
 	elif GameState.FloorType == 1:
 		Walk(SPEED, IceFriction, IceAccelaration, delta)
-		
 	
-
 
 
 
@@ -48,8 +58,7 @@ func Walk(Speed, Friction, Acceleration, Delta):
 	# get input derection left = -1 and right = 1
 	var direction := Input.get_axis("Left", "Right")
 	if direction == 1:
-		# floorype 1= ice
-		# movement like ice because of the func move toward.
+		#velocity.x = direction * SPEED
 		if GameState.FloorType == 1:
 			velocity.x = move_toward(velocity.x, direction * Speed, Acceleration * Delta)
 		elif GameState.FloorType == 0:
@@ -70,3 +79,7 @@ func Walk(Speed, Friction, Acceleration, Delta):
 		animated_sprite.play("Walking") 
 		
 	move_and_slide()
+
+
+func _on_cayotte_timer_timeout() -> void:
+	CanJump = false
