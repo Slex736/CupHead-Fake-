@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cdvba8bskx0w4"]
+[gd_scene load_steps=7 format=3 uid="uid://bkktyt2gl1y4i"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6u0co"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_r3f5w"]
@@ -213,6 +213,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kiidi")
 
 [node name="lv1Dunes" type="Node2D"]
+metadata/_edit_vertical_guides_ = [288.0]
 
 [node name="Death zone" parent="." instance=ExtResource("1_6u0co")]
 position = Vector2(24, 264)

@@ -1,10 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://fhyhny2o72jy"]
+[gd_scene load_steps=10 format=3 uid="uid://cir7cfxiyppy2"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_giwg2"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_42fgp"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_3c6ub"]
 [ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="4_gcy2e"]
-[ext_resource type="PackedScene" uid="uid://bmu84xdfrj1ey" path="res://Scenes/Enemies/vulture.tscn" id="5_hhk4r"]
+[ext_resource type="PackedScene" uid="uid://cpr6gd4nj2prw" path="res://Scenes/Enemies/vulture.tscn" id="5_hhk4r"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xno3n"]
 texture = ExtResource("4_gcy2e")

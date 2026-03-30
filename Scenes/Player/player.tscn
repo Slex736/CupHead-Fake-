@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cu7wu3waybj3o" path="res://Scripts/player_v_2.gd" id="1_bw01b"]
 [ext_resource type="Texture2D" uid="uid://bx5nq7tjjyk4l" path="res://Assets/Sprites/knight.png" id="1_sn5cf"]
-[ext_resource type="Script" uid="uid://bobwlo3cfxmni" path="res://Scripts/hitbox_player.gd" id="3_xpcdj"]
+[ext_resource type="Script" path="res://Scripts/hitbox_player.gd" id="3_xpcdj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_al0t6"]
 size = Vector2(12, 19)
@@ -204,4 +204,9 @@ position = Vector2(0, 1)
 shape = SubResource("RectangleShape2D_a3d8c")
 debug_color = Color(0.9228008, 5.0248505e-05, 0.68806285, 0.41960785)
 
+[node name="CayotteTimer" type="Timer" parent="."]
+wait_time = 0.15
+one_shot = true
+
 [connection signal="body_entered" from="Hitbox" to="Hitbox" method="PlayerEnteredLava"]
+[connection signal="timeout" from="CayotteTimer" to="." method="_on_cayotte_timer_timeout"]
