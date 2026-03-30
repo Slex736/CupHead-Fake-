@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=3 uid="uid://bkktyt2gl1y4i"]
+[gd_scene load_steps=8 format=3 uid="uid://bkktyt2gl1y4i"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6u0co"]
+[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_el1oa"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_r3f5w"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_el1oa"]
 [ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="4_r3f5w"]
@@ -235,6 +236,10 @@ position = Vector2(24, 264)
 [node name="Ice Hitboxes" type="Node2D" parent="Special Blocks"]
 
 [node name="Doors" type="Node2D" parent="."]
+
+[node name="DunesDoor" parent="Doors" instance=ExtResource("2_el1oa")]
+position = Vector2(489, -216)
+current_level = 1
 
 [node name="Player" parent="." instance=ExtResource("2_r3f5w")]
 
