@@ -1,12 +1,12 @@
 extends CharacterBody2D
 
+@export var GodMode: bool = false
+
 
 const SPEED = 105
 const JUMP_VELOCITY = -330.0
 
-@export var DashTime := 0.15
-var DashTimer := 0.0
-var DashSpeed = 300
+var DashSpeed = 220
 var DashDirection := Vector2(0 , 0)  
 
 const NormalAcceleration = 500
@@ -18,6 +18,8 @@ const IceFriction = 20
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var jump_sound: AudioStreamPlayer2D = $JumpSound
 @onready var cayotte_timer: Timer = $CayotteTimer
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 
 var platform_velocity := Vector2.ZERO
 
@@ -34,7 +36,7 @@ var PLayerState = PLayerStates.Walking
 func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
 		global_position = GameState.LatestCheckPointPos
-
+	GameState.CanDash = true
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -49,7 +51,7 @@ func _physics_process(delta: float) -> void:
 		CanJump = true
 		WasOnFloor = true
 	
-	if CanJump == false and Input.is_action_just_pressed("Dash"):
+	if CanJump == false and Input.is_action_just_pressed("Dash") and GameState.CanDash:
 		PLayerState = PLayerStates.Dashing
 		Dash()
 		
@@ -67,6 +69,8 @@ func _physics_process(delta: float) -> void:
 		
 		elif GameState.FloorType == 1:
 			Walk(SPEED, IceFriction, IceAccelaration, delta)
+	
+
 
 	move_and_slide()
 
@@ -110,10 +114,23 @@ func Dash():
 	
 	animated_sprite.play("Dash")
 	
-	DashTimer = DashTime
+
 	velocity = DashDirection * DashSpeed
+	
+	collision_shape_2d.position.y = 3.0
+	collision_shape_2d.scale.y = 0.5
+	
+	if GodMode == false:
+		dash_cooldown_timer.start()
+		GameState.CanDash = false
+	
 
 func DashAnimationFinished():
 	if animated_sprite.animation == "Dash":
 		PLayerState = PLayerStates.Walking
-	
+		collision_shape_2d.position.y = 1.5
+		collision_shape_2d.scale.y = 1.0
+
+
+func DashCooldownTimeout() -> void:
+	GameState.CanDash = true

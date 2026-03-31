@@ -40,6 +40,10 @@ var levels = {
 	[2, 5] : "res://Scenes/Levels/Worlds/Ice/lv5Frostypeaks.tscn",
 }
 
+# candash aplies  to the cooldown timer and unlocked dash means that the player completed ice levels
+var CanDash: bool = true
+var UnlockedDash: bool = false
+
 func _ready() -> void:
 	current_level = get_tree().current_scene.scene_file_path
 
