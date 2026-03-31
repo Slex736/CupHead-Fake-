@@ -1,13 +1,13 @@
 [gd_scene load_steps=13 format=3 uid="uid://ctaf3td4qvv6x"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_yk5ge"]
-[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_et8kj"]
+[ext_resource type="PackedScene" path="res://Scenes/Doors/dunes_door.tscn" id="2_et8kj"]
 [ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_wq78u"]
 [ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_i3s3p"]
 [ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_1yu42"]
 [ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_wq78u"]
 [ext_resource type="PackedScene" uid="uid://b4uo6yvwyoa6n" path="res://Scenes/Enemies/Simple Enemies/vulture.tscn" id="6_i3s3p"]
-[ext_resource type="PackedScene" uid="uid://c47pcgq0hd3u4" path="res://Scenes/Enemies/scorpion.tscn" id="7_1yu42"]
+[ext_resource type="PackedScene" uid="uid://w7327xigtuk6" path="res://Scenes/Enemies/scorpion.tscn" id="7_1yu42"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et8kj"]
 texture = ExtResource("3_i3s3p")
@@ -267,7 +267,7 @@ position = Vector2(-232, -296)
 current_level = 5
 
 [node name="Player" parent="." instance=ExtResource("2_wq78u")]
-position = Vector2(16, 0)
+position = Vector2(19, 4)
 
 [node name="Enemies" type="Node2D" parent="."]
 

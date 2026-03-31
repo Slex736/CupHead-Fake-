@@ -1,17 +1,31 @@
-[gd_scene load_steps=14 format=3 uid="uid://deb57ixtyoja6"]
+[gd_scene load_steps=9 format=3 uid="uid://bi48lq1xu87uo"]
 
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_p1xrb"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_awhw2"]
-[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_5nlwu"]
-[ext_resource type="PackedScene" uid="uid://yx0osdjqjcrq" path="res://Scenes/Special Blocks/jump_orb.tscn" id="3_26rht"]
-[ext_resource type="PackedScene" uid="uid://cpr6gd4nj2prw" path="res://Scenes/Enemies/vulture.tscn" id="4_5nlwu"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_26rht"]
-[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_b8qfn"]
-[ext_resource type="PackedScene" path="res://Scenes/Doors/dunes_door.tscn" id="5_xn2ae"]
-[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="7_26rht"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_dpblb"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_eutkw"]
+[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_fypqe"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_qjlax"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_am141"]
-texture = ExtResource("4_26rht")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u2674"]
+texture = ExtResource("3_fypqe")
+0:0/animation_columns = 8
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/animation_frame_6/duration = 0.2
+0:0/animation_frame_7/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_s54nx"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_u2674")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aa8d6"]
+texture = ExtResource("4_qjlax")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -213,40 +227,13 @@ texture = ExtResource("4_26rht")
 14:0/0 = 0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.755479, 8, -8, 8, -1.4388695, -8, 0.17985916)
 
-[sub_resource type="TileSet" id="TileSet_eah2a"]
+[sub_resource type="TileSet" id="TileSet_c1pys"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_am141")
+sources/0 = SubResource("TileSetAtlasSource_aa8d6")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xn2ae"]
-texture = ExtResource("3_5nlwu")
-0:0/animation_columns = 8
-0:0/animation_frame_0/duration = 0.2
-0:0/animation_frame_1/duration = 0.2
-0:0/animation_frame_2/duration = 0.2
-0:0/animation_frame_3/duration = 0.2
-0:0/animation_frame_4/duration = 0.2
-0:0/animation_frame_5/duration = 0.2
-0:0/animation_frame_6/duration = 0.2
-0:0/animation_frame_7/duration = 0.2
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+[node name="lv1Nether" type="Node2D"]
 
-[sub_resource type="TileSet" id="TileSet_qtwoe"]
-physics_layer_0/collision_layer = 128
-physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_xn2ae")
-
-[node name="lv4Dunes" type="Node2D"]
-
-[node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_eah2a")
-format = 2
-layer_0/name = "Frontground"
-layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131069, 131072, 0, 131070, 131072, 2, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 0, 65538, 131072, 0, 196605, 131072, 1, 196606, 131072, 1, 196607, 131072, 1, 131072, 131072, 1, 131073, 196608, 0, 131074, 131072, 1, 196609, 131072, 1, 196608, 131072, 1, 262143, 196608, 1, 262142, 131072, 1, 131079, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 196618, 131072, 0, 196619, 131072, 0, 196620, 131072, 2, 196621, 131072, 0, 196622, 131072, 0, 131087, 131072, 0, 262153, 196608, 1, 196615, 131072, 1, 262151, 131072, 1, 262152, 131072, 1, 262154, 131072, 1, 262155, 131072, 1, 262156, 131072, 1, 262157, 131072, 1, 262158, 131072, 1, 196623, 196608, 1, 262159, 131072, 1, 65555, 131072, 0, 65556, 131072, 0, 131091, 196608, 1, 131092, 131072, 1, -131052, 131072, 0, -131053, 131072, 2, -196585, 131072, 0, -196584, 131072, 2, -131049, 196608, 1, -131048, 131072, 1, -589810, 131072, 2, -589811, 131072, 0, -524275, 131072, 1, -524274, 196608, 0, -524276, 131072, 1, -524277, 131072, 1, -524278, 131072, 1, -458741, 196608, 1, -458740, 131072, 1, -458739, 131072, 1, -589814, 131072, 0, -589813, 131072, 0, -589812, 131072, 0, -786421, 327680, 3, -720885, 327680, 4, -655349, 327680, 5, 65534, 524288, 6, 131082, 524288, 3, 20, 589824, 4, -196589, 327680, 6, -262120, 65536, 7, -589820, 131072, 0, -589821, 131072, 0, -589822, 131072, 2, -524286, 131072, 1, -524285, 196608, 0, -524284, 131072, 1, -458749, 131072, 1, -458750, 196608, 1, -524287, 131072, 1, -589823, 131072, 0, -655358, 262144, 8, -589826, 131072, 0, -589827, 131072, 0, -524291, 196608, 1, -524290, 131072, 1, -786435, 131072, 0, -786434, 131072, 2, -589840, 131072, 0, -589839, 131072, 0, -589838, 131072, 0, -589837, 131072, 0, -589841, 131072, 0, -589842, 131072, 0, -524306, 131072, 1, -524305, 131072, 1, -524304, 131072, 1, -524303, 131072, 1, -524302, 196608, 0, -524301, 131072, 1, -458769, 196608, 1, -458768, 131072, 1, -458767, 131072, 1, -458766, 131072, 1)
-layer_1/name = "Background"
-
-[node name="Death zone" parent="." instance=ExtResource("1_p1xrb")]
+[node name="Death zone" parent="." instance=ExtResource("1_dpblb")]
 position = Vector2(24, 264)
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -259,20 +246,7 @@ position = Vector2(24, 264)
 
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
 
-[node name="Cloud" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(320, -80)
-
-[node name="Cloud2" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(384, -112)
-
-[node name="Cloud3" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(320, -144)
-
 [node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
-
-[node name="JumpOrb" parent="Special Blocks/Jump Orbs" instance=ExtResource("3_26rht")]
-position = Vector2(-126, -193)
-scale = Vector2(1, 1)
 
 [node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
 
@@ -282,30 +256,20 @@ scale = Vector2(1, 1)
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="DunesDoor" parent="Doors" instance=ExtResource("5_xn2ae")]
-position = Vector2(-248, -184)
-current_level = 4
-
-[node name="Player" parent="." instance=ExtResource("2_awhw2")]
-position = Vector2(6, 4)
+[node name="Player" parent="." instance=ExtResource("2_eutkw")]
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Scorpion" parent="Enemies" instance=ExtResource("5_b8qfn")]
-position = Vector2(156, 30)
-
-[node name="Vulture" parent="Enemies" instance=ExtResource("4_5nlwu")]
-position = Vector2(493, -256)
-PosA = Vector2(488, -256)
-PosB = Vector2(264, -256)
-
-[node name="Vulture3" parent="Enemies" instance=ExtResource("4_5nlwu")]
-position = Vector2(296, -320)
-PosA = Vector2(296, -320)
-PosB = Vector2(-16, -320)
-
 [node name="LavaTilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_qtwoe")
+tile_set = SubResource("TileSet_s54nx")
 format = 2
+
+[node name="Tilemap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_c1pys")
+format = 2
+layer_0/name = "Frontground"
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(131070, 589824, 0, 131071, 589824, 0, 65536, 589824, 0, 65537, 589824, 0)
+layer_1/name = "Background"
 
 [node name="CheckPoints" type="Node2D" parent="."]

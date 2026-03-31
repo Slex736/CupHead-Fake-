@@ -20,6 +20,13 @@ var platform_velocity := Vector2.ZERO
 var CanJump: bool = false
 var WasOnFloor: bool = true
 
+enum PLayerStates {
+	Walking,
+	Dashing
+}
+
+var PLayerState = PLayerStates.Walking
+
 func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
 		global_position = GameState.LatestCheckPointPos
@@ -37,19 +44,23 @@ func _physics_process(delta: float) -> void:
 		CanJump = true
 		WasOnFloor = true
 	
+	if CanJump and Input.is_action_just_pressed("Dash"):
+		Dash()
+		PLayerState = PLayerStates.Dashing
+		
 	if CanJump:
 		# Handle jump.
 		if Input.is_action_just_pressed("Jump"):
 			velocity.y = JUMP_VELOCITY
 			jump_sound.play()
 			CanJump = false
+	if PLayerState != PLayerState.Dashing:
+		# check if floortype is normal block and apply normal physics
+		if GameState.FloorType == 0:
+			Walk(SPEED, NormalFriction, NormalAcceleration, delta)
 		
-	# check if floortype is normal block and apply normal physics
-	if GameState.FloorType == 0:
-		Walk(SPEED, NormalFriction, NormalAcceleration, delta)
-	
-	elif GameState.FloorType == 1:
-		Walk(SPEED, IceFriction, IceAccelaration, delta)
+		elif GameState.FloorType == 1:
+			Walk(SPEED, IceFriction, IceAccelaration, delta)
 	
 
 
@@ -83,3 +94,6 @@ func Walk(Speed, Friction, Acceleration, Delta):
 
 func _on_cayotte_timer_timeout() -> void:
 	CanJump = false
+
+func Dash():
+	velocity.x = 500
