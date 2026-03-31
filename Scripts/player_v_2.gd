@@ -4,6 +4,10 @@ extends CharacterBody2D
 const SPEED = 105
 const JUMP_VELOCITY = -330.0
 
+@export var DashTime := 0.15
+var DashTimer := 0.0
+var DashSpeed = 300
+var DashDirection := Vector2(0 , 0)  
 
 const NormalAcceleration = 500
 const NormalFriction = 1000
@@ -31,9 +35,10 @@ func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
 		global_position = GameState.LatestCheckPointPos
 
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if not is_on_floor():
+	if not is_on_floor() and PLayerState != PLayerStates.Dashing:
 		velocity += get_gravity() * delta
 		animated_sprite.play("Jump")
 		if WasOnFloor:
@@ -44,9 +49,9 @@ func _physics_process(delta: float) -> void:
 		CanJump = true
 		WasOnFloor = true
 	
-	if CanJump and Input.is_action_just_pressed("Dash"):
-		Dash()
+	if CanJump == false and Input.is_action_just_pressed("Dash"):
 		PLayerState = PLayerStates.Dashing
+		Dash()
 		
 	if CanJump:
 		# Handle jump.
@@ -54,14 +59,16 @@ func _physics_process(delta: float) -> void:
 			velocity.y = JUMP_VELOCITY
 			jump_sound.play()
 			CanJump = false
-	if PLayerState != PLayerState.Dashing:
+
+	if PLayerState != PLayerStates.Dashing:
 		# check if floortype is normal block and apply normal physics
 		if GameState.FloorType == 0:
 			Walk(SPEED, NormalFriction, NormalAcceleration, delta)
 		
 		elif GameState.FloorType == 1:
 			Walk(SPEED, IceFriction, IceAccelaration, delta)
-	
+
+	move_and_slide()
 
 
 
@@ -89,11 +96,24 @@ func Walk(Speed, Friction, Acceleration, Delta):
 	if not direction == 0:
 		animated_sprite.play("Walking") 
 		
-	move_and_slide()
+
 
 
 func _on_cayotte_timer_timeout() -> void:
 	CanJump = false
 
 func Dash():
-	velocity.x = 500
+	DashDirection = Vector2(
+	Input.get_axis("Left", "Right"),
+	Input.get_axis("Jump", "Down")
+	).normalized()
+	
+	animated_sprite.play("Dash")
+	
+	DashTimer = DashTime
+	velocity = DashDirection * DashSpeed
+
+func DashAnimationFinished():
+	if animated_sprite.animation == "Dash":
+		PLayerState = PLayerStates.Walking
+	
