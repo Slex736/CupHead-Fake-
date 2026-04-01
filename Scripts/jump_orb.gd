@@ -31,12 +31,14 @@ func IsPressed():
 	TimerJumpOrb.start()
 
 
-func PlayerEntered(_body: Node2D) -> void:
-	OrbUsable = true
+func PlayerEntered(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		OrbUsable = true
 
 
-func PlayerExited(_body: Node2D) -> void:
-	OrbUsable = false
+func PlayerExited(body: Node2D) -> void:
+	if body is CharacterBody2D:
+		OrbUsable = false
 
 
 func TimerDone() -> void:
