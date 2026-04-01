@@ -1,0 +1,33 @@
+[gd_scene load_steps=6 format=3 uid="uid://ehb5yloexcx0"]
+
+[ext_resource type="Texture2D" uid="uid://dy2tgu7k7btri" path="res://Assets/Sprites/SpikeBall1.png" id="1_i0i0l"]
+[ext_resource type="Script" uid="uid://ci0fvyof0xfj0" path="res://Scripts/spike_throw.gd" id="1_soodm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_soodm"]
+radius = 8.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iroci"]
+atlas = ExtResource("1_i0i0l")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xpybd"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iroci")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpikeThrow" type="Area2D"]
+script = ExtResource("1_soodm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_soodm")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_xpybd")
+
+[connection signal="body_entered" from="." to="." method="PlayerEntered"]

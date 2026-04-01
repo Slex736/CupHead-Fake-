@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://clrxkngxss3hv"]
+
+[ext_resource type="Texture2D" uid="uid://ggg5xikpexgk" path="res://Assets/Sprites/SpikeBall2.png" id="1_l0l15"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdtej"]
+radius = 7.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r3mi5"]
+atlas = ExtResource("1_l0l15")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_yfm41"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r3mi5")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="SpikeBallFall" type="Area2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tdtej")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_yfm41")

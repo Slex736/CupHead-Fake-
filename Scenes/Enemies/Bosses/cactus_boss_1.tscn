@@ -1,5 +1,6 @@
-[gd_scene load_steps=5 format=3 uid="uid://cdqieucn5j2op"]
+[gd_scene load_steps=6 format=3 uid="uid://cdqieucn5j2op"]
 
+[ext_resource type="Script" uid="uid://i20wpcrt3ly" path="res://Scripts/cactus_boss.gd" id="1_11nw8"]
 [ext_resource type="Texture2D" uid="uid://ucg21svl5ugd" path="res://Assets/Sprites/cactus.png" id="1_nbndn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11nw8"]
@@ -22,10 +23,12 @@ animations = [{
 }]
 
 [node name="CactusBoss1" type="Area2D"]
+script = ExtResource("1_11nw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -17)
 shape = SubResource("CapsuleShape2D_11nw8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(2, -2)
+position = Vector2(1, -22)
 sprite_frames = SubResource("SpriteFrames_7ha3i")

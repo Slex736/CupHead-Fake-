@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c2jknuwx0xs0p"]
+
+[ext_resource type="Script" uid="uid://e41x6p16lw83" path="res://Scripts/spike.gd" id="1_0cnp0"]
+[ext_resource type="Texture2D" uid="uid://nkthnfj4qjra" path="res://Assets/Sprites/CactusSpike.png" id="1_t4m83"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0cnp0"]
+radius = 3.0
+
+[node name="Spike" type="Area2D"]
+script = ExtResource("1_0cnp0")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_0cnp0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_t4m83")
+
+[connection signal="body_entered" from="." to="." method="PlayerEntered"]

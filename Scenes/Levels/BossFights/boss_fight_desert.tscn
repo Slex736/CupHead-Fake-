@@ -218,11 +218,12 @@ position = Vector2(24, 264)
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_yasym")]
+position = Vector2(-23, 5)
 
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="CactusBoss1" parent="Enemies" instance=ExtResource("4_ckght")]
-position = Vector2(234, -14)
+position = Vector2(235, 6)
 
 [node name="Tilemap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_kvn32")
