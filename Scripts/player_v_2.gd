@@ -37,7 +37,7 @@ func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
 		global_position = GameState.LatestCheckPointPos
 	GameState.CanDash = true
-	get_tree().debug_collisions_hint = true
+
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
