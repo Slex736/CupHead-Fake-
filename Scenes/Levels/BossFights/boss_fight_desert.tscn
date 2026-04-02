@@ -218,7 +218,7 @@ position = Vector2(24, 264)
 [node name="Doors" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("2_yasym")]
-position = Vector2(-23, 5)
+position = Vector2(-24, 4)
 
 [node name="Enemies" type="Node2D" parent="."]
 

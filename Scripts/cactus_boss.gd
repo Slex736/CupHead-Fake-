@@ -13,12 +13,12 @@ enum CactusBossStates {
 	SpikeFall,
 }
 
-var CactusBossState = CactusBossStates.Idle
+var CactusBossState = CactusBossStates.SpikeFall
 
 
 func _process(_delta: float) -> void:
-	if randi() % 500 == 0:
-		CactusBossState = CactusBossStates.SpikeThrow
+	#if randi() % 200 == 0:
+		#CactusBossState = CactusBossStates.SpikeThrow
 	
 	
 	if CactusBossState == CactusBossStates.SpikeThrow:
@@ -33,10 +33,13 @@ func SpikeThrow():
 	SpikeThrowInstance.Init(player.global_position, global_position)
 	add_child(SpikeThrowInstance)
 	
-
 	
 	CactusBossState = CactusBossStates.Idle
 
 
 func SpikeFall():
-	pass
+	var SpikeFallInstance = SpikeFallScene.instantiate()
+	SpikeFallInstance.Init(player.global_position, global_position)
+	add_child(SpikeFallInstance)
+	
+	CactusBossState = CactusBossStates.Idle
