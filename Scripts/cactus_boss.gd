@@ -1,30 +1,36 @@
 extends Area2D
 
+@onready var MaxHealth: int = 100
+@onready var CurrentHealth: int = MaxHealth
 
 @onready var player: CharacterBody2D = $"../../Player"
 
 var SpikeThrowScene = preload("res://Scenes/Enemies/BossAttackProjectiles/spike_throw.tscn")
 var SpikeFallScene = preload("res://Scenes/Enemies/BossAttackProjectiles/spike_ball_fall.tscn")
 
+@onready var progress_bar: TextureProgressBar = $CanvasLayer/ProgressBar
 
 enum CactusBossStates {
 	Idle,
 	SpikeThrow,
 	SpikeFall,
+	CactusRaise,
 }
 
-var CactusBossState = CactusBossStates.SpikeFall
+var CactusBossState = CactusBossStates.Idle
 
+func _ready() -> void:
+	progress_bar.Update()
 
 func _process(_delta: float) -> void:
-	#if randi() % 200 == 0:
-		#CactusBossState = CactusBossStates.SpikeThrow
 	
 	
 	if CactusBossState == CactusBossStates.SpikeThrow:
 		SpikeThrow()
 	elif CactusBossState == CactusBossStates.SpikeFall:
 		SpikeFall()
+	elif CactusBossState == CactusBossStates.CactusRaise:
+		CactusRaise()
 
 
 # load Spike Throw and give info so it can use bezier func to make an arch
@@ -43,3 +49,6 @@ func SpikeFall():
 	add_child(SpikeFallInstance)
 	
 	CactusBossState = CactusBossStates.Idle
+
+func CactusRaise():
+	pass

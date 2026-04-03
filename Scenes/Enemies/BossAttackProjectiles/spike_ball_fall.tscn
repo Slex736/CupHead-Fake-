@@ -1,23 +1,30 @@
-[gd_scene load_steps=6 format=3 uid="uid://clrxkngxss3hv"]
+[gd_scene load_steps=7 format=3 uid="uid://clrxkngxss3hv"]
 
-[ext_resource type="Texture2D" uid="uid://ggg5xikpexgk" path="res://Assets/Sprites/SpikeBall2.png" id="1_l0l15"]
 [ext_resource type="Script" uid="uid://b46bo685uwky0" path="res://Scripts/spike_ball_fall.gd" id="1_tdtej"]
+[ext_resource type="Texture2D" uid="uid://dhh55jqk3cd58" path="res://Assets/Sprites/SpikeBall2-sheet.png" id="2_tdtej"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_tdtej"]
 radius = 7.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_r3mi5"]
-atlas = ExtResource("1_l0l15")
+atlas = ExtResource("2_tdtej")
 region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfm41"]
+atlas = ExtResource("2_tdtej")
+region = Rect2(16, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_yfm41"]
 animations = [{
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_r3mi5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfm41")
 }],
 "loop": true,
-"name": &"default",
+"name": &"Spin",
 "speed": 5.0
 }]
 
@@ -29,5 +36,8 @@ shape = SubResource("CircleShape2D_tdtej")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_yfm41")
+animation = &"Spin"
+autoplay = "Spin"
 
 [connection signal="body_entered" from="." to="." method="BodyenteredHitbox"]
+[connection signal="frame_changed" from="AnimatedSprite2D" to="." method="FrameChange"]

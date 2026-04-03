@@ -12,6 +12,7 @@ var T: float = 0.0
 
 var SpikeScene = preload("res://Scenes/Enemies/BossAttackProjectiles/spike.tscn")
 
+@onready var CheckIfHitGround: RayCast2D = $RayCast2D
 
 enum ThrowStates {
 	Flying,
@@ -41,6 +42,8 @@ func CalcTargetPos():
 func _process(delta: float) -> void:
 	HandleCurve(delta)
 	
+	HandleGroundCheck()
+	
 	if ThrowState == ThrowStates.Exploding:
 		HandleExplosion()
 
@@ -48,11 +51,12 @@ func _process(delta: float) -> void:
 func HandleCurve(delta):
 	global_position = GameState._quadratic_bezier(CactusPos, ThrowPeak, TargetPos, T)
 	
-	T += delta / ThrowDuration
-	T = clamp(T, 0.0, 1.0)
+	if T > 0.1:
+		CheckIfHitGround.collide_with_bodies = true
 	
-	if T == 1.0:
-		ThrowState = ThrowStates.Exploding
+	T += delta / ThrowDuration
+
+
 
 func HandleExplosion():
 	var dir = Vector2(1, 0)
@@ -73,3 +77,7 @@ func HandleExplosion():
 func PlayerEntered(body: Node2D) -> void:
 	if body is CharacterBody2D:
 		GameState.OpenInGameSettings()
+
+func HandleGroundCheck():
+	if CheckIfHitGround.is_colliding():
+		ThrowState = ThrowStates.Exploding

@@ -24,7 +24,9 @@ enum SpikeBallStates {
 
 var SpikeBallState = SpikeBallStates.Idle
 
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
+var SpikeScene = preload("res://Scenes/Enemies/BossAttackProjectiles/spike.tscn")
 
 func Init(player_pos: Vector2, cactus_pos: Vector2):
 	PlayerPos = player_pos
@@ -75,3 +77,21 @@ func BodyenteredHitbox(body: Node2D) -> void:
 		GameState.OpenInGameSettings()
 	else:
 		queue_free()
+
+
+func FrameChange() -> void:
+	if animated_sprite_2d.frame == 0 and SpikeBallState == SpikeBallStates.Fall:
+		ShootSpikes()
+
+func ShootSpikes():
+	var dir = Vector2(1, 0)
+	
+	for i in range(5):
+		var Rotation = i * -180
+		
+		var SpikeInstance = SpikeScene.instantiate()
+		SpikeInstance.dir = dir.rotated(deg_to_rad(Rotation))
+		SpikeInstance.angle = deg_to_rad(Rotation)
+		SpikeInstance.global_position = global_position
+		
+		get_tree().current_scene.add_child(SpikeInstance)
