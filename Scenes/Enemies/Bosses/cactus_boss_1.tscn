@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://i20wpcrt3ly" path="res://Scripts/cactus_boss.gd" id="1_11nw8"]
 [ext_resource type="Texture2D" uid="uid://ucg21svl5ugd" path="res://Assets/Sprites/cactus.png" id="1_nbndn"]
 [ext_resource type="Texture2D" uid="uid://xb4cuk5q1fga" path="res://Assets/Sprites/GUI/ProgressBar/healthbarUnder.png" id="3_f85wq"]
-[ext_resource type="Script" uid="uid://chicn01a42rgy" path="res://Scripts/progress_bar.gd" id="3_g1kqk"]
+[ext_resource type="Script" path="res://Scripts/progress_bar.gd" id="3_g1kqk"]
 [ext_resource type="Texture2D" uid="uid://dautp4ew4kvyg" path="res://Assets/Sprites/GUI/ProgressBar/healthbarProgress.png" id="4_d3ajq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_11nw8"]

@@ -10,6 +10,8 @@ var SpikeFallScene = preload("res://Scenes/Enemies/BossAttackProjectiles/spike_b
 
 @onready var progress_bar: TextureProgressBar = $CanvasLayer/ProgressBar
 
+@onready var tilemap: TileMap = $"../../Tilemap"
+
 enum CactusBossStates {
 	Idle,
 	SpikeThrow,
@@ -17,13 +19,14 @@ enum CactusBossStates {
 	CactusRaise,
 }
 
-var CactusBossState = CactusBossStates.Idle
+var CactusBossState = CactusBossStates.SpikeThrow
 
 func _ready() -> void:
 	progress_bar.Update()
 
 func _process(_delta: float) -> void:
-	
+	if CurrentHealth > 0:
+		HandleHealthUpdates()
 	
 	if CactusBossState == CactusBossStates.SpikeThrow:
 		SpikeThrow()
@@ -51,4 +54,7 @@ func SpikeFall():
 	CactusBossState = CactusBossStates.Idle
 
 func CactusRaise():
+	pass
+
+func HandleHealthUpdates():
 	pass
