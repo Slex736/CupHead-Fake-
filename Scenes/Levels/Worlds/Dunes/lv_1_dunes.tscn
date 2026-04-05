@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkktyt2gl1y4i"]
+[gd_scene format=3 uid="uid://bkktyt2gl1y4i"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_6u0co"]
 [ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_el1oa"]
@@ -214,47 +214,42 @@ texture = ExtResource("3_el1oa")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kiidi")
 
-[node name="lv1Dunes" type="Node2D"]
+[node name="lv1Dunes" type="Node2D" unique_id=1865958906]
 metadata/_edit_vertical_guides_ = [288.0]
 
-[node name="Death zone" parent="." instance=ExtResource("1_6u0co")]
+[node name="Death zone" parent="." unique_id=1969837771 instance=ExtResource("1_6u0co")]
 position = Vector2(24, 264)
 
-[node name="Special Blocks" type="Node2D" parent="."]
+[node name="Special Blocks" type="Node2D" parent="." unique_id=1690118029]
 
-[node name="Falling Blocks" type="Node2D" parent="Special Blocks"]
+[node name="Falling Blocks" type="Node2D" parent="Special Blocks" unique_id=709163050]
 
-[node name="Lucky Blocks" type="Node2D" parent="Special Blocks"]
+[node name="Lucky Blocks" type="Node2D" parent="Special Blocks" unique_id=1370162301]
 
-[node name="Floors" type="Node2D" parent="Special Blocks"]
+[node name="Floors" type="Node2D" parent="Special Blocks" unique_id=2102094101]
 
-[node name="Clouds" type="Node2D" parent="Special Blocks"]
+[node name="Clouds" type="Node2D" parent="Special Blocks" unique_id=1667783575]
 
-[node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
+[node name="Jump Orbs" type="Node2D" parent="Special Blocks" unique_id=1402509905]
 
-[node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
+[node name="Ice Spikes" type="Node2D" parent="Special Blocks" unique_id=164820836]
 
-[node name="Ice Hitboxes" type="Node2D" parent="Special Blocks"]
+[node name="Ice Hitboxes" type="Node2D" parent="Special Blocks" unique_id=282808424]
 
-[node name="Doors" type="Node2D" parent="."]
+[node name="Doors" type="Node2D" parent="." unique_id=394312235]
 
-[node name="DunesDoor" parent="Doors" instance=ExtResource("2_el1oa")]
-position = Vector2(1272, -168)
+[node name="DunesDoor" parent="Doors" unique_id=1804548191 instance=ExtResource("2_el1oa")]
+position = Vector2(489, -216)
 current_level = 1
 
-[node name="Player" parent="." instance=ExtResource("2_r3f5w")]
+[node name="Player" parent="." unique_id=86238556 instance=ExtResource("2_r3f5w")]
 
-[node name="Enemies" type="Node2D" parent="."]
+[node name="Enemies" type="Node2D" parent="." unique_id=1036071845]
 
-[node name="Scorpion" parent="Enemies" instance=ExtResource("4_r3f5w")]
+[node name="Scorpion" parent="Enemies" unique_id=2091892084 instance=ExtResource("4_r3f5w")]
 position = Vector2(434, -79)
 
-[node name="Vulture" parent="Enemies" instance=ExtResource("5_kiidi")]
-position = Vector2(920, -256)
-PosA = Vector2(920, -256)
-PosB = Vector2(530, -256)
-
-[node name="Tilemap" type="TileMap" parent="."]
+[node name="Tilemap" type="TileMap" parent="." unique_id=1621548121]
 tile_set = SubResource("TileSet_3rgyl")
 format = 2
 layer_0/name = "Frontground"

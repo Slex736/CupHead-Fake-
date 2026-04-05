@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dfchq384y7gd5"]
+[gd_scene format=3 uid="uid://dfchq384y7gd5"]
 
 [ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_o0mpy"]
 [ext_resource type="PackedScene" uid="uid://yx0osdjqjcrq" path="res://Scenes/Special Blocks/jump_orb.tscn" id="2_uksqd"]
