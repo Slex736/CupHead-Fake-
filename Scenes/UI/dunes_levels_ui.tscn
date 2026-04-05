@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://cdrdpdad6qxwi"]
+[gd_scene load_steps=13 format=3 uid="uid://cdrdpdad6qxwi"]
 
 [ext_resource type="Script" uid="uid://bywobnoor4amp" path="res://Scripts/dunes_levels_ui.gd" id="1_bio1j"]
 [ext_resource type="Texture2D" uid="uid://cfb51570nsyfd" path="res://Assets/Sprites/GUI/Level/Button/Unlocked/Default.png" id="2_r7250"]
@@ -6,7 +6,9 @@
 [ext_resource type="FontFile" uid="uid://p2amirlskx3n" path="res://Assets/fonts/PixelOperator8-Bold.ttf" id="4_jfwve"]
 [ext_resource type="Texture2D" uid="uid://cq1gbvjtp5lqy" path="res://Assets/Sprites/GUI/Level/Button/Locked/Default.png" id="5_wlw0g"]
 [ext_resource type="Texture2D" uid="uid://s16q3notnxjg" path="res://Assets/Sprites/GUI/Level/Button/Locked/Hover.png" id="6_2hfcn"]
+[ext_resource type="Texture2D" uid="uid://c7ypwpqd307m4" path="res://Assets/Sprites/GUI/Level/Button/Unlocked/BossDefault.png" id="7_0upp0"]
 [ext_resource type="Texture2D" uid="uid://b27opr3m322ps" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/ArrowLeft/Default.png" id="7_gt4yb"]
+[ext_resource type="Texture2D" uid="uid://bqiwsjgste0w1" path="res://Assets/Sprites/GUI/Level/Button/Unlocked/BossHover.png" id="8_jfwve"]
 [ext_resource type="Texture2D" uid="uid://bof0ywdg1sppj" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/ArrowLeft/Hover.png" id="8_xmpi7"]
 [ext_resource type="Texture2D" uid="uid://maicnnu8eyks" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Home/Default.png" id="9_iq6gj"]
 [ext_resource type="Texture2D" uid="uid://2xc7si36nx5x" path="res://Assets/Sprites/GUI/Buttons/Square-Medium/Home/Hover.png" id="10_xv35g"]
@@ -271,6 +273,40 @@ grow_vertical = 2
 texture_normal = ExtResource("5_wlw0g")
 texture_hover = ExtResource("6_2hfcn")
 
+[node name="BossLevelUnlocked" type="TextureButton" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -40.0
+offset_top = -40.0
+offset_right = 40.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+disabled = true
+texture_normal = ExtResource("7_0upp0")
+texture_hover = ExtResource("8_jfwve")
+
+[node name="BossLevelLocked" type="TextureButton" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.7
+anchor_right = 0.5
+anchor_bottom = 0.7
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+texture_normal = ExtResource("5_wlw0g")
+texture_hover = ExtResource("6_2hfcn")
+
 [node name="ArrowBack" type="TextureButton" parent="."]
 layout_mode = 1
 anchors_preset = -1
@@ -303,5 +339,6 @@ texture_hover = ExtResource("10_xv35g")
 [connection signal="pressed" from="Level3Unable" to="." method="Level3Pressed"]
 [connection signal="pressed" from="Level4Unable" to="." method="Level4Pressed"]
 [connection signal="pressed" from="Level5Unable" to="." method="Level5Pressed"]
+[connection signal="pressed" from="BossLevelUnlocked" to="." method="BossLevelPressed"]
 [connection signal="pressed" from="ArrowBack" to="." method="ArrowBackPressed"]
 [connection signal="pressed" from="Home" to="." method="HomePressed"]

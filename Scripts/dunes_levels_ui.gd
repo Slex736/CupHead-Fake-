@@ -3,6 +3,8 @@ extends Control
 var level_unable_buttons = {}
 var level_locked_buttons = {}
 
+@onready var boss_level_unlocked: TextureButton = $BossLevelUnlocked
+@onready var boss_level_locked: TextureButton = $BossLevelLocked
 
 func _ready():
 	for i in range(1, 6):  # for levels 1–5
@@ -11,6 +13,11 @@ func _ready():
 	CheckLevels()
 	
 	CheckIfDuneWorldIsUnlocked()
+	
+	if GameState.BossLevelDunesUnlocked:
+		boss_level_locked.visible = false
+		boss_level_unlocked.visible = true
+		boss_level_unlocked.disabled = false
 
 func show_level_unable(level):
 	if level_unable_buttons.has(level):
@@ -30,7 +37,6 @@ func UnlockNextLevel(CurrentLevel):
 func CheckIfDuneWorldIsUnlocked():
 	if GameState.WorldUnlocked.get(1) == true:
 		show_level_unable(1)
-	
 
 
 
@@ -60,6 +66,7 @@ func Level5Pressed() -> void:
 	GameState.current_level = [1, 5]
 	GameState.LatestCheckPointPos = null
 
+
 func ArrowBackPressed() -> void:
 	get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/worlds_interface.tscn")
 	GameState.LatestCheckPointPos = null
@@ -67,3 +74,9 @@ func ArrowBackPressed() -> void:
 func HomePressed() -> void:
 	get_tree().change_scene_to_file("res://Scenes/UI/start_screen.tscn")
 	GameState.LatestCheckPointPos = null
+
+
+func BossLevelPressed() -> void:
+	get_tree().call_deferred("change_scene_to_file", "res://Scenes/Levels/BossFights/boss_fight_desert.tscn")
+	GameState.LatestCheckPointPos = null
+	GameState.current_level = [1, 6]

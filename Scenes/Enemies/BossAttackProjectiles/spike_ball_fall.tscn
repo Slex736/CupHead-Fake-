@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://clrxkngxss3hv"]
+
+[ext_resource type="Script" uid="uid://b46bo685uwky0" path="res://Scripts/spike_ball_fall.gd" id="1_tdtej"]
+[ext_resource type="Texture2D" uid="uid://b1pgq7tnch6as" path="res://Assets/Sprites/spike ball attack 2-Recovered.png" id="2_tdtej"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tdtej"]
+radius = 7.071068
+
+[node name="SpikeBallFall" type="Area2D"]
+script = ExtResource("1_tdtej")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
+shape = SubResource("CircleShape2D_tdtej")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-1, 0)
+texture = ExtResource("2_tdtej")
+
+[node name="SpikeShoot" type="Timer" parent="."]
+wait_time = 0.2
+autostart = true
+
+[connection signal="body_entered" from="." to="." method="BodyenteredHitbox"]
+[connection signal="timeout" from="SpikeShoot" to="." method="SpikeShootTimeout"]
