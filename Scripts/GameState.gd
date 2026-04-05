@@ -1,5 +1,8 @@
 extends Node
 
+
+var BossLevelDunesUnlocked: bool = false
+
 # 0 = normal, 1 = ice
 var FloorType: int = 0
 
@@ -33,6 +36,7 @@ var levels = {
 	[1, 3] : "res://Scenes/Levels/Worlds/Dunes/lv_3_dunes.tscn",
 	[1, 4] : "res://Scenes/Levels/Worlds/Dunes/lv_4_dunes.tscn",
 	[1, 5] : "res://Scenes/Levels/Worlds/Dunes/lv_5_dunes.tscn",
+	[1, 6] : "res://Scenes/Levels/BossFights/boss_fight_desert.tscn",
 	[2, 1] : "res://Scenes/Levels/Worlds/Ice/lv1Frostyforest.tscn",
 	[2, 2] : "res://Scenes/Levels/Worlds/Ice/lv2Frostycave.tscn",
 	[2, 3] : "res://Scenes/Levels/Worlds/Ice/lv3Forstytunnel.tscn",

@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://dww647u8sonbt"]
+
+[ext_resource type="Script" uid="uid://bn1cbaorigp2u" path="res://Scripts/warn_tile.gd" id="1_mxqm3"]
+[ext_resource type="Texture2D" uid="uid://dtc6vjpml1qw8" path="res://Assets/Sprites/DangerTile.png" id="1_qrjug"]
+
+[node name="WarnTile" type="Node2D"]
+script = ExtResource("1_mxqm3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qrjug")

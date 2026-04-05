@@ -4,5 +4,4 @@ extends TextureProgressBar
 
 
 func Update():
-	print(CactusBoss.CurrentHealth)
 	value =  CactusBoss.CurrentHealth

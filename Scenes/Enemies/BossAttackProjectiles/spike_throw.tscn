@@ -1,13 +1,13 @@
 [gd_scene load_steps=6 format=3 uid="uid://ehb5yloexcx0"]
 
-[ext_resource type="Texture2D" uid="uid://dy2tgu7k7btri" path="res://Assets/Sprites/SpikeBall1.png" id="1_i0i0l"]
 [ext_resource type="Script" uid="uid://ci0fvyof0xfj0" path="res://Scripts/spike_throw.gd" id="1_soodm"]
+[ext_resource type="Texture2D" uid="uid://b1pgq7tnch6as" path="res://Assets/Sprites/spike ball attack 2-Recovered.png" id="2_soodm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_soodm"]
 radius = 8.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_iroci"]
-atlas = ExtResource("1_i0i0l")
+atlas = ExtResource("2_soodm")
 region = Rect2(0, 0, 16, 16)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_xpybd"]
@@ -31,7 +31,7 @@ shape = SubResource("CircleShape2D_soodm")
 sprite_frames = SubResource("SpriteFrames_xpybd")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(0, 14)
+target_position = Vector2(0, 18)
 collide_with_bodies = false
 
 [connection signal="body_entered" from="." to="." method="PlayerEntered"]
