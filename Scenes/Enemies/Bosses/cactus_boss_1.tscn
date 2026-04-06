@@ -213,10 +213,12 @@ animations = [{
 }]
 
 [node name="CactusBoss1" type="Area2D"]
+collision_layer = 2
+collision_mask = 2
 script = ExtResource("1_11nw8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -17)
+position = Vector2(1, -17)
 shape = SubResource("CapsuleShape2D_11nw8")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -232,7 +234,7 @@ texture = ExtResource("2_xsegn")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer" node_paths=PackedStringArray("CactusBoss")]
+[node name="ProgressBar" type="TextureProgressBar" parent="CanvasLayer"]
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
@@ -245,4 +247,5 @@ value = 100.0
 texture_under = ExtResource("3_f85wq")
 texture_progress = ExtResource("4_d3ajq")
 script = ExtResource("3_g1kqk")
-CactusBoss = NodePath("../..")
+
+[connection signal="area_entered" from="." to="." method="SwordHit"]

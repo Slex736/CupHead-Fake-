@@ -1,14 +1,15 @@
-[gd_scene load_steps=18 format=3 uid="uid://ddn3k67kjlh8a"]
+[gd_scene load_steps=10 format=3 uid="uid://vbuckwqbui6"]
 
-[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="1_7obeu"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_r73wk"]
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="2_r34c4"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_8yudh"]
-[ext_resource type="PackedScene" uid="uid://clcl4f637gkdo" path="res://Scenes/Special Blocks/floor.tscn" id="4_r34c4"]
-[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_8yudh"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_hhtck"]
+[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="1_koriu"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="2_el4kw"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_4nebn"]
+[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="4_el4kw"]
+[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_r0ysi"]
+[ext_resource type="PackedScene" uid="uid://dcgoy7u5whcng" path="res://Scenes/Enemies/Simple Enemies/blue_enemy.tscn" id="6_koriu"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7obeu"]
-texture = ExtResource("3_8yudh")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r0ysi"]
+texture = ExtResource("3_4nebn")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -192,144 +193,36 @@ texture = ExtResource("3_8yudh")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_vrb7v"]
+[sub_resource type="TileSet" id="TileSet_koriu"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_7obeu")
+sources/0 = SubResource("TileSetAtlasSource_r0ysi")
 
-[sub_resource type="Animation" id="Animation_8yudh"]
-resource_name = "Move"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 2.9, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(192, 72), Vector2(192, 72), Vector2(464, 72), Vector2(464, 72)]
-}
+[node name="MiniLevel3" type="Node2D"]
 
-[sub_resource type="Animation" id="Animation_7obeu"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(216, 72)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrb7v"]
-_data = {
-&"Move": SubResource("Animation_8yudh"),
-&"RESET": SubResource("Animation_7obeu")
-}
-
-[sub_resource type="Animation" id="Animation_r34c4"]
-resource_name = "Move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 1.8666667, 2),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(560, 72), Vector2(560, 72), Vector2(560, -120), Vector2(560, -120)]
-}
-
-[sub_resource type="Animation" id="Animation_vrb7v"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(560, 72)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_fm7v2"]
-_data = {
-&"Move": SubResource("Animation_r34c4"),
-&"RESET": SubResource("Animation_vrb7v")
-}
-
-[sub_resource type="Animation" id="Animation_n6nwj"]
-resource_name = "Move"
-length = 3.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.1, 2.9, 3),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(656, -120), Vector2(656, -120), Vector2(848, -272), Vector2(848, -272)]
-}
-
-[sub_resource type="Animation" id="Animation_oqgv5"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(656, -120)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqwky"]
-_data = {
-&"Move": SubResource("Animation_n6nwj"),
-&"RESET": SubResource("Animation_oqgv5")
-}
-
-[node name="MiniLevel4" type="Node2D"]
-
-[node name="BackgroundTutorial" parent="." instance=ExtResource("1_7obeu")]
-position = Vector2(8, -8)
+[node name="BackgroundTutorial" parent="." instance=ExtResource("1_koriu")]
+position = Vector2(0, -8)
 scale = Vector2(12, 12)
 
-[node name="Player" parent="." instance=ExtResource("1_r73wk")]
-position = Vector2(8, 8)
+[node name="Player" parent="." instance=ExtResource("1_hhtck")]
+position = Vector2(-8, 0)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Death zone" parent="." instance=ExtResource("2_r34c4")]
+[node name="Blue_Enemy" parent="Enemies" instance=ExtResource("6_koriu")]
+position = Vector2(16, -160)
+
+[node name="Blue_Enemy3" parent="Enemies" instance=ExtResource("6_koriu")]
+position = Vector2(456, -152)
+
+[node name="Death zone" parent="." instance=ExtResource("2_el4kw")]
 position = Vector2(24, 264)
 
 [node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_vrb7v")
+tile_set = SubResource("TileSet_koriu")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, -524252, 0, 0, -524251, 0, 0, -524250, 0, 0, -524249, 0, 0, -1114058, 0, 0, -1114056, 0, 0, -1114055, 0, 0, -1048522, 0, 1, -1048521, 0, 1, -1048520, 0, 1, -1048519, 0, 1, -1114057, 0, 0)
+layer_0/tile_data = PackedInt32Array(131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, -65528, 0, 0, -65527, 0, 0, 65541, 0, 0, 131098, 0, 0, 131099, 0, 0, 131100, 0, 0, 131101, 0, 0, 131102, 0, 0, 131103, 0, 0, 131104, 0, 0, 131105, 0, 0, 131106, 0, 0, 131107, 0, 0, 131108, 0, 0, -917492, 0, 0, -917491, 0, 0, -917490, 0, 0, -917489, 0, 0, -917488, 0, 0, -917487, 0, 0, -917486, 0, 0, -917485, 0, 0, -851949, 0, 1, -786413, 0, 1, -655340, 0, 0, -655339, 0, 0, -851956, 0, 1, -851955, 0, 1, -851954, 0, 1, -851953, 0, 1, -851952, 0, 1, -851951, 65536, 0, -851950, 0, 1, -786420, 0, 1, -786419, 65536, 0, -786418, 0, 1, -786417, 0, 1, -786416, 0, 1, -786415, 0, 1, -786414, 0, 1, -786407, 65536, 1, -851943, 0, 1, -917479, 0, 1, -983015, 65536, 0, -1048551, 0, 0, 1, 196608, 8, -65535, 196608, 7, -131071, 196608, 7, -327680, 131072, 4, -262144, 131072, 5, -196608, 131072, 6, -327679, 196608, 4, -262143, 196608, 5, -196607, 196608, 6, -327678, 262144, 4, -262142, 262144, 5, -196606, 262144, 6, -262135, 0, 3, -196599, 0, 4, -131063, 0, 5, -983022, 0, 7, -983028, 65536, 5, -720875, 65536, 5, -1114087, 458752, 5, 65562, 458752, 5, 65565, 65536, 5, 65568, 589824, 4, 65534, 589824, 4, 65542, 0, 0)
 layer_1/name = "Background"
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -340,37 +233,37 @@ layer_1/name = "Background"
 
 [node name="Floors" type="Node2D" parent="Special Blocks"]
 
-[node name="Floor" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
-position = Vector2(216, 72)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor"]
-libraries = {
-&"": SubResource("AnimationLibrary_vrb7v")
-}
-autoplay = "Move"
-
-[node name="Floor2" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
-position = Vector2(560, 72)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor2"]
-libraries = {
-&"": SubResource("AnimationLibrary_fm7v2")
-}
-autoplay = "Move"
-
-[node name="Floor3" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
-position = Vector2(656, -120)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor3"]
-libraries = {
-&"": SubResource("AnimationLibrary_cqwky")
-}
-autoplay = "Move"
-
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
+
+[node name="Cloud" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(72, -40)
+
+[node name="Cloud2" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(136, -80)
+
+[node name="Cloud3" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(72, -112)
+
+[node name="Cloud4" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(136, -152)
+
+[node name="Cloud5" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(384, -128)
+
+[node name="Cloud6" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(336, -80)
+
+[node name="Cloud7" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(384, -24)
+
+[node name="Cloud8" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(72, -176)
+
+[node name="Cloud9" parent="Special Blocks/Clouds" instance=ExtResource("4_el4kw")]
+position = Vector2(136, -216)
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("5_8yudh")]
-position = Vector2(904, -288)
-current_level = 4
+[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("5_r0ysi")]
+position = Vector2(576, 16)
+current_level = 3

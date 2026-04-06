@@ -1,15 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://df2xvrab188fb"]
+[gd_scene load_steps=18 format=3 uid="uid://ddn3k67kjlh8a"]
 
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_8h2re"]
-[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="1_iriyh"]
-[ext_resource type="PackedScene" uid="uid://btq8ftr04e5tl" path="res://Scenes/Enemies/Simple Enemies/red_enemy.tscn" id="2_a14kb"]
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="2_l4lkl"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_k78on"]
-[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="5_jl67i"]
-[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="6_btoih"]
+[ext_resource type="PackedScene" uid="uid://bklh35gdwq5tr" path="res://Scenes/Other/background_tutorial.tscn" id="1_7obeu"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="1_r73wk"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="2_r34c4"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="3_8yudh"]
+[ext_resource type="PackedScene" uid="uid://clcl4f637gkdo" path="res://Scenes/Special Blocks/floor.tscn" id="4_r34c4"]
+[ext_resource type="PackedScene" uid="uid://degxv8ru5m7en" path="res://Scenes/Doors/mini_level_door.tscn" id="5_8yudh"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a14kb"]
-texture = ExtResource("3_k78on")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7obeu"]
+texture = ExtResource("3_8yudh")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -193,33 +192,144 @@ texture = ExtResource("3_k78on")
 2:15/0 = 0
 3:15/0 = 0
 
-[sub_resource type="TileSet" id="TileSet_jl67i"]
+[sub_resource type="TileSet" id="TileSet_vrb7v"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_a14kb")
+sources/0 = SubResource("TileSetAtlasSource_7obeu")
 
-[node name="MiniLevel2V2" type="Node2D"]
+[sub_resource type="Animation" id="Animation_8yudh"]
+resource_name = "Move"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(192, 72), Vector2(192, 72), Vector2(464, 72), Vector2(464, 72)]
+}
 
-[node name="BackgroundTutorial" parent="." instance=ExtResource("1_iriyh")]
-position = Vector2(0, -8)
+[sub_resource type="Animation" id="Animation_7obeu"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(216, 72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_vrb7v"]
+_data = {
+&"Move": SubResource("Animation_8yudh"),
+&"RESET": SubResource("Animation_7obeu")
+}
+
+[sub_resource type="Animation" id="Animation_r34c4"]
+resource_name = "Move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 1.8666667, 2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(560, 72), Vector2(560, 72), Vector2(560, -120), Vector2(560, -120)]
+}
+
+[sub_resource type="Animation" id="Animation_vrb7v"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(560, 72)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fm7v2"]
+_data = {
+&"Move": SubResource("Animation_r34c4"),
+&"RESET": SubResource("Animation_vrb7v")
+}
+
+[sub_resource type="Animation" id="Animation_n6nwj"]
+resource_name = "Move"
+length = 3.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 2.9, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(656, -120), Vector2(656, -120), Vector2(848, -272), Vector2(848, -272)]
+}
+
+[sub_resource type="Animation" id="Animation_oqgv5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(656, -120)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cqwky"]
+_data = {
+&"Move": SubResource("Animation_n6nwj"),
+&"RESET": SubResource("Animation_oqgv5")
+}
+
+[node name="MiniLevel4" type="Node2D"]
+
+[node name="BackgroundTutorial" parent="." instance=ExtResource("1_7obeu")]
+position = Vector2(8, -8)
 scale = Vector2(12, 12)
 
-[node name="Player" parent="." instance=ExtResource("1_8h2re")]
-position = Vector2(-24, 0)
+[node name="Player" parent="." instance=ExtResource("1_r73wk")]
+position = Vector2(8, 8)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Red_Enemy" parent="Enemies" instance=ExtResource("2_a14kb")]
-position = Vector2(293, -175)
-
-[node name="Death zone" parent="." instance=ExtResource("2_l4lkl")]
+[node name="Death zone" parent="." instance=ExtResource("2_r34c4")]
 position = Vector2(24, 264)
 
 [node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_jl67i")
+tile_set = SubResource("TileSet_vrb7v")
 format = 2
 layer_0/name = "Frontground"
 layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131069, 0, 0, 131070, 0, 0, 131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 65539, 0, 0, 6, 0, 0, 7, 0, 0, -65526, 0, 0, -65525, 0, 0, -262132, 0, 0, -262131, 0, 0, -458742, 0, 0, -458741, 0, 0, -720883, 0, 1, -720882, 0, 0, -720881, 0, 0, -720880, 0, 0, -720879, 0, 0, -720878, 0, 0, -720877, 0, 0, -720876, 0, 0, -720875, 0, 0, -720874, 0, 0, -720873, 0, 0, -720872, 0, 1, -786419, 0, 0, -786408, 0, 0, -655336, 0, 1, -655337, 0, 1, -655338, 0, 1, -655339, 65536, 1, -655340, 0, 1, -655341, 0, 1, -655342, 0, 1, -655343, 0, 1, -655344, 0, 1, -655345, 0, 1, -655346, 0, 1, -655347, 65536, 1, -851941, 0, 0, -851940, 0, 0, -851939, 0, 0, -851938, 0, 0, -786405, 0, 1, -786404, 0, 1, -786403, 65536, 1, -786402, 0, 1, -720869, 65536, 1, -720868, 65536, 0, -720867, 0, 1, -720866, 0, 1, 196605, 0, 1, 196606, 0, 1, 196607, 0, 1, 131072, 0, 1, 131073, 65536, 1, 131074, 0, 1, 131075, 0, 1, 196611, 65536, 0, 196610, 0, 1, 196609, 0, 1, 196608, 0, 1, 262143, 0, 1, 262142, 65536, 1, 262141, 0, 1, 65542, 0, 1, 65543, 0, 1, 10, 65536, 1, 11, 0, 1, -196596, 65536, 0, -196595, 0, 1)
+layer_0/tile_data = PackedInt32Array(131071, 0, 0, 65536, 0, 0, 65537, 0, 0, 65538, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262154, 0, 0, 262174, 0, 0, 262175, 0, 0, 262176, 0, 0, 262177, 0, 0, -524252, 0, 0, -524251, 0, 0, -524250, 0, 0, -524249, 0, 0, -1114058, 0, 0, -1114056, 0, 0, -1114055, 0, 0, -1048522, 0, 1, -1048521, 0, 1, -1048520, 0, 1, -1048519, 0, 1, -1114057, 0, 0)
 layer_1/name = "Background"
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -230,13 +340,37 @@ layer_1/name = "Background"
 
 [node name="Floors" type="Node2D" parent="Special Blocks"]
 
-[node name="Clouds" type="Node2D" parent="Special Blocks"]
+[node name="Floor" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
+position = Vector2(216, 72)
 
-[node name="Cloud" parent="Special Blocks/Clouds" instance=ExtResource("5_jl67i")]
-position = Vector2(176, -160)
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor"]
+libraries = {
+&"": SubResource("AnimationLibrary_vrb7v")
+}
+autoplay = "Move"
+
+[node name="Floor2" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
+position = Vector2(560, 72)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor2"]
+libraries = {
+&"": SubResource("AnimationLibrary_fm7v2")
+}
+autoplay = "Move"
+
+[node name="Floor3" parent="Special Blocks/Floors" instance=ExtResource("4_r34c4")]
+position = Vector2(656, -120)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Special Blocks/Floors/Floor3"]
+libraries = {
+&"": SubResource("AnimationLibrary_cqwky")
+}
+autoplay = "Move"
+
+[node name="Clouds" type="Node2D" parent="Special Blocks"]
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("6_btoih")]
-position = Vector2(480, -224)
-current_level = 2
+[node name="MiniLevelDoor" parent="Doors" instance=ExtResource("5_8yudh")]
+position = Vector2(904, -288)
+current_level = 4

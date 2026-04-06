@@ -1,33 +1,17 @@
-[gd_scene load_steps=11 format=3 uid="uid://dcp1srucw4my5"]
+[gd_scene load_steps=14 format=3 uid="uid://dcp1srucw4my5"]
 
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_n1la5"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_5o1xm"]
-[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="3_4yln4"]
-[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="4_5o1xm"]
-[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="4_sskfw"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="5_x4oba"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_p1xrb"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_awhw2"]
+[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_5nlwu"]
+[ext_resource type="PackedScene" uid="uid://yx0osdjqjcrq" path="res://Scenes/Special Blocks/jump_orb.tscn" id="3_26rht"]
+[ext_resource type="PackedScene" uid="uid://bmu84xdfrj1ey" path="res://Scenes/Enemies/vulture.tscn" id="4_5nlwu"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_26rht"]
+[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_b8qfn"]
+[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="5_xn2ae"]
+[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="7_26rht"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jthxs"]
-texture = ExtResource("4_sskfw")
-0:0/animation_columns = 8
-0:0/animation_frame_0/duration = 0.2
-0:0/animation_frame_1/duration = 0.2
-0:0/animation_frame_2/duration = 0.2
-0:0/animation_frame_3/duration = 0.2
-0:0/animation_frame_4/duration = 0.2
-0:0/animation_frame_5/duration = 0.2
-0:0/animation_frame_6/duration = 0.2
-0:0/animation_frame_7/duration = 0.2
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
-
-[sub_resource type="TileSet" id="TileSet_hp4vw"]
-physics_layer_0/collision_layer = 128
-physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_jthxs")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ph6it"]
-texture = ExtResource("5_x4oba")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_am141"]
+texture = ExtResource("4_26rht")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -229,13 +213,40 @@ texture = ExtResource("5_x4oba")
 14:0/0 = 0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.755479, 8, -8, 8, -1.4388695, -8, 0.17985916)
 
-[sub_resource type="TileSet" id="TileSet_1gdqd"]
+[sub_resource type="TileSet" id="TileSet_eah2a"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_ph6it")
+sources/0 = SubResource("TileSetAtlasSource_am141")
 
-[node name="lv3Dunes" type="Node2D"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xn2ae"]
+texture = ExtResource("3_5nlwu")
+0:0/animation_columns = 8
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/animation_frame_6/duration = 0.2
+0:0/animation_frame_7/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 
-[node name="Death zone" parent="." instance=ExtResource("1_n1la5")]
+[sub_resource type="TileSet" id="TileSet_qtwoe"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_xn2ae")
+
+[node name="lv4Dunes" type="Node2D"]
+
+[node name="Tilemap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_eah2a")
+format = 2
+layer_0/name = "Frontground"
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(131069, 131072, 0, 131070, 131072, 2, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 0, 65538, 131072, 0, 196605, 131072, 1, 196606, 131072, 1, 196607, 131072, 1, 131072, 131072, 1, 131073, 196608, 0, 131074, 131072, 1, 196609, 131072, 1, 196608, 131072, 1, 262143, 196608, 1, 262142, 131072, 1, 131079, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 196618, 131072, 0, 196619, 131072, 0, 196620, 131072, 2, 196621, 131072, 0, 196622, 131072, 0, 131087, 131072, 0, 262153, 196608, 1, 196615, 131072, 1, 262151, 131072, 1, 262152, 131072, 1, 262154, 131072, 1, 262155, 131072, 1, 262156, 131072, 1, 262157, 131072, 1, 262158, 131072, 1, 196623, 196608, 1, 262159, 131072, 1, 65555, 131072, 0, 65556, 131072, 0, 131091, 196608, 1, 131092, 131072, 1, -131052, 131072, 0, -131053, 131072, 2, -196585, 131072, 0, -196584, 131072, 2, -131049, 196608, 1, -131048, 131072, 1, -589810, 131072, 2, -589811, 131072, 0, -524275, 131072, 1, -524274, 196608, 0, -524276, 131072, 1, -524277, 131072, 1, -524278, 131072, 1, -458741, 196608, 1, -458740, 131072, 1, -458739, 131072, 1, -589814, 131072, 0, -589813, 131072, 0, -589812, 131072, 0, -786421, 327680, 3, -720885, 327680, 4, -655349, 327680, 5, 65534, 524288, 6, 131082, 524288, 3, -196589, 327680, 6, -262120, 65536, 7, -589820, 131072, 0, -589821, 131072, 0, -589822, 131072, 2, -524286, 131072, 1, -524285, 196608, 0, -524284, 131072, 1, -458749, 131072, 1, -458750, 196608, 1, -524287, 131072, 1, -589823, 131072, 0, -655358, 262144, 8, -589826, 131072, 0, -589827, 131072, 0, -524291, 196608, 1, -524290, 131072, 1, -786435, 131072, 0, -786434, 131072, 2, -589840, 131072, 0, -589839, 131072, 0, -589838, 131072, 0, -589837, 131072, 0, -589841, 131072, 0, -589842, 131072, 0, -524306, 131072, 1, -524305, 131072, 1, -524304, 131072, 1, -524303, 131072, 1, -524302, 196608, 0, -524301, 131072, 1, -458769, 196608, 1, -458768, 131072, 1, -458767, 131072, 1, -458766, 131072, 1)
+layer_1/name = "Background"
+
+[node name="Death zone" parent="." instance=ExtResource("1_p1xrb")]
 position = Vector2(24, 264)
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -248,7 +259,19 @@ position = Vector2(24, 264)
 
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
 
+[node name="Cloud" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
+position = Vector2(320, -80)
+
+[node name="Cloud2" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
+position = Vector2(384, -112)
+
+[node name="Cloud3" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
+position = Vector2(320, -144)
+
 [node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
+
+[node name="JumpOrb" parent="Special Blocks/Jump Orbs" instance=ExtResource("3_26rht")]
+position = Vector2(-126, -193)
 
 [node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
 
@@ -258,28 +281,30 @@ position = Vector2(24, 264)
 
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="DunesDoor" parent="Doors" instance=ExtResource("4_5o1xm")]
-position = Vector2(896, -136)
+[node name="DunesDoor" parent="Doors" instance=ExtResource("5_xn2ae")]
+position = Vector2(-248, -184)
 current_level = 3
 
-[node name="Player" parent="." instance=ExtResource("2_5o1xm")]
+[node name="Player" parent="." instance=ExtResource("2_awhw2")]
+position = Vector2(6, 4)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Scorpion" parent="Enemies" instance=ExtResource("3_4yln4")]
-position = Vector2(504, -16)
+[node name="Scorpion" parent="Enemies" instance=ExtResource("5_b8qfn")]
+position = Vector2(156, 30)
+
+[node name="Vulture" parent="Enemies" instance=ExtResource("4_5nlwu")]
+position = Vector2(493, -256)
+PosA = Vector2(488, -256)
+PosB = Vector2(264, -256)
+
+[node name="Vulture3" parent="Enemies" instance=ExtResource("4_5nlwu")]
+position = Vector2(296, -320)
+PosA = Vector2(296, -320)
+PosB = Vector2(-16, -320)
 
 [node name="LavaTilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_hp4vw")
+tile_set = SubResource("TileSet_qtwoe")
 format = 2
-
-[node name="Tilemap" type="TileMap" parent="."]
-position = Vector2(-8, 0)
-tile_set = SubResource("TileSet_1gdqd")
-format = 2
-layer_0/name = "Frontground"
-layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131069, 131072, 0, 131070, 131072, 0, 131071, 131072, 0, 65536, 131072, 2, 65537, 131072, 0, 65538, 131072, 0, 6, 131072, 0, 7, 131072, 2, 13, 131072, 0, 14, 131072, 0, 15, 786432, 1, 16, 851968, 1, 17, 917504, 1, 18, 131072, 2, 19, 131072, 0, -65512, 131072, 0, 25, 131072, 0, 24, 131072, 1, 26, 131072, 0, 27, 131072, 0, 28, 131072, 0, 29, 131072, 0, 30, 131072, 0, 31, 131072, 2, 32, 131072, 0, -65503, 131072, 0, 33, 131072, 1, 65569, 131072, 1, 65568, 196608, 1, 65567, 131072, 1, 65566, 131072, 1, 65565, 131072, 1, 65564, 196608, 0, 65563, 131072, 1, 65562, 131072, 1, 65561, 131072, 1, 65560, 196608, 1, -196589, 327680, 3, -131053, 327680, 4, -65517, 327680, 5, -65529, 524288, 6, 65534, 327680, 7, -65507, 262144, 8, -262111, 196608, 1, -458717, 131072, 0, -458716, 131072, 2, -393181, 196608, 1, -393180, 131072, 1, -458710, 131072, 0, -458709, 131072, 0, -393174, 131072, 1, -393173, 196608, 0, -458708, 786432, 1, -458707, 851968, 1, -458706, 851968, 1, -458705, 917504, 1, -458704, 131072, 2, -458703, 131072, 0, -393168, 196608, 1, -393167, 131072, 1, -524240, 458752, 6, -458697, 131072, 0, -458696, 131072, 0, -458695, 131072, 0, -458694, 131072, 0, -458693, 131072, 0, -393161, 131072, 1, -393160, 196608, 1, -393159, 131072, 1, -393158, 131072, 1, -393157, 131072, 1, -327624, 131072, 1, -327623, 131072, 1, -327622, 196608, 0, -524230, 327680, 7, -524253, 65536, 7)
-layer_1/name = "Background"
 
 [node name="CheckPoints" type="Node2D" parent="."]

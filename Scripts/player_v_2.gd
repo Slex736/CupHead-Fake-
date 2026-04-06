@@ -22,6 +22,11 @@ const IceFriction = 20
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var dash_cooldown_timer: Timer = $DashCooldownTimer
 
+var AttackCactusBossFightAnimation: AnimatedSprite2D 
+var AttackCactusBossFightCollision: CollisionShape2D
+var AttackCactusBossFightInstance
+
+var CanAttackCactusBoss: bool
 
 var platform_velocity := Vector2.ZERO
 
@@ -39,7 +44,16 @@ func _ready() -> void:
 	if GameState.LatestCheckPointPos != null:
 		global_position = GameState.LatestCheckPointPos
 	GameState.CanDash = true
-
+	
+	
+	# look if its the bossfight
+	if GameState.current_level == "res://Scenes/Levels/BossFights/boss_fight_desert.tscn":
+		var AttackCactusBossFightScene = preload("res://Scenes/Player/Attacks/attack_cactus_boss_fight.tscn")
+		AttackCactusBossFightInstance = AttackCactusBossFightScene.instantiate()
+		add_child(AttackCactusBossFightInstance)
+		
+		AttackCactusBossFightAnimation = $AttackCactusBossFight/AnimatedSprite2D
+		AttackCactusBossFightCollision = $AttackCactusBossFight/CollisionShape2D
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
@@ -74,7 +88,11 @@ func _physics_process(delta: float) -> void:
 			Walk(SPEED, IceFriction, IceAccelaration, delta)
 
 	move_and_slide()
-
+	
+	
+	
+	if GameState.current_level == "res://Scenes/Levels/BossFights/boss_fight_desert.tscn" and Input.is_action_just_pressed("Attack"):
+		HandleAttack()
 
 
 func Walk(Speed, Friction, Acceleration, Delta):
@@ -135,3 +153,12 @@ func DashAnimationFinished():
 
 func DashCooldownTimeout() -> void:
 	GameState.CanDash = true
+
+func HandleAttack():
+	if CanAttackCactusBoss:
+		AttackCactusBossFightInstance.visible = true
+		AttackCactusBossFightCollision.disabled = false
+		AttackCactusBossFightAnimation.play("Slash")
+		await AttackCactusBossFightAnimation.animation_finished
+		AttackCactusBossFightCollision.disabled = true
+		AttackCactusBossFightInstance.visible = false

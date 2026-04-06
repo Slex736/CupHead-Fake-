@@ -1,7 +1,7 @@
 extends Area2D
 
 @onready var MaxHealth: int = 100
-@onready var CurrentHealth: int = MaxHealth
+@onready var CurrentHealth: float = MaxHealth
 
 var Speed: float = 100.0
 
@@ -117,8 +117,10 @@ func SpikeFall():
 	
 	Animations.play("PlantRegen")
 	CactusBossFlyState = CactusBossFlyStates.Still
+	player.CanAttackCactusBoss = true
 	await Animations.animation_finished
 	await get_tree().create_timer(2.0).timeout
+	player.CanAttackCactusBoss = false
 	CactusBossFlyState = CactusBossFlyStates.Right
 
 
@@ -272,5 +274,14 @@ func Combo2():
 	
 	Combo1()
 
+
+func SwordHit(_body: Node2D) -> void:
+	CurrentHealth -= 33.34
+	if CurrentHealth <= 0:
+		GameState.WorldUnlocked[2] = true
+		get_tree().call_deferred("change_scene_to_file", "res://Scenes/UI/ice_levels_ui.tscn")
+	HandleHealthUpdates()
+
+
 func HandleHealthUpdates():
-	pass
+	progress_bar.Update()

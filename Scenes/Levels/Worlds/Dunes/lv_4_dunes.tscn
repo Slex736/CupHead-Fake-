@@ -1,17 +1,35 @@
-[gd_scene load_steps=14 format=3 uid="uid://deb57ixtyoja6"]
+[gd_scene load_steps=13 format=3 uid="uid://ctaf3td4qvv6x"]
 
-[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_p1xrb"]
-[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_awhw2"]
-[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_5nlwu"]
-[ext_resource type="PackedScene" uid="uid://yx0osdjqjcrq" path="res://Scenes/Special Blocks/jump_orb.tscn" id="3_26rht"]
-[ext_resource type="PackedScene" uid="uid://cpr6gd4nj2prw" path="res://Scenes/Enemies/vulture.tscn" id="4_5nlwu"]
-[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_26rht"]
-[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_b8qfn"]
-[ext_resource type="PackedScene" path="res://Scenes/Doors/dunes_door.tscn" id="5_xn2ae"]
-[ext_resource type="PackedScene" uid="uid://bmfne6f06pieo" path="res://Scenes/Special Blocks/cloud.tscn" id="7_26rht"]
+[ext_resource type="PackedScene" uid="uid://b7k3ntj5a75gk" path="res://Scenes/Special Blocks/death_zone.tscn" id="1_yk5ge"]
+[ext_resource type="PackedScene" uid="uid://bberqa4u1feaa" path="res://Scenes/Doors/dunes_door.tscn" id="2_et8kj"]
+[ext_resource type="PackedScene" uid="uid://ccv1h1pe3j36" path="res://Scenes/Player/player.tscn" id="2_wq78u"]
+[ext_resource type="Texture2D" uid="uid://lj6rqmfiwym3" path="res://Assets/Sprites/lava-sheet.png" id="3_i3s3p"]
+[ext_resource type="Texture2D" uid="uid://d3pp6uunxh626" path="res://Assets/Sprites/world_tileset.png" id="4_1yu42"]
+[ext_resource type="PackedScene" uid="uid://cd3klno66er6x" path="res://Scenes/Enemies/Simple Enemies/scorpion.tscn" id="5_wq78u"]
+[ext_resource type="PackedScene" uid="uid://b4uo6yvwyoa6n" path="res://Scenes/Enemies/Simple Enemies/vulture.tscn" id="6_i3s3p"]
+[ext_resource type="PackedScene" uid="uid://c47pcgq0hd3u4" path="res://Scenes/Enemies/scorpion.tscn" id="7_1yu42"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_am141"]
-texture = ExtResource("4_26rht")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_et8kj"]
+texture = ExtResource("3_i3s3p")
+0:0/animation_columns = 8
+0:0/animation_frame_0/duration = 0.2
+0:0/animation_frame_1/duration = 0.2
+0:0/animation_frame_2/duration = 0.2
+0:0/animation_frame_3/duration = 0.2
+0:0/animation_frame_4/duration = 0.2
+0:0/animation_frame_5/duration = 0.2
+0:0/animation_frame_6/duration = 0.2
+0:0/animation_frame_7/duration = 0.2
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_rwbov"]
+physics_layer_0/collision_layer = 128
+physics_layer_0/collision_mask = 0
+sources/0 = SubResource("TileSetAtlasSource_et8kj")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3nupb"]
+texture = ExtResource("4_1yu42")
 0:0/0 = 0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
 1:0/0 = 0
@@ -213,40 +231,13 @@ texture = ExtResource("4_26rht")
 14:0/0 = 0
 14:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -5.755479, 8, -8, 8, -1.4388695, -8, 0.17985916)
 
-[sub_resource type="TileSet" id="TileSet_eah2a"]
+[sub_resource type="TileSet" id="TileSet_v1e7d"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_am141")
+sources/0 = SubResource("TileSetAtlasSource_3nupb")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xn2ae"]
-texture = ExtResource("3_5nlwu")
-0:0/animation_columns = 8
-0:0/animation_frame_0/duration = 0.2
-0:0/animation_frame_1/duration = 0.2
-0:0/animation_frame_2/duration = 0.2
-0:0/animation_frame_3/duration = 0.2
-0:0/animation_frame_4/duration = 0.2
-0:0/animation_frame_5/duration = 0.2
-0:0/animation_frame_6/duration = 0.2
-0:0/animation_frame_7/duration = 0.2
-0:0/0 = 0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+[node name="lv5Dunes" type="Node2D"]
 
-[sub_resource type="TileSet" id="TileSet_qtwoe"]
-physics_layer_0/collision_layer = 128
-physics_layer_0/collision_mask = 0
-sources/0 = SubResource("TileSetAtlasSource_xn2ae")
-
-[node name="lv4Dunes" type="Node2D"]
-
-[node name="Tilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_eah2a")
-format = 2
-layer_0/name = "Frontground"
-layer_0/z_index = 1
-layer_0/tile_data = PackedInt32Array(131069, 131072, 0, 131070, 131072, 2, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 0, 65538, 131072, 0, 196605, 131072, 1, 196606, 131072, 1, 196607, 131072, 1, 131072, 131072, 1, 131073, 196608, 0, 131074, 131072, 1, 196609, 131072, 1, 196608, 131072, 1, 262143, 196608, 1, 262142, 131072, 1, 131079, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 196618, 131072, 0, 196619, 131072, 0, 196620, 131072, 2, 196621, 131072, 0, 196622, 131072, 0, 131087, 131072, 0, 262153, 196608, 1, 196615, 131072, 1, 262151, 131072, 1, 262152, 131072, 1, 262154, 131072, 1, 262155, 131072, 1, 262156, 131072, 1, 262157, 131072, 1, 262158, 131072, 1, 196623, 196608, 1, 262159, 131072, 1, 65555, 131072, 0, 65556, 131072, 0, 131091, 196608, 1, 131092, 131072, 1, -131052, 131072, 0, -131053, 131072, 2, -196585, 131072, 0, -196584, 131072, 2, -131049, 196608, 1, -131048, 131072, 1, -589810, 131072, 2, -589811, 131072, 0, -524275, 131072, 1, -524274, 196608, 0, -524276, 131072, 1, -524277, 131072, 1, -524278, 131072, 1, -458741, 196608, 1, -458740, 131072, 1, -458739, 131072, 1, -589814, 131072, 0, -589813, 131072, 0, -589812, 131072, 0, -786421, 327680, 3, -720885, 327680, 4, -655349, 327680, 5, 65534, 524288, 6, 131082, 524288, 3, -196589, 327680, 6, -262120, 65536, 7, -589820, 131072, 0, -589821, 131072, 0, -589822, 131072, 2, -524286, 131072, 1, -524285, 196608, 0, -524284, 131072, 1, -458749, 131072, 1, -458750, 196608, 1, -524287, 131072, 1, -589823, 131072, 0, -655358, 262144, 8, -589826, 131072, 0, -589827, 131072, 0, -524291, 196608, 1, -524290, 131072, 1, -786435, 131072, 0, -786434, 131072, 2, -589840, 131072, 0, -589839, 131072, 0, -589838, 131072, 0, -589837, 131072, 0, -589841, 131072, 0, -589842, 131072, 0, -524306, 131072, 1, -524305, 131072, 1, -524304, 131072, 1, -524303, 131072, 1, -524302, 196608, 0, -524301, 131072, 1, -458769, 196608, 1, -458768, 131072, 1, -458767, 131072, 1, -458766, 131072, 1)
-layer_1/name = "Background"
-
-[node name="Death zone" parent="." instance=ExtResource("1_p1xrb")]
+[node name="Death zone" parent="." instance=ExtResource("1_yk5ge")]
 position = Vector2(24, 264)
 
 [node name="Special Blocks" type="Node2D" parent="."]
@@ -259,20 +250,7 @@ position = Vector2(24, 264)
 
 [node name="Clouds" type="Node2D" parent="Special Blocks"]
 
-[node name="Cloud" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(320, -80)
-
-[node name="Cloud2" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(384, -112)
-
-[node name="Cloud3" parent="Special Blocks/Clouds" instance=ExtResource("7_26rht")]
-position = Vector2(320, -144)
-
 [node name="Jump Orbs" type="Node2D" parent="Special Blocks"]
-
-[node name="JumpOrb" parent="Special Blocks/Jump Orbs" instance=ExtResource("3_26rht")]
-position = Vector2(-126, -193)
-scale = Vector2(1, 1)
 
 [node name="Ice Spikes" type="Node2D" parent="Special Blocks"]
 
@@ -280,32 +258,51 @@ scale = Vector2(1, 1)
 
 [node name="LavaSpikes" type="Node2D" parent="Special Blocks"]
 
+[node name="TpOrbs" type="Node2D" parent="Special Blocks"]
+
 [node name="Doors" type="Node2D" parent="."]
 
-[node name="DunesDoor" parent="Doors" instance=ExtResource("5_xn2ae")]
-position = Vector2(-248, -184)
+[node name="DunesDoor" parent="Doors" instance=ExtResource("2_et8kj")]
+position = Vector2(-232, -296)
 current_level = 4
 
-[node name="Player" parent="." instance=ExtResource("2_awhw2")]
-position = Vector2(6, 4)
+[node name="Player" parent="." instance=ExtResource("2_wq78u")]
+position = Vector2(19, 4)
 
 [node name="Enemies" type="Node2D" parent="."]
 
-[node name="Scorpion" parent="Enemies" instance=ExtResource("5_b8qfn")]
-position = Vector2(156, 30)
+[node name="Scorpion" parent="Enemies" instance=ExtResource("5_wq78u")]
+position = Vector2(201, 1)
 
-[node name="Vulture" parent="Enemies" instance=ExtResource("4_5nlwu")]
-position = Vector2(493, -256)
-PosA = Vector2(488, -256)
-PosB = Vector2(264, -256)
+[node name="Vulture" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(389, -262)
+PosA = Vector2(366, -271)
+PosB = Vector2(62, -271)
 
-[node name="Vulture3" parent="Enemies" instance=ExtResource("4_5nlwu")]
-position = Vector2(296, -320)
-PosA = Vector2(296, -320)
-PosB = Vector2(-16, -320)
+[node name="Vulture2" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(265, -270)
+PosA = Vector2(265, -271)
+PosB = Vector2(22, -271)
+
+[node name="Vulture3" parent="Enemies" instance=ExtResource("6_i3s3p")]
+position = Vector2(158, -251)
+PosA = Vector2(220, -271)
+PosB = Vector2(0, -271)
+
+[node name="Scorpion2" parent="Enemies" instance=ExtResource("7_1yu42")]
+position = Vector2(249, -111)
 
 [node name="LavaTilemap" type="TileMap" parent="."]
-tile_set = SubResource("TileSet_qtwoe")
+tile_set = SubResource("TileSet_rwbov")
 format = 2
+
+[node name="Tilemap" type="TileMap" parent="."]
+position = Vector2(-1, 0)
+tile_set = SubResource("TileSet_v1e7d")
+format = 2
+layer_0/name = "Frontground"
+layer_0/z_index = 1
+layer_0/tile_data = PackedInt32Array(131070, 131072, 0, 131071, 131072, 0, 65536, 131072, 0, 65537, 131072, 2, 65538, 131072, 0, 196606, 196608, 0, 196607, 131072, 1, 131072, 131072, 1, 131073, 131072, 1, 131074, 131072, 1, 196609, 196608, 1, 196608, 131072, 1, 262143, 131072, 1, 65544, 131072, 0, 65545, 196608, 1, 65546, 131072, 0, 65547, 131072, 2, 65548, 131072, 0, 131080, 196608, 0, 131081, 131072, 1, 131082, 131072, 1, 131083, 131072, 1, 131084, 131072, 1, 196617, 131072, 1, 196618, 196608, 1, 196619, 131072, 1, 65553, 131072, 0, 65554, 131072, 0, 65555, 131072, 0, 131089, 196608, 0, 131090, 131072, 1, 131091, 196608, 1, 20, 131072, 0, 65556, 131072, 1, 131092, 131072, 1, 9, 131072, 2, -196588, 196608, 1, 65549, 131072, 0, 65550, 131072, 0, 65551, 131072, 0, 65552, 131072, 0, 131085, 196608, 1, 131086, 131072, 1, 131087, 131072, 1, 131088, 131072, 1, 196620, 131072, 1, 196621, 131072, 1, 196622, 131072, 1, 196623, 196608, 1, 196624, 131072, 1, 196625, 131072, 1, 196626, 131072, 1, 196627, 131072, 1, -393196, 196608, 1, -393200, 131072, 0, -393201, 131072, 0, -393202, 131072, 0, -327666, 131072, 1, -327665, 131072, 1, -327664, 196608, 1, -393206, 131072, 0, -393205, 131072, 0, -393204, 131072, 0, -393203, 131072, 0, -393207, 131072, 0, -393208, 131072, 0, -393209, 131072, 0, -393210, 131072, 0, -393211, 131072, 0, -327675, 131072, 1, -327674, 196608, 0, -327673, 131072, 1, -327672, 131072, 1, -327671, 196608, 1, -524286, 131072, 0, -524285, 131072, 0, -458749, 131072, 1, -458750, 196608, 0, -458735, 131072, 0, -393199, 131072, 1, -327663, 196608, 1, -393212, 131072, 0, -327676, 196608, 1, -327670, 131072, 1, -327669, 131072, 1, -327668, 196608, 1, -327667, 131072, 1, -458756, 131072, 0, -458757, 131072, 0, -393221, 131072, 1, -393220, 196608, 1, -655365, 131072, 0, -655364, 131072, 0, -851973, 131072, 0, -851972, 131072, 0, -1048582, 131072, 0, -1048581, 131072, 0, -1048580, 131072, 0, -1048588, 131072, 0, -1048589, 131072, 0, -1048590, 131072, 0, -1048591, 131072, 0, -983055, 196608, 1, -983054, 131072, 1, -983053, 131072, 1, -983052, 131072, 1, -983056, 131072, 1, -1048592, 131072, 0, -917519, 131072, 1, -917518, 131072, 1, -917517, 196608, 1, -1245196, 327680, 3, -1179660, 327680, 4, -1114124, 327680, 5, -917508, 327680, 8, -1114118, 458752, 6, -458747, 327680, 8, -262124, 262144, 8, 18, 524288, 6, 65535, 589824, 3)
+layer_1/name = "Background"
 
 [node name="CheckPoints" type="Node2D" parent="."]
